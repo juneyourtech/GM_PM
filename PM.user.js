@@ -1,7 +1,9 @@
 // ==UserScript==
 // @name          	PM
 // @namespace     PM
-// @description	See kasutajaskript muudab PMO välimust.
+// @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
+// @updateURL https://github.com/martrootamm/GM_PM/raw/master/PM.user.js
+// @version 0.8.0
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
