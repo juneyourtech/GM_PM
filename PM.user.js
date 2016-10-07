@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name          	PM
-// @namespace     PM
+// @name          	Postimees
+// @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
 // @updateURL https://github.com/martrootamm/GM_PM/raw/master/PM.user.js
 // @version 0.8.0
@@ -18,6 +18,8 @@
 // Notes:
 //   * is a wildcard character
 //   .tld is magic that matches all top-level domains (e.g. .com, .co.uk, .us, etc.)
+// __80_________________________________________________________________________
+
 
 //TEXT COLOR
 GM_addStyle("HTML > BODY {color:black;}") //Old: rgb(58, 64, 65) 
