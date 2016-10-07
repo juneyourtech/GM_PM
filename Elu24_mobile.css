@@ -1,0 +1,29 @@
+@-moz-document domain('elu24.postimees.ee') {
+
+A, SECTION.frontBlock A, SECTION.related A {color:#888888;}
+
+A.com {background-color:none !important;}
+
+A > H1#sectionHeader {background-color:inherit;}
+
+DIV.imageViewer .navBar, DIV.imageViewer .navBar .prev, DIV.imageViewer .navBar .next, DIV.imageViewer .navBar .zoom, DIV.imageViewer .navBar .close {background-color:rgb(68,68,68);}
+
+DIV.imageViewer .photoDescription {color:gray;}
+
+H1.articleHeading {color:Silver;}
+
+SECTION.articleLead {color:#969696;}
+
+SECTION.articleContent, SECTION.articleContent * {color:#cdcdcd;} 
+
+SECTION.keywords, DIV.articleComments, DIV.commentContent {color:white;}
+
+SPAN.commentName {color#99CCFF; background-color:#C0C0C0;}
+
+SECTION.scrollSection .even {background-color:#343434;}
+
+DIV > IFRAME[src^="https://www.youtube.com/embed/"] {border:solid 1px #910d08;}
+
+DIV > IFRAME[src^="https://www.youtube.com/embed/"] HTML > BODY > DIV#player, DIV > IFRAME[src^="https://www.youtube.com/embed/"] HTML > BODY > DIV#player[CLASS="full-frame"] {display:none;}
+
+}

@@ -1,0 +1,151 @@
+@-moz-document domain('postimees.ee'), regexp('(?!http://m\\.postimees\\.ee)') {
+
+@media only screen and (max-width:320px) {HTML, BODY {width:320px;}}
+
+HTML > BODY {color:black;}
+
+HTML > BODY .article .articleContent A, BODY.section-81 .article .articleContent A {color:blue;}
+
+*:visited, A:visited, A:visited strong, A:visited SPAN, A:visited * {font-style:oblique !important; font-style:italic !important; font-weight:400 !important; color:DarkGoldenrod !important; background:none; background-color:SandyBrown !important; text-decoration:underline !important; border:solid 5px DarkGoldenRod !important;}
+
+A:visited > H1#sectionHeader {background-color:white !important;}
+
+ARTICLE.frontSuperArt > A:visited, ARTICLE.frontSuperArt > A:visited STRONG, ARTICLE.frontSuperArt > A:visited SPAN, ARTICLE.frontSuperArt > A:visited * {background-color:inherit !important; color:white !important; text-decoration:underline !important; font-weight:normal !important;}
+
+A[href*=pluss] {font-weight:300 !important; color:red !important; background:none; background-color:LavenderBlush !important; border:solid 1px red !important;}
+
+BODY A[href*="www.60pluss"], BODY A[href*="www.60pluss"] STRONG, BODY A[href*="www.60pluss"] SPAN, BODY A[href*="www.60pluss"] *
+
+A[href*="60pluss.postimees"], BODY A[href*="60pluss.postimees"] STRONG, BODY A[href*="60pluss.postimees"] SPAN, BODY A[href*="60pluss.postimees"] * {color:brown !important; background-color:inherit !important; border:none !important;}
+
+SECTION.frontType7 A[href*=reporter-ee] .frontHeading, SECTION.frontBlock.frontType12 A[href*=reporter-ee] .frontHeading, SECTION.frontType7 A[href*="reporter.postimees"] .frontHeading, SECTION.frontBlock.frontType12 A[href*="reporter.postimees"] .frontHeading, SECTION.frontBlock.frontType11 A[href*="reporter.postimees"] .frontHeading {margin-top:0px; margin-left:0px; padding-left:1px; padding-right:1px; font-size:1.1em !important; background:linear-gradient(to bottom, rgb(255, 253, 236), transparent 2.2em, transparent 100%) !important;}
+
+@media only screen and (max-width:1023px) {SECTION.frontBlock.frontType7 A[href*=reporter-ee] .frontHeading:not(.frontComments), SECTION.frontBlock.frontType7 A[href*=reporter-ee] .frontHeading:not(.frontComments) SPAN:not(.frontComments) {font-size:1.1em !important;} SECTION.frontBlock.frontType12 A[href*=reporter-ee] .frontHeading:not(.frontComments), SECTION.frontBlock.frontType12 A[href*=reporter-ee] .frontHeading:not(.frontComments) SPAN:not(.frontComments) {font-size:1em !important;}}
+
+SECTION#rightAdBar {display:none; padding-top:unset; position:absolute;}
+
+DIV#wrap {width:auto; min-width:240px; max-width:unset;}
+
+/* This is a comment test */
+
+DIV#container {border:solid 1px Purple;}
+
+DIV.container, DIV.sitehatContainer {width:100%; background-color:inherit; padding-left:0px; padding-right:0px; overflow-x:hidden;}
+
+DIV.container {max-width:unset;}
+
+HEADER#contentHeader {width:auto; min-width:240px; max-width:unset;}
+
+A.pmLogo {width:100px; height:20px; float:left;}
+
+DIV#moveMenuCont A.pmLogo {float:unset; margin-top:8px; margin-left:5px;}
+
+DIV#headerWeather {display:inline-block; float:left; margin-left:1px;}
+
+DIV.pmHeaderRight {display:inline-block; clear:both; height:95px;}
+
+DIV.pmHeaderRight A {clear:both;}
+
+DIV#headQuote {padding-top:0px; padding-bottom:1px;}
+
+DIV.quoteText {float:unset; display:inline; width:auto;}
+
+DIV.quoteTextBlock {position:unset; display:inline; width:auto; margin-top:0px !important;}
+
+DIV.quoteTextBlock .text {display:block; text-align:right;}
+DIV.quoteTextBlock .name {display:block; position:relative; float:unset; margin-top:2px; line-height:1.2em;}
+
+NAV.pmMainNav {clear:both;}
+
+SECTION#rightContent {display:none;}
+
+SECTION#articleBullets {width:100%;}
+UL#bullets {width:auto;}
+
+ARTICLE IMG {height:100%; width:100%;}
+
+SECTION#articleAuthors .authorImage {height:initial; width:initial;}
+
+ARTICLE.frontArticle IMG {height:100%; width:100%; max-height:100%; max-width:100%;}
+
+DIV#commentsBlock, DIV#comments {width:100%;}
+
+HTML > BODY > DIV.content {padding-left:0px;}
+
+DIV.fullWidthArticle {max-width:unset;}
+
+DIV.fullWidthArticle .articleData {padding:28px 5px 30px 0px; overflow-y:hidden;}
+
+DIV.underFrontArticleContainer {padding-top:81px;} 
+
+DIV.fullDoubleArticleContainer .dataContainer + .dataContainer, DIV.fullRowArticleContainer .dataContainer + .dataContainer, DIV.fullRowArticleContainer .dataContainer + .am_ads + .dataContainer, DIV.fullRowArticleContainer .dataContainer + .dfp_ad + .dataContainer {margin-left:0px; margin-right:1px;}
+
+DIV.fullRowArticleContainer {white-space:normal;}
+
+DIV.fullRowArticleContainer .dataContainer {margin-right:1px;}
+
+DIV.fullDoubleArticleContainer .dataContainer + .dataContainer {margin-top:1px; margin-right:1px;}
+
+DIV.fullDoubleArticleContainer {display:inline-block;}
+
+DIV.fullDoubleArticleContainer .dataContainer {display:inline-block; float:left;}
+
+DIV.fullDoubleArticleContainer .articleData IMG {height:100% !important; width:100% !important;}
+
+DIV.usefulLinks {margin:0px;}
+
+SECTION.footerBlock {float:left; overflow-x:scroll;}
+
+SECTION.footerEditor {width:100%;}
+
+DIV.footerContent {padding-left:0px;}
+
+NAV.footerShortcuts {line-height:unset !important;}
+
+NAV.footerShortcuts .insideContainer .links {display:inline; line-height:1em !important;}
+
+NAV.footerShortcuts .links A {display:inline-block; line-height:1em !important; vertical-align:middle;}
+
+DIV.footerBottom {clear:both;}
+
+IFRAME[id*="liveblog"] HTML > BODY > .content {border-left:solid 2px Blue;}
+
+DIV.liveblog {background-color:black; color:Silver;}
+
+DIV.liveblog .panel {background-color:black; color:Silver;}
+
+DIV.liveblog .introduction .status {margin-right:7px;}
+
+LIVEBLOG.liveblogEmbedContainer.mobile .liveblog .introduction {padding-top:5px; padding-right:1px; padding-bottom:5px; padding-left:1px;}
+
+DIV.liveblog .introduction .articleDate {color:Silver;}
+
+DIV.liveblog H2.event-header {color:Silver;}
+
+DIV.liveblog .dropdown {color:Silver;}
+
+LIVEBLOG.liveblogEmbedContainer.mobile .feed-header, LIVEBLOG.liveblogEmbedContainer.narrower .feed-header {color:Silver;}
+
+LIVEBLOG.liveblogEmbedContainer.mobile .liveblog .event-list {padding-riht:6px;}
+
+DIV.liveblog .event .time {background-color:inherit; color:#e0e0e0;}
+
+LIVEBLOG.liveblogEmbedContainer.mobile .liveblog .event .time:not(.sectionFontColor) {color:#cff;}
+
+DIV.liveblog .event {margin-left:6px; border-left-width:2px; padding-bottom:0px;}
+
+LIVEBLOG.liveblogEmbedContainer.mobile .liveblog .event {color:#888888;}
+
+DIV.liveblog .event:not(.key) {border-left-color:#707070;}
+
+LIVEBLOG.liveblogEmbedContainer.mobile .liveblog .event .bullet {background-color:inherit;}
+
+DIV.liveblog .event .content {color:Silver; margin-right:1px; border-bottom-color:#525252;}
+
+DIV.liveblog .event .content H3 {color:white;}
+
+DIV.liveblog .event .content P > STRONG {color:white;}
+}
+@-moz-document domain('arvamus.postimees.ee') {
+SECTION.articleContent, SECTION.articleLead {background-color:rgba(0,0,0,0.75); color:white;}
+}
