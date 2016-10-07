@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name        PM arvamus
-// @description PM_arvamus eriosa
+// @description PM arvamus eriosa
 // @namespace   PM_arvamus_GM
 // @updateURL https://github.com/martrootamm/GM_PM/raw/master/PM_arvamus.user.js
 // @include     http://arvamus.postimees.ee/*
-// @version     0.8.0
+// @version     0.8.1
 // @grant		GM_addStyle
 // ==/UserScript==
 // Notes:
