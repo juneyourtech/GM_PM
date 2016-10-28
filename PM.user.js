@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name          	Postimees
 // @namespace     PMO_GM
-// @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
+// @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.\\A _
 // @updateURL https://github.com/martrootamm/GM_PM/raw/master/PM.user.js
-// @version 0.8.0
+// @version 0.8.0.1
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -239,6 +239,11 @@ GM_addStyle("SECTION#leftContent > ARTICLE, SECTION#leftContent > DIV {backgroun
 GM_addStyle("SECTION#leftContent > ARTICLE {font-family:\'Arial\',\'sans-serif\'; font-size:10pt; color:black;}") //
 
 //GM_addStyle("SECTION#leftContent > ARTICLE > DIV > P, SECTION#leftContent > ARTICLE > SECTION P {background-color:rgba(255,255,255,0.5); color:black;}") //
+
+//FRONTPAGE: SUUR LUGU KOLME LISANUPUGA //27.10.2016
+GM_addStyle("SECTION.frontType8 .articleRight .frontArticle {margin-bottom:1px;}") 
+GM_addStyle("SECTION.frontType8 .articleRight .frontArticle:last-child {margin-bottom:0px;}")
+//The above sets margins to less than the default.
 
 //ARTICLE
 GM_addStyle("ARTICLE {padding-left:0px;}") //
