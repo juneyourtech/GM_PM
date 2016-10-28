@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
 // @updateURL https://github.com/martrootamm/GM_PM/raw/master/PM.user.js
-// @version 0.8.1
+// @version 0.8.1.1
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -42,7 +42,7 @@ GM_addStyle("A[TARGET=\"_blank\"]:not([href*=\"ilmajaam.postimees\"]), A[TARGET=
 // __80_________________________________________________________________________
 
 //New window links to ILMAJAAM //28.10.2016
-GM_addStyle("A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"], A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"] STRONG, A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"] SPAN, A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"] * {border-bottom:solid 2px yellow;}")
+GM_addStyle("A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"], A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"] STRONG, A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"] SPAN, A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"] * {border-bottom:solid 1px yellow;}")
 
 /* This is the hover one:
 GM_addStyle("A[TARGET=\"_blank\"]:hover, A[TARGET=\"_blank\"]:hover STRONG, A[TARGET=\"_blank\"]:hover SPAN, A[TARGET=\"_blank\"]:hover * {background:linear-gradient(to right, yellow, transparent 50%, transparent 100%);}")
