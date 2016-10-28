@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
 // @updateURL https://github.com/martrootamm/GM_PM/raw/master/PM.user.js
-// @version 0.8.0.5
+// @version 0.8.1
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -18,7 +18,6 @@
 // Notes:
 //   * is a wildcard character
 //   .tld is magic that matches all top-level domains (e.g. .com, .co.uk, .us, etc.)
-// __80_________________________________________________________________________
 
 //TEXT COLOR
 GM_addStyle("HTML > BODY {color:black;}") //Old: rgb(58, 64, 65) 
@@ -30,16 +29,23 @@ GM_addStyle("div#bgOverlay {position:fixed;}")
 //LINK MOUSEOVER BGCOLOR
 GM_addStyle("A:hover, A:hover strong, A:hover span, A:hover * {background-color:Lavender !important;}")
 
-//LINK MOUSEOVER BGCOLOR
-GM_addStyle("A[TARGET=\"_blank\"], A[TARGET=\"_blank\"] STRONG, A[TARGET=\"_blank\"] SPAN, A[TARGET=\"_blank\"] * {background:linear-gradient(to right, yellow, transparent 50%, transparent 100%);}")
+//NEW WINDOW LINK (MOUSEOVER) BGCOLOR 'cept ilmajaam //updated 28.10.2016
+GM_addStyle("A[TARGET=\"_blank\"]:not([href*=\"ilmajaam.postimees\"]), A[TARGET=\"_blank\"]:not([href*=\"ilmajaam.postimees\"]) STRONG, A[TARGET=\"_blank\"]:not([href*=\"ilmajaam.postimees\"]) SPAN, A[TARGET=\"_blank\"]:not([href*=\"ilmajaam.postimees\"]) * {background:linear-gradient(to right, yellow, transparent 50%, transparent 100%);}")
 //1st transparent 2.2 em //was: to bottom
-/* For the most part, the yellow colour has been instrumental in seeing 
-well in advance the fact, that a link is set to open in a new window. 
-OTOH, I only wanted the background to be unset for the weather element.
+/* For the most part, the yellow colour has been instrumental in seeing well in 
+   advance the fact, that a link is set to open in a new window. OTOH, I only 
+   wanted the background to be unset for the weather element, but couldn't get 
+   it right and didn't have any direct need when the userstyle was only in 
+   offline use. The exclusion was finally achieved on 28.10.2016. The W3C spec 
+   is not very specific enough about what iss possible with the :not pseudo. */
 
-This is the hover one:
+// __80_________________________________________________________________________
+
+//New window links to ILMAJAAM //28.10.2016
+GM_addStyle("A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"], A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"] STRONG, A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"] SPAN, A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"] * {border-bottom:solid 2px yellow;}")
+
+/* This is the hover one:
 GM_addStyle("A[TARGET=\"_blank\"]:hover, A[TARGET=\"_blank\"]:hover STRONG, A[TARGET=\"_blank\"]:hover SPAN, A[TARGET=\"_blank\"]:hover * {background:linear-gradient(to right, yellow, transparent 50%, transparent 100%);}")
-
 */
 
 //GM_addStyle("A[TARGET=\"_blank\"]:hover, A[TARGET=\"_blank\"]:hover strong, A[TARGET=\"_blank\"]:hover span, A[TARGET=\"_blank\"]:hover * {background-color:yellow !important;}") //
