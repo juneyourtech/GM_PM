@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
 // @updateURL https://github.com/martrootamm/GM_PM/raw/master/PM.user.js
-// @version 0.8.0.1
+// @version 0.8.0.2
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -243,6 +243,7 @@ GM_addStyle("SECTION#leftContent > ARTICLE {font-family:\'Arial\',\'sans-serif\'
 GM_addStyle("SECTION.frontType8 .articleRight .frontArticle {margin-bottom:1px;}") 
 GM_addStyle("SECTION.frontType8 .articleRight .frontArticle:last-child {margin-bottom:0px;}")
 //The above sets margins to less than the default.
+//The alternative is to set margin-top:1px except for :first-child.
 
 GM_addStyle("SECTION.frontType8 .articleRight .frontIcons {margin-right:9px;}")
 //27.10.2016: for 1024x768px, but works on others.
