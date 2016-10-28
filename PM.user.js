@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
 // @updateURL https://github.com/martrootamm/GM_PM/raw/master/PM.user.js
-// @version 0.8.1.1
+// @version 0.8.1.2
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -130,8 +130,9 @@ GM_addStyle("SECTION#fullScreenImage DIV.container {background:none;}")
 //TOPNAV
 GM_addStyle("NAV#topNav {height:20px; line-height:unset;}") //
 
-//HEADER (ARVAMUS)
-GM_addStyle("HEADER#contentHeader {background-color:inherit}") //
+//HEADER (ARVAMUS, et al.)
+GM_addStyle("HEADER#contentHeader {background-color:inherit; padding-top:1px;}") //
+//28.10.2016: +padding-top
 
 //HEADER small links (arvamus)
 GM_addStyle("SPAN.pmHeaderNavi {background-color:rgb(218, 218, 218);}") //
