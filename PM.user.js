@@ -20,7 +20,6 @@
 //   .tld is magic that matches all top-level domains (e.g. .com, .co.uk, .us, etc.)
 // __80_________________________________________________________________________
 
-
 //TEXT COLOR
 GM_addStyle("HTML > BODY {color:black;}") //Old: rgb(58, 64, 65) 
 //background-color:Silver
@@ -244,6 +243,9 @@ GM_addStyle("SECTION#leftContent > ARTICLE {font-family:\'Arial\',\'sans-serif\'
 GM_addStyle("SECTION.frontType8 .articleRight .frontArticle {margin-bottom:1px;}") 
 GM_addStyle("SECTION.frontType8 .articleRight .frontArticle:last-child {margin-bottom:0px;}")
 //The above sets margins to less than the default.
+
+GM_addStyle("SECTION.frontType8 .articleRight .frontIcons {margin-right:9px;}")
+//27.10.2016: for 1024x768px, but works on others.
 
 //ARTICLE
 GM_addStyle("ARTICLE {padding-left:0px;}") //
