@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
 // @updateURL https://github.com/martrootamm/GM_PM/raw/master/PM.user.js
-// @version 0.8.0.2
+// @version 0.8.0.5
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -239,14 +239,20 @@ GM_addStyle("SECTION#leftContent > ARTICLE {font-family:\'Arial\',\'sans-serif\'
 
 //GM_addStyle("SECTION#leftContent > ARTICLE > DIV > P, SECTION#leftContent > ARTICLE > SECTION P {background-color:rgba(255,255,255,0.5); color:black;}") //
 
-//FRONTPAGE: SUUR LUGU KOLME LISANUPUGA //27.10.2016
+//FRONTPAGE: ADDITIONAL TEXT for TITLE //28.10.2016
+GM_addStyle("P.frontAdditional {margin-left:1px; margin-right:1px;}")
+
+//FRONTPAGE: RELATED ARTICLE //28.10.2016
+GM_addStyle("A.frontRelatedHeading {margin-left:0px;}")
+
+//FRONTPAGE: SUUR LUGU KOLME LISANUPUGA //28.10.2016
 GM_addStyle("SECTION.frontType8 .articleRight .frontArticle {margin-bottom:1px;}") 
 GM_addStyle("SECTION.frontType8 .articleRight .frontArticle:last-child {margin-bottom:0px;}")
 //The above sets margins to less than the default.
 //The alternative is to set margin-top:1px except for :first-child.
 
 GM_addStyle("SECTION.frontType8 .articleRight .frontIcons {margin-right:9px;}")
-//27.10.2016: for 1024x768px, but works on others.
+//28.10.2016: for 1024x768px, but works on others.
 
 //ARTICLE
 GM_addStyle("ARTICLE {padding-left:0px;}") //
