@@ -1,9 +1,9 @@
-﻿// ==UserScript==
+// ==UserScript==
 // @name          	Postimees
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
 // @updateURL https://github.com/martrootamm/GM_PM/raw/master/PM.user.js
-// @version 0.8.1.2
+// @version 0.8.1.3
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -18,6 +18,7 @@
 // Notes:
 //   * is a wildcard character
 //   .tld is magic that matches all top-level domains (e.g. .com, .co.uk, .us, etc.)
+// __80_________________________________________________________________________
 
 //TEXT COLOR
 GM_addStyle("HTML > BODY {color:black;}") //Old: rgb(58, 64, 65) 
@@ -37,9 +38,7 @@ GM_addStyle("A[TARGET=\"_blank\"]:not([href*=\"ilmajaam.postimees\"]), A[TARGET=
    wanted the background to be unset for the weather element, but couldn't get 
    it right and didn't have any direct need when the userstyle was only in 
    offline use. The exclusion was finally achieved on 28.10.2016. The W3C spec 
-   is not very specific enough about what iss possible with the :not pseudo. */
-
-// __80_________________________________________________________________________
+   is not very specific enough about what is possible with the :not pseudo. */
 
 //New window links to ILMAJAAM //28.10.2016
 GM_addStyle("A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"], A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"] STRONG, A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"] SPAN, A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"] * {border-bottom:solid 1px yellow;}")
@@ -65,8 +64,8 @@ GM_addStyle("HTML > BODY .article .articleContent a, BODY.section-81 .article .a
 /* GM_addStyle("BODY {background-color:black !important;}") */ //works
 GM_addStyle("*:visited, A:visited, A:visited strong, A:visited span, A:visited * {font-style:oblique !important; font-style:italic !important; font-weight:400 !important; color:DarkGoldenrod !important; background:none; background-color:SandyBrown !important; text-decoration:underline !important; border:solid 5px DarkGoldenRod !important;}")
 /* DarkGoldernrod - this works in most PM editions; PM blue for #22ace3
-What doesn't work: 
-font-style:italic,oblique ; font-weight:400 ; background-color (does it sometimes?); text-decoration:underline 
+   What doesn't work: 
+font-style:italic,oblique; font-weight:400; background-color (does it sometimes?); text-decoration:underline 
  text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue !important; */
 
 //ARTICLE VISITED LINKS
@@ -97,13 +96,15 @@ GM_addStyle("BODY A[href*=\"www.60pluss\"], BODY A[href*=\"www.60pluss\"] strong
 GM_addStyle("BODY A[href*=\"www.60pluss\"]:hover, BODY A[href*=\"www.60pluss\"] strong:hover, BODY A[href*=\"www.60pluss\"] span:hover, BODY A[href*=\"www.60pluss\"] *:hover {background-color:rgb(255, 253, 236) !important;}") //Works
 
 //PM SPORT links
-GM_addStyle("BODY A[href*=\"sport.postimees\"], BODY A[href*=\"sport.postimees\"] strong, BODY A[href*=\"sport.postimees\"] span, BODY A[href*=\"sport.postimees\"] * {color:#005749 !important; border:none !important;}") //original: 0, 142, 121 (#008e79); brightness 43%: 0,110,93 (#006e5d); brightness 34%: #005749
+GM_addStyle("BODY A[href*=\"sport.postimees\"], BODY A[href*=\"sport.postimees\"] strong, BODY A[href*=\"sport.postimees\"] span, BODY A[href*=\"sport.postimees\"] * {color:#005749 !important; border:none !important;}")
+//original: 0, 142, 121 (#008e79); brightness 43%: 0,110,93 (#006e5d); brightness 34%: #005749
 
 //PM SPORT HOVER
 GM_addStyle("BODY A[href*=\"sport.postimees\"]:hover, BODY A[href*=\"sport.postimees\"] strong:hover, BODY A[href*=\"sport.postimees\"] span:hover, BODY A[href*=\"sport.postimees\"] *:hover {color:#008e79 !important;}") //Works
 
 //PM SPORT VISITED
-GM_addStyle("BODY A[href*=\"sport.postimees\"]:visited, BODY A[href*=\"sport.postimees\"]:visited strong, BODY A[href*=\"sport.postimees\"]:visited strong, BODY A[href*=\"sport.postimees\"]:visited span, BODY A[href*=\"sport.postimees\"]:visited * {color:#00b398 !important;}") // #008502. Turns out, that A:visited must be; hover applies to _all_ elements, though.
+GM_addStyle("BODY A[href*=\"sport.postimees\"]:visited, BODY A[href*=\"sport.postimees\"]:visited strong, BODY A[href*=\"sport.postimees\"]:visited strong, BODY A[href*=\"sport.postimees\"]:visited span, BODY A[href*=\"sport.postimees\"]:visited * {color:#00b398 !important;}") // #008502.
+//Turns out, that A:visited must be; hover applies to _all_ elements, though.
 
 //"REPORTER.EE VIDEOLOOD"
 GM_addStyle("SECTION.frontType11 .frontArticle {margin-bottom:0px; margin-top:1px;}") //was: margin-bottom:14px; used selector: ARTICLE.frontArticle 
@@ -148,7 +149,8 @@ GM_addStyle("NAV.pmMainNav {min-width:892px;}")
 
 GM_addStyle("@document domain(60pluss.postimees.ee) {NAV.pmMainNav {background-color:rgb(204, 161, 56) !important; font-weight:bold;} NAV.pmMainNav A:visited {color:#1db4f0 !important; background-color:navy !important;} }")
 
-/* RIGHT AD BAR. First seen  on arvamus.postimees.ee, and as #rightAdBar misbehaved elsewhere, then I had to apply it on the main PM userscript/-css. */
+/* RIGHT AD BAR. First seen  on arvamus.postimees.ee, and as #rightAdBar 
+misbehaved elsewhere, then I had to apply it on the main PM userscript/-css. */
 GM_addStyle("SECTION#rightAdBar {position:absolute;}") //
 
 GM_addStyle("NAV.pmMainNav {min-width:892px; background-color:#005bbb;}") //default bgcolor rgb(29, 180, 240)
@@ -169,7 +171,9 @@ GM_addStyle("DIV#moveMenuCont .pmMainCont {background-color:transparent !importa
 //linear-gradient(to right, rgb(192, 192, 192) 200px, transparent 650px,
 
 //BLUE BAR AFTER SCROLL
-GM_addStyle("DIV#moveMenuCont .pmMainNav, #paidMenu nav, .headerProfileContainer {max-width:unset; max-width:100%; width:100%; height:25px; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:16px; padding-top:0px; padding-bottom:0px; padding-left:132px; background-color:transparent !important; background:linear-gradient(to bottom, rgb(0, 91, 187), rgb(0, 91, 187) 17px, transparent 17px, transparent 100%); line-height:17px;}") //was: margin left-right were auto in order to center the mainNav block. background-color:transparent; border-bottom:solid 1px rgb(0, 91, 187);
+GM_addStyle("DIV#moveMenuCont .pmMainNav, #paidMenu nav, .headerProfileContainer {max-width:unset; max-width:100%; width:100%; height:25px; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:16px; padding-top:0px; padding-bottom:0px; padding-left:132px; background-color:transparent !important; background:linear-gradient(to bottom, rgb(0, 91, 187), rgb(0, 91, 187) 17px, transparent 17px, transparent 100%); line-height:17px;}")
+/* was: margin left-right were auto in order to center the mainNav block. 
+        background-color:transparent; border-bottom:solid 1px rgb(0, 91, 187); */
 
 //SMALL PM LOGO AS MOVED
 GM_addStyle("HTML.topMenu DIV#moveMenuCont .pmMainNav A.pmLogo {background-color:transparent; margin-top:1px; position:absolute; top:0px; left:16px;}") //works with important, but only because .topmenu was not prepended with HTML float:left;
@@ -217,11 +221,17 @@ GM_addStyle("DIV.subscLinkBlock:before, DIV.newsletter-form:after {content:\'Kas
 //top:12px; right:0px; width:510px; 
 //SECTION#rightContent:hover:before
 GM_addStyle("DIV.subscLinkBlock:hover:before, DIV.newsletter-form:hover:after {content:\'\\[Kui kerijanuppu-pidi kerimine osutub võimatuks, saab tekstis allapoole minna klikkides kerimisalale, kasti kerimisriba üles-alla nuppudele, või kasutades osutusseadme scrollerit. (Kogetud Firefox versiooniga 39.0.3.)\\]\\A • See kohalik kasutajaskript muudab GreaseMonkey laiendiga varustatud Firefoxi lehitsejas PMO välimust peale seda kui PMO lehekülg (leheküljed) on arvutisse tõmmatud. Kasutajaskript (userscript) asub ainult kasutaja arvutis ja vaid selles Firefoxi profiilis, kuhu skript installitud on. Tehtud muudatused:\\A\ i. Külastatud lingid on kõrbekollased: on võimalik näha, mida on viimati loetud.\\A ii. Enamiku Postimees Pluss artiklite lingid on punased roosal taustal;\\A iii. Uues aknas avanevad lingid on sidrunikollased — kasutaja saab valida, kas tirib lingi samale vahekaardile või avab uues aknas;\\A iv. Osade PMO lehtede taust on muudetud tumedamaks, mõeldes tundlike silmadega kasutajatele.\\A v. Artiklite põhitekst on pandud Arial fonti, tehtud väiksemaks ja lauaarvuti ekraanil loetavamaks (1280x800-pikselise resolutsioonidga).\\A • NB: Ehkki disaini muutmisega on püüeldud omamoodi täiuslikkuse poole, ei ole stiilide kasutamine ise 100% täiuslik, ning on algselt alati mõeldud skripti looja enda tarvis. Osa stiile võib kehtida vananenud PMO koodi kohta.\\A • Kuigi põhimõtteliselt pole see kasutajaskript mõeldud blokeerima reklaame, lähtub sellest tulenev disain NoScript-i, Adblock Plus-i vmt. olemasolust (kui see on seatud blokeerima täisdomeene stiilis \\'reklaam.domeen.ee\\'). NoScript on Firefoxile mõeldud turvalaiendus, mis blokeerib JavaScripti, sh. enamiku reklaame, näoraamatu jpt. domeenid (sest minu arvuti pole just võimas).\\A \\A Info tõin siia, sest kasutajaskripti kirjeldus skripti \\'\\@description\\' väljas osutus liiga pikaks.\'; display:block; position:relative; height:125px; margin:0px; padding:0px; padding-left:2px; background-color:inherit; overflow-y:auto; color:black; font-size:x-small; font-family:'\Verdana'\,\'sans-serif\',\'Arial\'; text-decoration:none; white-space:pre-wrap; text-align:left;}") // border:solid 1px black; background-color:Silver; #0077ee; border-left-color:black; width was 512px (optimal)
-/* Suuresti töötab, kuid TallinnCity disain erineb Tarbija24 küljendusest. Näiteks on TallinnCity topribal ilmateade ja Tarbija24 topribal on autorite kommentaarid. Et siis on alamportaalidele teha vastavalt vajadusele eraldi disainid.*/
-/* Töötab järgmistes alamportaalides: TallinnCity, Juhtimine, Poliitika, Maailm, Tarbija, ...\\A */
+/* Suuresti töötab, kuid TallinnCity disain erineb Tarbija24 küljendusest. 
+   Näiteks on TallinnCity topribal ilmateade ja Tarbija24 topribal on autorite 
+   kommentaarid. Et siis on alamportaalidele [tuli] vastavalt vajadusele teha 
+   eraldi disainid. */
+/* Laiuse mõistes töötab järgmistes alamportaalides: 
+   TallinnCity, Juhtimine (võib ka laiem olla), Poliitika, Maailm, Sport, 
+   Tarbija, ...\\A */
 /* TallinnCity: {top:12px; right:0px; width:510px; height:97px;} */
-/* TÖÖTAB: Juhtimine (või ka laiem olla), Sport, Maailm */
-/* EI TÖÖTA: PM esileht, Elu24 (tuleb mõlemal juhul mujale tõsta); Arvamus (veidi juba kohendatud); eestilaul vajab kohendamist; */
+/* EI TÖÖTA: PM esileht, Elu24 (tuleb mõlemal juhul mujale tõsta); 
+             Arvamus (veidi juba kohendatud); 
+             eestilaul vajab kohendamist; */
 /* < SECTION#rightContent:before */
 
 GM_addStyle("DIV.subscLinkBlock:hover:before DIV.newsletter-form:hover:after {display:none;}")
@@ -362,8 +372,8 @@ GM_addStyle("A:visited: + A:before {content:\'vis\' !important; font-weight:bold
 GM_addStyle("div#player > object {height:361px}")
 GM_addStyle("div#player:after {content:\'Stretching is fill.\'; display:block; border:solid 1px navy; font-family:Verdana; font-size:small; color:Silver; text-align:right;}") */
 
-/* The standard 16:9 height for 640px width is 360px. Because the BBC logo's squares 
-were not exactly square, then I added one pixel for the height */
+/* The standard 16:9 height for 640px width is 360px. Because the BBC logo's
+   squares were not exactly square, then I added one pixel for the height */
 
 /*
 document.styleSheets[0].insertRule('
