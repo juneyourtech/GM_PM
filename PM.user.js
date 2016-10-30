@@ -1,4 +1,4 @@
-// ==UserScript==
+﻿// ==UserScript==
 // @name          	Postimees
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
@@ -159,33 +159,6 @@ GM_addStyle("NAV.pmMainNav A:visited {color:#1db4f0 !important; background-color
 //#123e9d - 18,62,157 (darker Ukraine)
 //#222426 - PM dark
 
-//ABOUT HOVER | SECTION#rightContent:before |SECTION#rightContent:hover:before
-GM_addStyle("DIV.subscLinkBlock:before, DIV.newsletter-form:after {content:\'Kasutajaskripti info\'; display:inline-block; width:100%; margin:0px; padding:0px; background-color:inherit; color:#0077ee; font-size:x-small; font-family:'\Verdana'\,\'sans-serif\',\'Arial\'; text-decoration:underline; text-align:right; height:15px;}") //DIV.pmHeaderBar:after | top:12px; right:0px;  border:solid 1px black; background-color:Silver; #0077ee; height:97px; width:515px; overflow-y:none; border:solid 1px black;
-//NAV.pmSubNav:after
-//Not everywhere: DIV.subscLinkBlock:before
-//does not work: SECTION.searchBar:after
-
-//enam-vähem töötab.
-//DIV.pmHeaderBar:hover:after
-//top:12px; right:0px; width:510px; 
-//SECTION#rightContent:hover:before
-GM_addStyle("DIV.subscLinkBlock:hover:before, DIV.newsletter-form:hover:after {content:\'\\[Kui kerijanuppu-pidi kerimine osutub võimatuks, saab tekstis allapoole minna klikkides kerimisalale, kasti kerimisriba üles-alla nuppudele, või kasutades osutusseadme scrollerit. (Kogetud Firefox versiooniga 39.0.3.)\\]\\A • See kohalik kasutajaskript muudab GreaseMonkey laiendiga varustatud Firefoxi lehitsejas PMO välimust peale seda kui PMO lehekülg (leheküljed) on arvutisse tõmmatud. Kasutajaskript (userscript) asub ainult kasutaja arvutis ja vaid selles Firefoxi profiilis, kuhu skript installitud on. Tehtud muudatused:\\A\ i. Külastatud lingid on kõrbekollased: on võimalik näha, mida on viimati loetud.\\A ii. Enamiku Postimees Pluss artiklite lingid on punased roosal taustal;\\A iii. Uues aknas avanevad lingid on sidrunikollased — kasutaja saab valida, kas tirib lingi samale vahekaardile või avab uues aknas;\\A iv. Osade PMO lehtede taust on muudetud tumedamaks, mõeldes tundlike silmadega kasutajatele.\\A v. Artiklite põhitekst on pandud Arial fonti, tehtud väiksemaks ja lauaarvuti ekraanil loetavamaks (1280x800-pikselise resolutsioonidga).\\A • NB: Ehkki disaini muutmisega on püüeldud omamoodi täiuslikkuse poole, ei ole stiilide kasutamine ise 100% täiuslik, ning on algselt alati mõeldud skripti looja enda tarvis. Osa stiile võib kehtida vananenud PMO koodi kohta.\\A • Kuigi põhimõtteliselt pole see kasutajaskript mõeldud blokeerima reklaame, lähtub sellest tulenev disain NoScript-i, Adblock Plus-i vmt. olemasolust (kui see on seatud blokeerima täisdomeene stiilis \\'reklaam.domeen.ee\\'). NoScript on Firefoxile mõeldud turvalaiendus, mis blokeerib JavaScripti, sh. enamiku reklaame, näoraamatu jpt. domeenid (sest minu arvuti pole just võimas).\\A \\A Info tõin siia, sest kasutajaskripti kirjeldus skripti \\'\\@description\\' väljas osutus liiga pikaks.\'; display:block; position:relative; height:125px; margin:0px; padding:0px; padding-left:2px; background-color:inherit; overflow-y:auto; color:black; font-size:x-small; font-family:'\Verdana'\,\'sans-serif\',\'Arial\'; text-decoration:none; white-space:pre-wrap; text-align:left;}") // border:solid 1px black; background-color:Silver; #0077ee; border-left-color:black; width was 512px (optimal)
-/* Suuresti töötab, kuid TallinnCity disain erineb Tarbija24 küljendusest. Näiteks on TallinnCity topribal ilmateade ja Tarbija24 topribal on autorite kommentaarid. Et siis on alamportaalidele teha vastavalt vajadusele eraldi disainid.*/
-/* Töötab järgmistes alamportaalides: TallinnCity, Juhtimine, Poliitika, Maailm, Tarbija, ...\\A */
-/* TallinnCity: {top:12px; right:0px; width:510px; height:97px;} */
-/* TÖÖTAB: Juhtimine (või ka laiem olla), Sport, Maailm */
-/* EI TÖÖTA: PM esileht, Elu24 (tuleb mõlemal juhul mujale tõsta); Arvamus (veidi juba kohendatud); eestilaul vajab kohendamist; */
-/* < SECTION#rightContent:before */
-
-GM_addStyle("DIV.subscLinkBlock:hover:before DIV.newsletter-form:hover:after {display:none;}")
-
-//GM_addStyle("DIV.pmHeaderBar:hover:after {}")
-
-//ABOUT HOVER EXAMPLE CODE SNIPPETS
-//GM_addStyle("SPAN.pmHeaderNavi:after {content:\'\|\ veidi teksti\'; display:inline; color:black;}") //
-
-//GM_addStyle("SPAN.pmHeaderNavi:hover:after {color:red;}") //works
-
 //PM BLUE BAR
 GM_addStyle("HTML.topMenu #moveMenuCont {line-height:11px;}") //
 
@@ -232,6 +205,33 @@ GM_addStyle("SECTION#rightContent {padding-left:5px;}") //
 
 //RIGHT BAR 19.02.2015
 //GM_addStyle("SECTION#rightContent { display:block; position:absolute; top:200px; right:0px;}")
+
+//ABOUT HOVER | SECTION#rightContent:before |SECTION#rightContent:hover:before
+GM_addStyle("DIV.subscLinkBlock:before, DIV.newsletter-form:after {content:\'Kasutajaskripti info\'; display:inline-block; width:100%; margin:0px; padding:0px; background-color:inherit; color:#0077ee; font-size:x-small; font-family:'\Verdana'\,\'sans-serif\',\'Arial\'; text-decoration:underline; text-align:right; height:15px;}") //DIV.pmHeaderBar:after | top:12px; right:0px;  border:solid 1px black; background-color:Silver; #0077ee; height:97px; width:515px; overflow-y:none; border:solid 1px black;
+//NAV.pmSubNav:after
+//Not everywhere: DIV.subscLinkBlock:before
+//does not work: SECTION.searchBar:after
+
+//enam-vähem töötab.
+//DIV.pmHeaderBar:hover:after
+//top:12px; right:0px; width:510px; 
+//SECTION#rightContent:hover:before
+GM_addStyle("DIV.subscLinkBlock:hover:before, DIV.newsletter-form:hover:after {content:\'\\[Kui kerijanuppu-pidi kerimine osutub võimatuks, saab tekstis allapoole minna klikkides kerimisalale, kasti kerimisriba üles-alla nuppudele, või kasutades osutusseadme scrollerit. (Kogetud Firefox versiooniga 39.0.3.)\\]\\A • See kohalik kasutajaskript muudab GreaseMonkey laiendiga varustatud Firefoxi lehitsejas PMO välimust peale seda kui PMO lehekülg (leheküljed) on arvutisse tõmmatud. Kasutajaskript (userscript) asub ainult kasutaja arvutis ja vaid selles Firefoxi profiilis, kuhu skript installitud on. Tehtud muudatused:\\A\ i. Külastatud lingid on kõrbekollased: on võimalik näha, mida on viimati loetud.\\A ii. Enamiku Postimees Pluss artiklite lingid on punased roosal taustal;\\A iii. Uues aknas avanevad lingid on sidrunikollased — kasutaja saab valida, kas tirib lingi samale vahekaardile või avab uues aknas;\\A iv. Osade PMO lehtede taust on muudetud tumedamaks, mõeldes tundlike silmadega kasutajatele.\\A v. Artiklite põhitekst on pandud Arial fonti, tehtud väiksemaks ja lauaarvuti ekraanil loetavamaks (1280x800-pikselise resolutsioonidga).\\A • NB: Ehkki disaini muutmisega on püüeldud omamoodi täiuslikkuse poole, ei ole stiilide kasutamine ise 100% täiuslik, ning on algselt alati mõeldud skripti looja enda tarvis. Osa stiile võib kehtida vananenud PMO koodi kohta.\\A • Kuigi põhimõtteliselt pole see kasutajaskript mõeldud blokeerima reklaame, lähtub sellest tulenev disain NoScript-i, Adblock Plus-i vmt. olemasolust (kui see on seatud blokeerima täisdomeene stiilis \\'reklaam.domeen.ee\\'). NoScript on Firefoxile mõeldud turvalaiendus, mis blokeerib JavaScripti, sh. enamiku reklaame, näoraamatu jpt. domeenid (sest minu arvuti pole just võimas).\\A \\A Info tõin siia, sest kasutajaskripti kirjeldus skripti \\'\\@description\\' väljas osutus liiga pikaks.\'; display:block; position:relative; height:125px; margin:0px; padding:0px; padding-left:2px; background-color:inherit; overflow-y:auto; color:black; font-size:x-small; font-family:'\Verdana'\,\'sans-serif\',\'Arial\'; text-decoration:none; white-space:pre-wrap; text-align:left;}") // border:solid 1px black; background-color:Silver; #0077ee; border-left-color:black; width was 512px (optimal)
+/* Suuresti töötab, kuid TallinnCity disain erineb Tarbija24 küljendusest. Näiteks on TallinnCity topribal ilmateade ja Tarbija24 topribal on autorite kommentaarid. Et siis on alamportaalidele teha vastavalt vajadusele eraldi disainid.*/
+/* Töötab järgmistes alamportaalides: TallinnCity, Juhtimine, Poliitika, Maailm, Tarbija, ...\\A */
+/* TallinnCity: {top:12px; right:0px; width:510px; height:97px;} */
+/* TÖÖTAB: Juhtimine (või ka laiem olla), Sport, Maailm */
+/* EI TÖÖTA: PM esileht, Elu24 (tuleb mõlemal juhul mujale tõsta); Arvamus (veidi juba kohendatud); eestilaul vajab kohendamist; */
+/* < SECTION#rightContent:before */
+
+GM_addStyle("DIV.subscLinkBlock:hover:before DIV.newsletter-form:hover:after {display:none;}")
+
+//GM_addStyle("DIV.pmHeaderBar:hover:after {}")
+
+//ABOUT HOVER EXAMPLE CODE SNIPPETS
+//GM_addStyle("SPAN.pmHeaderNavi:after {content:\'\|\ veidi teksti\'; display:inline; color:black;}") //
+
+//GM_addStyle("SPAN.pmHeaderNavi:hover:after {color:red;}") //works
 
 //LEFT CONTENT
 
