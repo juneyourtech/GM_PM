@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
 // @updateURL https://github.com/martrootamm/GM_PM/raw/master/PM.user.js
-// @version 0.8.2
+// @version 0.8.2.1
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -255,8 +255,8 @@ GM_addStyle("SECTION#leftContent > ARTICLE, SECTION#leftContent > DIV {backgroun
 GM_addStyle("SECTION#leftContent > ARTICLE {font-family:\'Arial\',\'sans-serif\'; font-size:10pt; color:black;}") //
 
 //NATIVE VIDEO hover. This is in part about Flashblock. //31.10.2016.
-GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-preview {display:block; z-index:1;}")
-GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked:hover .jw-preview {z-index:0;}")
+GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-preview {display:block; z-index:0;}")
+GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked:hover .jw-preview {z-index:1;}")
 /* This displays the video background image for those, who prefer to have 
    Flash blocked. On hover, the play buttons should appear. 
    Compatible with Flashblock.
@@ -277,8 +277,8 @@ GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-title-primary:after
    Option to display as block, but this requires removing the dot and 
    the space from content. Appended video message color is white. */
 
-GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-reset {font-size:70%;}") //02.11.2016
-//This reduces font size to xx-small to avoid text interfering with the image.
+GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-reset {font-size:75%;}") //02.11.2016
+//This reduces font size to xx-small to avoid text interfering with the image. //was:70%
 
 //GM_addStyle("SECTION#leftContent > ARTICLE > DIV > P, SECTION#leftContent > ARTICLE > SECTION P {background-color:rgba(255,255,255,0.5); color:black;}") //
 
