@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
 // @updateURL https://github.com/martrootamm/GM_PM/raw/master/PM.user.js
-// @version 0.8.2.2
+// @version 0.8.2.3
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -267,10 +267,10 @@ GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked:hover .jw-preview {z-in
 GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-title {width:unset; background:transparent linear-gradient(to bottom, #000 0px, transparent 24px, transparent 100%) repeat scroll 0% 0%;}") //02.11.2016
 //was: 18px (but not original)
 
-GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-title-primary {min-height:unset; padding-top:0px; padding-bottom:0px; padding-left:0px; color:Silver;}") //02.11.2016
+GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-title-primary {min-height:unset; padding-top:0px; padding-bottom:0px; padding-left:0px; color:Silver; font-weight:normal;}") //02.11.2016
 //jw video message color set to Silver.
 
-GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-title-primary:after {display:inline; content:\'\.\ Kliki pildil video Play-nupu näitamiseks.\'; padding-top:2px; color:white; font-weight:normal;}") //02.11.2016
+GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-title-primary:after {display:inline; content:\'\.\ Kliki pildil video Play-nupu näitamiseks.\'; padding-top:2px; color:white; font-weight:700;}") //02.11.2016
 /* Eestikeelne teavitus, et pildi klikkimisel jõuab videoni.
    Tekst on allpool seatud väikseks, et see foto vaatamist ei segaks.
 
