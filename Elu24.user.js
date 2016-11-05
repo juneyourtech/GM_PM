@@ -2,9 +2,9 @@
 // @name        Elu24
 // @description PM Elu24 eriosa
 // @namespace   PM_Elu24_GM
-// @updateURL https://github.com/martrootamm/GM_PM/raw/master/Elu24.user.js
+// @updateURL https://github.com/juneyourtech/GM_PM/raw/master/Elu24.user.js
 // @include     http://elu24.postimees.ee/*
-// @version     0.8.1
+// @version     0.8.2
 // @grant		GM_addStyle
 // ==/UserScript==
 
