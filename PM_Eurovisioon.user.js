@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name        PM Eurovisioon
 // @namespace   PM Eurovisiooni eriosa
-// @updateURL https://github.com/martrootamm/GM_PM/raw/master/PM_Eurovisioon.user.js
-// @version 0.1.0-2015
+// @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM_Eurovisioon.user.js
+// @version 0.1.1-2015
 // @include     http://eurovisioon.postimees.ee/*
 // @version     1
 // @grant		GM_addStyle
