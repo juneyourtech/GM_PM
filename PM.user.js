@@ -2,8 +2,8 @@
 // @name          	Postimees
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
-// @updateURL https://github.com/martrootamm/GM_PM/raw/master/PM.user.js
-// @version 0.8.2.4
+// @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
+// @version 0.8.3
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
