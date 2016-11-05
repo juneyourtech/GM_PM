@@ -24,6 +24,8 @@ SECTION.frontType7 A[href*=reporter-ee] .frontHeading, SECTION.frontBlock.frontT
 
 SECTION#rightAdBar {display:none; padding-top:unset; position:absolute;}
 
+NAV#topNav {height:25px; line-height:20px;}
+
 DIV#wrap {width:auto; min-width:240px; max-width:unset;}
 
 /* This is a comment test */
@@ -34,7 +36,10 @@ DIV.container, DIV.sitehatContainer {width:100%; background-color:inherit; paddi
 
 DIV.container {max-width:unset;}
 
-HEADER#contentHeader {width:auto; min-width:240px; max-width:unset;}
+HEADER#contentHeader {width:auto; min-width:240px; max-width:unset; margin-bottom:-9px; padding-top:0px;}
+
+SPAN.pmHeaderNavi {height:25px; margin-top:1px; margin-bottom:0px; background-color:#dadada; max-height:unset; line-height:unset; padding-bottom:0px;}
+SPAN.pmHeaderNavi A {display:inline-block; height:25px; line-height:2.3em;}
 
 A.pmLogo {width:100px; height:20px; float:left;}
 
@@ -59,14 +64,33 @@ NAV.pmMainNav {clear:both;}
 
 SECTION#rightContent {display:none;}
 
+ARTICLE.frontArticle {margin-bottom:0px;}
+
+ARTICLE.frontArticle IMG {height:unset; width:100%; max-height:unset; max-width:100%;}
+
+SPAN.frontIcons {margin-bottom:1px;}
+H1.frontHeading {padding-top:0px; margin-left:2px; margin-right:1px;}
+
+@media only screen and (max-width:1023px) { SECTION.frontBlock.frontType6 .frontHeading :not(.frontComments) > SPAN {font-size:1.0em !important;} }
+
+/* Note, that applying styles in this case seems somewhat iffy. Now, the :not pseudoclass works as its own selector, which is why it must be separated with a space from .frontHeading, as it means _all_ descendant (child, grandchild, etc.) selectors of .frontHeading and _not_ including .frontComments. The iffy part is, that I had to include SPAN as a direct child selector to apply the 1.0em font size to the "Blogi:" text in one of the titles. This transpired when comparing font sizes with border-left. */
+
+/* SECTION.frontBlock.frontType6 .frontHeading :not(.frontComments) > SPAN {border-bottom:solid 1px #0077ee;} */
+/* ^ border-bottom was required to find out if the style applied. */
+
+/* SECTION.frontBlock.frontType6 .frontHeading :not(.frontComments), SECTION.frontBlock.frontType6 .frontHeading :not(.frontComments) > SPAN {border-left:solid 1px blue; padding-right:1px;} */
+/* ^ This was required to compare font sizes. */
+
+/* , H1.frontHeading > SPAN > SPAN */
+
+/* , SECTION.frontBlock.frontType6 .frontHeading :not(.frontComments) > SPAN */
+
 SECTION#articleBullets {width:100%;}
 UL#bullets {width:auto;}
 
 ARTICLE IMG {height:100%; width:100%;}
 
 SECTION#articleAuthors .authorImage {height:initial; width:initial;}
-
-ARTICLE.frontArticle IMG {height:100%; width:100%; max-height:100%; max-width:100%;}
 
 DIV#commentsBlock, DIV#comments {width:100%;}
 
