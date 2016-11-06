@@ -170,8 +170,11 @@ DIV.liveblog .event .content H3 {color:white;}
 
 DIV.liveblog .event .content P > STRONG {color:white;}
   
-IFRAME[src*='facebook.com'] {background-color:Silver;}
+/* IFRAME[src*='facebook.com'] {background-color:Silver;} */
 }
 @-moz-document domain('arvamus.postimees.ee') {
 SECTION.articleContent, SECTION.articleLead {background-color:rgba(0,0,0,0.75); color:white;}
+}
+@-moz-document domain('facebook.com') {
+HTML#facebook > BODY .pluginSkinLight ._5pbx {color:Silver;}
 }
