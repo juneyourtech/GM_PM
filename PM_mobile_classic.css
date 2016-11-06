@@ -169,6 +169,8 @@ DIV.liveblog .event .content {color:Silver; margin-right:1px; border-bottom-colo
 DIV.liveblog .event .content H3 {color:white;}
 
 DIV.liveblog .event .content P > STRONG {color:white;}
+  
+IFRAME[src*='facebook.com'] {background-color:Silver;}
 }
 @-moz-document domain('arvamus.postimees.ee') {
 SECTION.articleContent, SECTION.articleLead {background-color:rgba(0,0,0,0.75); color:white;}
