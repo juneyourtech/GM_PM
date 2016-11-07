@@ -150,7 +150,7 @@ DIV.liveblog .dropdown {color:Silver;}
 
 LIVEBLOG.liveblogEmbedContainer.mobile .feed-header, LIVEBLOG.liveblogEmbedContainer.narrower .feed-header {color:Silver;}
 
-LIVEBLOG.liveblogEmbedContainer.mobile .liveblog .event-list {padding-riht:6px;}
+LIVEBLOG.liveblogEmbedContainer.mobile .liveblog .event-list {padding-right:6px;}
 
 DIV.liveblog .event .time {background-color:inherit; color:#e0e0e0;}
 
@@ -171,6 +171,8 @@ DIV.liveblog .event .content H3 {color:white;}
 DIV.liveblog .event .content P > STRONG {color:white;}
   
 DIV.liveblog .event .content BLOCKQUOTE {background-color:black; border:dashed 1px gray;}
+
+DIV.liveblog .event .content EM {color:#cdcdcd;}
   
 /* IFRAME[src*='facebook.com'] {background-color:Silver;} */
 }
