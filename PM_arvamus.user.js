@@ -4,7 +4,7 @@
 // @namespace   PM_arvamus_GM
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM_arvamus.user.js
 // @include     http://arvamus.postimees.ee/*
-// @version     0.8.2
+// @version     0.8.2.1
 // @grant		GM_addStyle
 // ==/UserScript==
 // Notes:
@@ -45,13 +45,22 @@ GM_addStyle("A.commentActionsBadRep:hover {color:red !important;}") //
 //
 //GM_addStyle("SECTION#leftContent > ARTICLE > DIV {background-color:rgba(255,255,255,0.25);}") //
 
-//ARTIKKEL & COMMENTS
-GM_addStyle("DIV.publishedMeta, DIV.published, SECTION.articleLead, SECTION.articleContent, DIV.commentRow {background-color:rgba(0,0,0,0.5);}") //
+//ARTIKKEL
+GM_addStyle("DIV.publishedMeta, DIV.published {background-color:rgba(0,0,0,0.5);}") //Separated 07.11.2016
+
+GM_addStyle("SECTION.articleLead, SECTION.articleContent, SECTION.articleLead, SECTION.articleContent {background-color:rgba(0,0,0,0.5); color:white;}") //Separated 07.11.2016
+
+//PAYWALLED ARTICLE TEASER FADE //07.11.2016.
+GM_addStyle("SECTION.articleTeaser[data-fade-text]::before {background:linear-gradient(to bottom, rgba(255, 255, 255, 0) 0px, rgba(255, 255, 255, 0) 95%, #FFF 100%) repeat scroll 0% 0%}")
+//This reduces the white linear gradient overlap with white text.
+//Set currently for just the arvamus subdomain.
+
+//COMMENTS //New section 07.11.2016
+GM_addStyle("DIV.commentRow {background-color:rgba(0,0,0,0.5);}") //Separated 07.11.2016
+GM_addStyle("DIV.articleComments, DIV.commentContent {color:white;}") //Separated 07.11.2016
 
 //SECTION.articleLead: tutvustav tekst
 //SECTION.articleContent: artikli põhitekst
-
-GM_addStyle("SECTION.articleLead, SECTION.articleContent, DIV.articleComments, DIV.commentContent {color:white;}") //
 
 //ARTICLE SEPARATOR (AD)
 GM_addStyle("SECTION#leftContent .article .dfp_ad {margin-top:0px; margin-bottom:0px;}")
