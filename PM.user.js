@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.3.1
+// @version 0.8.3.2
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -352,6 +352,8 @@ GM_addStyle("DIV.liveblog .event .content {color:Silver; margin-left:30px; margi
 GM_addStyle("DIV.liveblog .event .content H3 {color:white;}")
 
 GM_addStyle("DIV.liveblog .event .content P > STRONG {color:white;}")
+
+GM_addStyle("DIV.liveblog .event .content BLOCKQUOTE {background-color:black; border:dashed 1px gray;}") //07.11.2016
 
 //FACEBOOK EMBED IN LIVEBLOG | 06.11.2016
 GM_addStyle("IFRAME[src*=\'facebook.com\'] {background-color:Silver;}")
