@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.3.4
+// @version 0.8.3.5
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -267,15 +267,21 @@ GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked:hover .jw-preview {z-in
 GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-title {width:unset; background:transparent linear-gradient(to bottom, #000 0px, transparent 24px, transparent 100%) repeat scroll 0% 0%;}") //02.11.2016
 //was: 18px (but not original)
 
-GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-title-primary {min-height:unset; padding-top:0px; padding-bottom:0px; padding-left:0px; color:Silver; font-weight:normal;}") //02.11.2016
+//Ruleset added on 02.11.2016.
+GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-title-primary, HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-title-secondary {min-height:unset; margin-top:0px; padding-top:0px; padding-bottom:0px; padding-left:0px; color:Silver; font-weight:normal;}")
 //jw video message color set to Silver.
+//08.11.2016: Added selector '-secondary', margin-top to both.
 
-GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-title-primary:after {display:inline; content:\'\.\ Kliki pildil video Play-nupu näitamiseks.\\A (Et seda teksti mitte näha, nihuta kursor pildi kohale.)\'; padding-top:2px; color:white; font-weight:700;}") //02.11.2016
+//Ruleset added on 02.11.2016.
+GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-title-primary:after {display:inline; content:\'\.\ Kliki pildil video Play-nupu näitamiseks.\'; padding-top:2px; color:white; font-weight:700;}")
 /* Eestikeelne teavitus, et pildi klikkimisel jõuab videoni.
    Tekst on allpool seatud väikseks, et see foto vaatamist ei segaks.
 
    Option to display as block, but this requires removing the dot and 
    the space from content. Appended video message color is white. */
+
+GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-title-secondary:before {display:block; content:\'(Teavituse peitmiseks nihuta kursor pildi kohale.)\'; padding-top:2px;}")
+//08.11.2016: Additional message moved into newline. Note display:block.
 
 GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-reset {font-size:75%;}") //02.11.2016
 //This reduces font size to xx-small to avoid text interfering with the image. //was:70%
