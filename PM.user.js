@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.3.7
+// @version 0.8.3.8
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -50,6 +50,9 @@ GM_addStyle("A[TARGET=\"_blank\"]:hover, A[TARGET=\"_blank\"]:hover STRONG, A[TA
 //GM_addStyle("A[TARGET=\"_blank\"]:hover, A[TARGET=\"_blank\"]:hover strong, A[TARGET=\"_blank\"]:hover span, A[TARGET=\"_blank\"]:hover * {background-color:yellow !important;}") //
 
 GM_addStyle("A:hover, A:hover > H1#sectionHeader {border-bottom:solid 1px #99CCFF !important; margin-bottom:-1px;}") //background-color:Lavender !important;
+
+//hover over bigger-story links below article, but before comments
+GM_addStyle("A.blockArticle:hover > H1.frontHeading {margin-bottom:14px;}") //08.11.2016
 
 //link mouseover bgcolor EXCEPTIONS (for BIG STORY items)
 GM_addStyle("ARTICLE.frontSuperArt > A:hover, ARTICLE.frontSuperArt > A:hover STRONG, ARTICLE.frontSuperArt > A:hover SPAN, ARTICLE.frontSuperArt > A:hover * {background-color:inherit !important;}")
@@ -242,6 +245,9 @@ GM_addStyle("DIV.subscLinkBlock:hover:before DIV.newsletter-form:hover:after {di
 //GM_addStyle("SPAN.pmHeaderNavi:after {content:\'\|\ veidi teksti\'; display:inline; color:black;}") //
 
 //GM_addStyle("SPAN.pmHeaderNavi:hover:after {color:red;}") //works
+
+//TOP COMMENTS and bulleted lists
+GM_addStyle("SECTION.listSection .item {padding-left:26px; background-position:8px 9px}") //08.11.2016
 
 //LEFT CONTENT
 
