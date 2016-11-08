@@ -4,7 +4,7 @@
 // @namespace   PM_arvamus_GM
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM_arvamus.user.js
 // @include     http://arvamus.postimees.ee/*
-// @version     0.8.2.1
+// @version     0.8.2.2
 // @grant		GM_addStyle
 // ==/UserScript==
 // Notes:
