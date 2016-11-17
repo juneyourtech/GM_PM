@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.3.9
+// @version 0.8.4.0
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -128,7 +128,7 @@ GM_addStyle("@media only screen and (max-width:1023px) {SECTION.frontBlock.front
 //MAIN PAGE CONTAINER
 GM_addStyle("DIV.container {padding-left:0px; padding-right:0px; background-color:inherit; max-width:1195px;}") //works; bgcolor was white; padding-left:1px removed
 
-//TOPNAV
+//TOPNAV //HALL
 GM_addStyle("NAV#topNav {height:20px; line-height:unset;}") //
 
 //HEADER (ARVAMUS, et al.)
@@ -168,9 +168,13 @@ GM_addStyle("NAV.pmMainNav A:visited {color:#1db4f0 !important; background-color
 GM_addStyle("HTML.topMenu #moveMenuCont {line-height:11px;}") //
 
 //PM BLUE BLAR / HEADER_NAV //new design 11.2016
-GM_addStyle("DIV.header__menus, LABEL.profile-menu-label {height:37px;}") //
+GM_addStyle("DIV.header__menus, LABEL.profile-menu-label {height:37px;}") //17.11.2016
 
-GM_addStyle("DIV.secion-bg-color {background-color:#005bbb;}") //
+GM_addStyle("DIV.section-bg-color {background-color:#005bbb;}") //17.11.2016.
+//applies to the www side, mostly.
+
+//HEADER: SUBSITE NAME
+GM_addStyle("DIV.pm-logo__subs-section--header {font-size:1.3em;}") //17.11.2016.
 
 //BLUE BAR AFTER SCROLL
 GM_addStyle("DIV#moveMenuCont .pmMainCont {background-color:transparent !important; background:linear-gradient(to right, rgb(0, 91, 187), rgb(0, 91, 187) 132px, transparent 132px, transparent 100%); opacity:1.0;}") //Sets bgcolor to overall darker //opacity was 0.8
