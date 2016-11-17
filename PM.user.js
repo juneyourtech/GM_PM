@@ -1,9 +1,9 @@
-﻿// ==UserScript==
+// ==UserScript==
 // @name          	Postimees
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.4.1
+// @version 0.8.4.2
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -18,7 +18,7 @@
 // Notes:
 //   * is a wildcard character
 //   .tld is magic that matches all top-level domains (e.g. .com, .co.uk, .us, etc.)
-
+// __80_________________________________________________________________________
 
 //TEXT COLOR
 GM_addStyle("HTML > BODY {color:black;}") //Old: rgb(58, 64, 65) 
@@ -268,14 +268,18 @@ GM_addStyle("SECTION#leftContent {background-color:transparent;}")
 //ARTICLE and ARTCLE TEXT
 GM_addStyle("SECTION#leftContent > ARTICLE, SECTION#leftContent > DIV {background-color:inherit;}") //rgba(255,255,255,0.25)
 
+//11.2016 redesign.
+GM_addStyle("DIV.article-container, DIV.article-side {background-color:inherit;}") //17.11.2016.
+/* Inheriting the background color is predicated on the default browser 
+   background color being Silver or some form of gray between Silver and white, 
+   but not white outright. */
+
 GM_addStyle("SECTION#leftContent > ARTICLE {font-family:\'Arial\',\'sans-serif\'; font-size:10pt; color:black;}") //
 
 //11.2016. redesign.  //17.11.2016
 GM_addStyle("SECTION.article-body:not([class*=article-body--lead]) P {font-family:\'Arial\',\'Helvetica\',\'Helv\',\'sans-serif\',\'TabacSans\'; font-size:80%;}")
 /* Original: Primary font was TabacSans, but I've relegated it to the end of the 
-   list, preferring Arial and Helvetica over this.
-   Let's see how all this works, because I've also added a :not pseudoclass. */
-// __80_________________________________________________________________________
+   list, preferring Arial and Helvetica over this. */
 
 //NATIVE VIDEO hover. This is in part about Flashblock. //31.10.2016.
 GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-preview {display:block; z-index:0;}")
