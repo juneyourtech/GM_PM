@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.4.2
+// @version 0.8.4.3
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -265,21 +265,17 @@ GM_addStyle("SECTION#leftContent {background-color:transparent;}")
 //LEFT CONTENT 19.02.2015
 //GM_addStyle("SECTION#leftContent {display:block; width:auto; margin-right:320px;}")
 
-//ARTICLE and ARTCLE TEXT
 GM_addStyle("SECTION#leftContent > ARTICLE, SECTION#leftContent > DIV {background-color:inherit;}") //rgba(255,255,255,0.25)
 
-//11.2016 redesign.
+//11.2016 redesign
 GM_addStyle("DIV.article-container, DIV.article-side {background-color:inherit;}") //17.11.2016.
+
 /* Inheriting the background color is predicated on the default browser 
    background color being Silver or some form of gray between Silver and white, 
    but not white outright. */
 
-GM_addStyle("SECTION#leftContent > ARTICLE {font-family:\'Arial\',\'sans-serif\'; font-size:10pt; color:black;}") //
-
-//11.2016. redesign.  //17.11.2016
-GM_addStyle("SECTION.article-body:not([class*=article-body--lead]) P {font-family:\'Arial\',\'Helvetica\',\'Helv\',\'sans-serif\',\'TabacSans\'; font-size:80%;}")
-/* Original: Primary font was TabacSans, but I've relegated it to the end of the 
-   list, preferring Arial and Helvetica over this. */
+//FONT FIX
+GM_addStyle("SECTION#leftContent > ARTICLE {font-family:\'Arial\',\'sans-serif\'; font-size:10pt; color:black;}")
 
 //NATIVE VIDEO hover. This is in part about Flashblock. //31.10.2016.
 GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-preview {display:block; z-index:0;}")
@@ -294,12 +290,12 @@ GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked:hover .jw-preview {z-in
 GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-title {width:unset; background:transparent linear-gradient(to bottom, #000 0px, transparent 24px, transparent 100%) repeat scroll 0% 0%;}") //02.11.2016
 //was: 18px (but not original)
 
-//Ruleset added on 02.11.2016.
+//VIDEO MSG: Ruleset added on 02.11.2016.
 GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-title-primary, HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-title-secondary {min-height:unset; margin-top:0px; padding-top:0px; padding-bottom:0px; padding-left:0px; color:Silver; font-weight:normal;}")
 //jw video message color set to Silver.
 //08.11.2016: Added selector '-secondary', margin-top to both.
 
-//Ruleset added on 02.11.2016.
+//VIDEO MSG: Ruleset added on 02.11.2016.
 GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-title-primary:after {display:inline; content:\'\.\ Kliki pildil video Play-nupu näitamiseks.\'; padding-top:2px; color:white; font-weight:700;}")
 /* Eestikeelne teavitus, et pildi klikkimisel jõuab videoni.
    Tekst on allpool seatud väikseks, et see foto vaatamist ei segaks.
@@ -350,6 +346,14 @@ GM_addStyle("DIV.articleContentImage .articleContentImageText {padding-left:1px;
 GM_addStyle("ARTICLE.article P {padding-left:2px; padding-right:2px}") //
 
 GM_addStyle("P[align=JUSTIFY] {text-align:left}") //
+
+//ARTICLE TEXT: 11.2016. redesign.  //17.11.2016
+GM_addStyle("SECTION.article-body:not([class*=article-body--lead]) P {font-family:\'Arial\',\'Helvetica\',\'Helv\',\'sans-serif\',\'TabacSans\'; font-size:80%;}")
+/* Original: Primary font was TabacSans, but I've relegated it to the end of the 
+   list, preferring Arial and Helvetica over this. */
+
+//IMAGE CAPTION: 11.2016 redesign. //17.11.2016
+GM_addStyle("FIGCAPTION.article-media-figure__caption {color:black;}") //
 
 //OTSE
 GM_addStyle("HTML > BODY > DIV.content {padding-left:0px;}")
