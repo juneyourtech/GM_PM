@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.4.4
+// @version 0.8.4.5
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -276,6 +276,9 @@ GM_addStyle("DIV.article-container, DIV.article-side {background-color:inherit;}
 
 //FONT FIX
 GM_addStyle("SECTION#leftContent > ARTICLE {font-family:\'Arial\',\'sans-serif\'; font-size:10pt; color:black;}")
+
+//SUBSITE FRONTPAGE LINKS: 11.2016 redesign
+GM_addStyle("DIV.content-wrapper--section .article-list__lead {font-family:\'Arial\',\'Helvetica\',\'Helv\',\'sans-serif\',\'TabacSans\'; font-size:85%;}") //18.11.2016
 
 //NATIVE VIDEO hover. This is in part about Flashblock. //31.10.2016.
 GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-preview {display:block; z-index:0;}")
