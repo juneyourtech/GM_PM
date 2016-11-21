@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.4.8
+// @version 0.8.4.9
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -106,8 +106,9 @@ GM_addStyle("BODY A[href*=\"www.60pluss\"], BODY A[href*=\"www.60pluss\"] strong
 GM_addStyle("BODY A[href*=\"www.60pluss\"]:hover, BODY A[href*=\"www.60pluss\"] strong:hover, BODY A[href*=\"www.60pluss\"] span:hover, BODY A[href*=\"www.60pluss\"] *:hover {background-color:rgb(255, 253, 236) !important;}") //Works
 
 //PM SPORT links
-GM_addStyle("BODY A[href*=\"sport.postimees\"], BODY A[href*=\"sport.postimees\"] strong, BODY A[href*=\"sport.postimees\"] span, BODY A[href*=\"sport.postimees\"] * {color:#005749 !important; border:none !important;}")
+GM_addStyle("BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]), BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]) strong, BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]) span, BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]) * {color:#005749 !important; border:none !important;}")
 //original: 0, 142, 121 (#008e79); brightness 43%: 0,110,93 (#006e5d); brightness 34%: #005749
+//21.11.2016: Added :not([class*=sections-menu__link])
 
 //PM SPORT HOVER
 GM_addStyle("BODY A[href*=\"sport.postimees\"]:hover, BODY A[href*=\"sport.postimees\"] strong:hover, BODY A[href*=\"sport.postimees\"] span:hover, BODY A[href*=\"sport.postimees\"] *:hover {color:#008e79 !important;}") //Works
