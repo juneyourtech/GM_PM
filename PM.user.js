@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.4.7
+// @version 0.8.4.8
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -65,7 +65,7 @@ GM_addStyle("HTML > BODY .article .articleContent a, BODY.section-81 .article .a
 
 //VISITED LINKS
 /* GM_addStyle("BODY {background-color:black !important;}") */ //works
-GM_addStyle("*:not([class*=header--container__bg]):visited, A:visited, A:visited strong, A:visited span, A:visited * {font-weight:400 !important; color:DarkGoldenrod !important; background:none; background-color:SandyBrown !important; text-decoration:underline !important; border:solid 5px DarkGoldenRod !important;}")
+GM_addStyle("*:visited:not([class*=sections-menu__link]), A:visited:not([class*=sections-menu__link]), A:visited:not([class*=sections-menu__link]) strong, A:visited:not([class*=sections-menu__link]) span, A:visited:not([class*=sections-menu__link]) * {font-weight:400 !important; color:DarkGoldenrod !important; background:none; background-color:SandyBrown !important; text-decoration:underline !important; border:solid 5px DarkGoldenRod !important;}")
 /* DarkGoldernrod - this works in most PM editions; PM blue for #22ace3
 
    What doesn't work: 
@@ -74,7 +74,9 @@ font-weight:400; background-color (does it sometimes actually work?);
 text-decoration:underline 
 text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue !important;
 
-21.11.2016: Added :not([class*=header--container__bg]). Let's see how it works. */
+21.11.2016: Added :not([class*=sections-menu__link]).
++, :not([class*=header--container__bg]), but does not work.
+Let's see how it works. */
 
 //ARTICLE VISITED LINKS
 GM_addStyle("A:visited > H1#sectionHeader {background-color:white !important;}")
