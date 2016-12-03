@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name          	Postimees
+// @name          	Postipoiss
 // @namespace     PMO_GM
-// @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks.
+// @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.4.9
+// @version 0.8.5
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -18,7 +18,7 @@
 // Notes:
 //   * is a wildcard character
 //   .tld is magic that matches all top-level domains (e.g. .com, .co.uk, .us, etc.)
-// __80_________________________________________________________________________
+//__80_________________________________________________________________________
 
 //TEXT COLOR
 GM_addStyle("HTML > BODY {color:black;}") //Old: rgb(58, 64, 65) 
@@ -347,6 +347,11 @@ GM_addStyle("SECTION.frontType8 .articleRight .frontIcons {margin-right:9px;}")
 
 //ARTICLE
 GM_addStyle("ARTICLE {padding-left:0px;}") //
+
+//Late-2016 new design.
+GM_addStyle("BODY.body--article ARTICLE {background-color:inherit;}")
+/* L., 03.12.2016: Set background-color. If browser background color is 
+   different (Silver), then it's set to that. */
 
 GM_addStyle("SECTION.articlePhotos {padding-left:0x;}") //
 
