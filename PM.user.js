@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.5.2
+// @version 0.8.5.3
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -38,10 +38,14 @@ GM_addStyle("A[TARGET=\"_blank\"]:not([href*=\"ilmajaam.postimees\"]):not([href*
    wanted the background to be unset for the weather element, but couldn't get 
    it right and didn't have any direct need when the userstyle was only in 
    offline use. The exclusion was finally achieved on 28.10.2016. The W3C spec 
-   is not very specific enough about what is possible with the :not pseudo. */
+   is not very specific enough about what is possible with the :not pseudo. 
+   • 11.12.2016: +prognoz.ee. */
+
+//__80_________________________________________________________________________
 
 //New window links to ILMAJAAM //28.10.2016
-GM_addStyle("A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"], A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"] STRONG, A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"] SPAN, A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"] * {border-bottom:solid 1px yellow;}")
+GM_addStyle("A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"][href*=\"prognoz.ee\"], A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"][href*=\"prognoz.ee\"] STRONG, A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"][href*=\"prognoz.ee\"] SPAN, A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"][href*=\"prognoz.ee\"] * {border-bottom:solid 1px yellow;}")
+//11.12.2016: +prognoz.ee.
 
 /* This is the hover one:
 GM_addStyle("A[TARGET=\"_blank\"]:hover, A[TARGET=\"_blank\"]:hover STRONG, A[TARGET=\"_blank\"]:hover SPAN, A[TARGET=\"_blank\"]:hover * {background:linear-gradient(to right, yellow, transparent 50%, transparent 100%);}")
