@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.5
+// @version 0.8.5.1
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -31,7 +31,7 @@ GM_addStyle("div#bgOverlay {position:fixed;}")
 GM_addStyle("A:hover, A:hover strong, A:hover span, A:hover * {background-color:Lavender !important;}")
 
 //NEW WINDOW LINK (MOUSEOVER) BGCOLOR 'cept ilmajaam //updated 28.10.2016
-GM_addStyle("A[TARGET=\"_blank\"]:not([href*=\"ilmajaam.postimees\"]), A[TARGET=\"_blank\"]:not([href*=\"ilmajaam.postimees\"]) STRONG, A[TARGET=\"_blank\"]:not([href*=\"ilmajaam.postimees\"]) SPAN, A[TARGET=\"_blank\"]:not([href*=\"ilmajaam.postimees\"]) * {background:linear-gradient(to right, yellow, transparent 50%, transparent 100%);}")
+GM_addStyle("A[TARGET=\"_blank\"]:not([href*=\"ilmajaam.postimees\"]):not([href*=\"prognoz.ee\"]), A[TARGET=\"_blank\"]:not([href*=\"ilmajaam.postimees\"]):not([href*=\"prognoz.ee\"]) STRONG, A[TARGET=\"_blank\"]:not([href*=\"ilmajaam.postimees\"]):not([href*=\"prognoz.ee\"]) SPAN, A[TARGET=\"_blank\"]:not([href*=\"ilmajaam.postimees\"]):not([href*=\"prognoz.ee\"]) * {background:linear-gradient(to right, yellow, transparent 50%, transparent 100%);}")
 //1st transparent 2.2 em //was: to bottom
 /* For the most part, the yellow colour has been instrumental in seeing well in 
    advance the fact, that a link is set to open in a new window. OTOH, I only 
