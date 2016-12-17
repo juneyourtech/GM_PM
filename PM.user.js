@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.5.6
+// @version 0.8.5.7
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -25,7 +25,7 @@ GM_addStyle("HTML > BODY {color:black;}") //Old: rgb(58, 64, 65)
 //background-color:Silver
 
 //Applies to late-2016 new design.
-GM_addStyle("BODY.body--article {overflow-x:auto; min-width:480px;}")
+GM_addStyle("HTML, BODY.body--article {overflow-x:auto; min-width:480px;}")
 //L., 17.12.2016: +overflow-x and min-width.
 
 //ARVAMUS et al. BG
