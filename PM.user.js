@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name          	PM leht.
+// @name          	PM.leht
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.5.8
+// @version 0.8.5.9
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -44,8 +44,6 @@ GM_addStyle("A[TARGET=\"_blank\"]:not([href*=\"ilmajaam.postimees\"]):not([href*
    offline use. The exclusion was finally achieved on 28.10.2016. The W3C spec 
    is not very specific enough about what is possible with the :not pseudo. 
    • 11.12.2016: +prognoz.ee. */
-
-//__80_________________________________________________________________________
 
 //New window links to ILMAJAAM //28.10.2016
 GM_addStyle("A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"][href*=\"prognoz.ee\"], A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"][href*=\"prognoz.ee\"] STRONG, A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"][href*=\"prognoz.ee\"] SPAN, A[TARGET=\"_blank\"][href*=\"ilmajaam.postimees\"][href*=\"prognoz.ee\"] * {border-bottom:solid 1px yellow;}")
@@ -285,10 +283,12 @@ GM_addStyle("SECTION#leftContent > ARTICLE, SECTION#leftContent > DIV {backgroun
 
 //11.2016 redesign
 GM_addStyle("DIV.article-container, DIV.article-side {background-color:inherit;}") //17.11.2016.
-
 /* Inheriting the background color is predicated on the default browser 
    background color being Silver or some form of gray between Silver and white, 
    but not white outright. */
+
+//ARTICLE PADDING: 11.2016 redesign
+GM_addStyle("@media only screen and (max-width:1559px) {DIV.article-container.flex--equal-width {padding-left:5px;}}") //21.12.2016.
 
 //FONT FIX
 GM_addStyle("SECTION#leftContent > ARTICLE {font-family:\'Arial\',\'sans-serif\'; font-size:10pt; color:black;}")
