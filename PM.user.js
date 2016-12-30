@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.6.1
+// @version 0.8.6.2
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -480,6 +480,9 @@ GM_addStyle("DIV.fotorama .fotorama__caption__wrap {padding-left:1px; padding-bo
 //IMAGE COUNT
 GM_addStyle("SPAN[class*=fotorama__image__]:not([class=fotorama__image__count]) {background:linear-gradient(180deg, transparent 0px, rgba(0, 0, 0, 0.8) 70%) repeat scroll 0% 0%;}") //R., 30.12.2016.
 //DIV.fotorama__caption__wrap > SPAN
+
+//count bg
+GM_addStyle("DIV.fotorama .fotorama__caption__wrap .fotorama__image__count {background:linear-gradient(to left, transparent 0px, rgba(0, 0, 0, 0.8) 70%) repeat scroll 0% 0%;}") //30.12.2016
 
 //Image description font size
 GM_addStyle("DIV.fotorama .fotorama__caption__wrap .fotorama__image__caption {font-size:83%; line-height:unset; font-weight:500;}") //30.12.2016
