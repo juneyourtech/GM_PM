@@ -469,6 +469,11 @@ GM_addStyle("DIV.gImageInfo:hover {bottom:0px !important;}") //
 GM_addStyle("SPAN.hideInfoBar {float:left; margin-top:-5px; margin-left:0px; margin-right:16px;}") //
 GM_addStyle("SPAN.gTitle {float:left; margin-right:16px;}") //
 
+//ENTIRE SCREEN / GALLERY LATE 2016 DESIGN
+GM_addStyle("DIV.fotorama__caption::before {background:transparent; display:none;}") //
+
+GM_addStyle("DIV.fotorama__caption__wrap > SPAN {background:linear-gradient(180deg, transparent 0px, rgba(0, 0, 0, 0.8) 70%) repeat scroll 0% 0%;}")
+
 // kultuur.postimees.ee
 /*
 div#wrap {background:linear-gradient(to right, rgb(192, 192, 192) 200px, transparent 650px, transparent 100%);}
