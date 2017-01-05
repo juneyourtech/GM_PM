@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.6.3
+// @version 0.8.6.4
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -477,12 +477,17 @@ GM_addStyle("DIV.fotorama__caption::before {background:transparent; display:none
 
 GM_addStyle("DIV.fotorama .fotorama__caption__wrap {padding-left:1px; padding-bottom:0px;}") //
 
-//IMAGE COUNT
-GM_addStyle("SPAN[class*=fotorama__image__]:not([class=fotorama__image__count]) {background:linear-gradient(180deg, transparent 0px, rgba(0, 0, 0, 0.8) 70%) repeat scroll 0% 0%;}") //R., 30.12.2016.
-//DIV.fotorama__caption__wrap > SPAN
-
-//count bg
+//IMAGE COUNT bg
 GM_addStyle("DIV.fotorama .fotorama__caption__wrap .fotorama__image__count {background:linear-gradient(to right, rgba(0, 0, 0, 0.8) 0px, rgba(0, 0, 0, 0.8) 10px, transparent 50px);}") //30.12.2016
+
+GM_addStyle("DIV.fotorama.fotorama__style-override .fotorama__caption__wrap .fotorama__image__caption__separator {margin:0px 7px;}")
+//05.01.2017. Applies to margin-left and right.
+
+//CAPTION and AUTHOR BACKGROUNDS. //Added on R., 30.12.2016.
+GM_addStyle("SPAN.fotorama__image__caption, SPAN.fotorama__image__author {background:linear-gradient(180deg, transparent 0px, rgba(0, 0, 0, 0.8) 70%) repeat scroll 0% 0%;}")
+//DIV.fotorama__caption__wrap > SPAN
+//Older selector: SPAN[class*=fotorama__image__]:not([class=fotorama__image__count]) //works, btw.
+//05.01.2017: Left bg gradient for image caption and author only.
 
 //Image description font size
 GM_addStyle("DIV.fotorama .fotorama__caption__wrap .fotorama__image__caption {font-size:83%; line-height:unset; font-weight:500;}") //30.12.2016
