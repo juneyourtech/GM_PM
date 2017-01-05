@@ -492,6 +492,7 @@ GM_addStyle("SPAN.fotorama__image__caption, SPAN.fotorama__image__author {backgr
 //Image description font size //30.12.2016
 GM_addStyle("DIV.fotorama .fotorama__caption__wrap .fotorama__image__caption, DIV.fotorama.fotorama__style-override .fotorama__caption__wrap .fotorama__image__caption {font-size:83%; line-height:unset; font-weight:500;}")
 //05.01.2017: +style override selector
+//font-size:105% is currently equivalent to authorname. Keeping the current value, because some captions can be longer.
 
 //avoid on hover
 GM_addStyle("DIV.fotorama .fotorama__caption__wrap .fotorama__image__caption:hover {visibility:hidden;}") //30.12.2016
