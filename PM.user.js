@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.6.6
+// @version 0.8.6.7
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -386,7 +386,7 @@ GM_addStyle("SECTION.article-body H1, SECTION.article-body H2, SECTION.article-b
 //11.2016 redesign
 GM_addStyle("@media only screen and (max-width:1559px) {SECTION.article-body H1, SECTION.article-body H2, SECTION.article-body H3, SECTION.article-body H4, SECTION.article-body H5, SECTION.article-body H6, SECTION.article-body OL, SECTION.article-body P {margin:0px 0px;}}") //07.01.2017 //removes superfluous space in margins
 /* From a relatively original selector to cover all bases:
-//GM_addStyle("SECTION.article-body.article-body--lead P {}") */
+// GM_addStyle("SECTION.article-body.article-body--lead P {}") */
 
 GM_addStyle("SECTION.articleContent > P {margin-left:1px; margin-right:1px;}") //
 
@@ -405,8 +405,8 @@ GM_addStyle("P[align=JUSTIFY] {text-align:left}") //
 
 //ARTICLE TEXT: 11.2016. redesign.  //17.11.2016
 GM_addStyle("SECTION.article-body:not([class*=article-body--lead]) P {font-family:\'Arial\',\'Helvetica\',\'Helv\',\'sans-serif\',\'TabacSans\'; font-size:80%;}")
-/* Original: Primary font was TabacSans, but I've relegated it to the end of the 
-   list, preferring Arial and Helvetica over this. */
+/* Original: Primary font was TabacSans, but I've relegated it to the end of 
+   the list, preferring Arial and Helvetica over this. */
 
 //IMAGE CAPTION: 11.2016 redesign. //17.11.2016
 GM_addStyle("FIGCAPTION.article-media-figure__caption {color:black;}") //
@@ -445,9 +445,17 @@ GM_addStyle("LIVEBLOG.liveblogEmbedContainer.mobile .liveblog .event .bullet {ba
 
 GM_addStyle("DIV.liveblog .event .content {color:Silver; margin-left:30px; margin-right:1px; border-bottom-color:#525252;}")
 
+//11.2016 redesign font size (perhaps)
+GM_addStyle("DIV.article-container.flex--equal-width DIV.liveblog .event .content {font-family:\'Arial\',\'Roboto\',\'sans-serif\'; font-size:89%}") //07.01.2017
+/* 77%-89% works with Arial. 95% works with Roboto, but I'm keeping it at 89% 
+   to allow people with only Roboto not to have too small text. */
+
 GM_addStyle("DIV.liveblog .event .content DIV.ng-binding {padding-right:4px;}") //08.11.2016
 
 GM_addStyle("DIV.liveblog .event .content H3 {color:white;}")
+
+//11.2016 redesign font size (perhaps)
+GM_addStyle("DIV.article-container.flex--equal-width DIV.liveblog .event .content H3 {font-size:95%}") //07.01.2017
 
 GM_addStyle("DIV.liveblog .event .content P > STRONG {color:white;}")
 
