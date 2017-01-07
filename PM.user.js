@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.6.5
+// @version 0.8.6.6
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -184,6 +184,10 @@ GM_addStyle("HTML.topMenu #moveMenuCont {line-height:11px;}") //
 //PM BLUE BLAR / HEADER_NAV //new design 11.2016
 GM_addStyle("DIV.header__menus, LABEL.profile-menu-label {height:37px;}") //17.11.2016
 
+//HEADER TALK BUBBLE //new design of 11.2016 //Added 07.01.2017
+GM_addStyle("DIV.header__visible-in-article > A > IMG {height:19px; width:20px; margin-top:3px;}")
+//This sets the talk bubble to about the same height as the fb share icon.
+
 GM_addStyle("DIV.section-bg-color {background-color:#005bbb;}") //17.11.2016.
 //applies to the www side, mostly.
 
@@ -281,6 +285,11 @@ GM_addStyle("SECTION#leftContent {background-color:transparent;}")
 
 GM_addStyle("SECTION#leftContent > ARTICLE, SECTION#leftContent > DIV {background-color:inherit;}") //rgba(255,255,255,0.25)
 
+//11.2016. redesign
+GM_addStyle("MAIN#wrap {border-left:1px solid #B8B8B8;}") //07.01.2017
+//adds border to better orient eye focus when reading article content.
+//This is one of the primary article containers.
+
 //11.2016 redesign
 GM_addStyle("DIV.article-container, DIV.article-side {background-color:inherit;}") //17.11.2016.
 /* Inheriting the background color is predicated on the default browser 
@@ -288,6 +297,8 @@ GM_addStyle("DIV.article-container, DIV.article-side {background-color:inherit;}
    but not white outright. */
 
 //ARTICLE PADDING: 11.2016 redesign
+GM_addStyle("DIV.article-container {padding-top:0px; padding-bottom:0px;}") //07.01.2017
+
 GM_addStyle("@media only screen and (max-width:1559px) {DIV.article-container.flex--equal-width {padding-left:5px;}}") //21.12.2016.
 
 //FONT FIX
@@ -363,7 +374,19 @@ GM_addStyle("BODY.body--article ARTICLE {background-color:inherit;}")
 
 GM_addStyle("SECTION.articlePhotos {padding-left:0x;}") //
 
+//11.2016 redesign
+GM_addStyle("FIGURE.article-media-figure {min-height:unset;}") //07.01.2017
+//Removes superfluous whitespace from below photos
+
 GM_addStyle("SECTION.articleContent {line-height:1.4em;}") //
+
+//11.2016 redesign
+GM_addStyle("SECTION.article-body H1, SECTION.article-body H2, SECTION.article-body H3, SECTION.article-body H4, SECTION.article-body H5, SECTION.article-body H6, SECTION.article-body OL, SECTION.article-body P, SECTION.article-body UL {margin:0px 0px;}") //07.01.2017 //removes superfluous space in margins
+
+//11.2016 redesign
+GM_addStyle("@media only screen and (max-width:1559px) {SECTION.article-body H1, SECTION.article-body H2, SECTION.article-body H3, SECTION.article-body H4, SECTION.article-body H5, SECTION.article-body H6, SECTION.article-body OL, SECTION.article-body P {margin:0px 0px;}}") //07.01.2017 //removes superfluous space in margins
+/* From a relatively original selector to cover all bases:
+//GM_addStyle("SECTION.article-body.article-body--lead P {}") */
 
 GM_addStyle("SECTION.articleContent > P {margin-left:1px; margin-right:1px;}") //
 
@@ -390,6 +413,9 @@ GM_addStyle("FIGCAPTION.article-media-figure__caption {color:black;}") //
 
 //OTSE
 GM_addStyle("HTML > BODY > DIV.content {padding-left:0px;}")
+
+//11.2016 redesign
+GM_addStyle("SECTION.article-body .twitter-tweet, SECTION.article-body IFRAME {margin:0px auto !important;}") //07.01.2017
 
 GM_addStyle("IFRAME[id*=\"liveblog\"] HTML > BODY > .content {border-left:solid 2px Blue;}")
 
