@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.6.7
+// @version 0.8.6.7.1
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -445,10 +445,11 @@ GM_addStyle("LIVEBLOG.liveblogEmbedContainer.mobile .liveblog .event .bullet {ba
 
 GM_addStyle("DIV.liveblog .event .content {color:Silver; margin-left:30px; margin-right:1px; border-bottom-color:#525252;}")
 
-//11.2016 redesign font size (perhaps)
-GM_addStyle("DIV.article-container.flex--equal-width DIV.liveblog .event .content {font-family:\'Arial\',\'Roboto\',\'sans-serif\'; font-size:89%}") //07.01.2017
+//11.2016 redesign: font and font size. //Added 07.01.2017.
+GM_addStyle("DIV.liveblog .event .content P {font-family:\'Arial\',\'Roboto\',\'sans-serif\'; font-size:89%;}")
 /* 77%-89% works with Arial. 95% works with Roboto, but I'm keeping it at 89% 
-   to allow people with only Roboto not to have too small text. */
+   to allow people with only Roboto not to have too small text.
+   DIV.article-container.flex--equal-width top selector does not work.  */
 
 GM_addStyle("DIV.liveblog .event .content DIV.ng-binding {padding-right:4px;}") //08.11.2016
 
