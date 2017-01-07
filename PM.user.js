@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.6.7.1
+// @version 0.8.6.7.2
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -380,14 +380,6 @@ GM_addStyle("FIGURE.article-media-figure {min-height:unset;}") //07.01.2017
 
 GM_addStyle("SECTION.articleContent {line-height:1.4em;}") //
 
-//11.2016 redesign
-GM_addStyle("SECTION.article-body H1, SECTION.article-body H2, SECTION.article-body H3, SECTION.article-body H4, SECTION.article-body H5, SECTION.article-body H6, SECTION.article-body OL, SECTION.article-body P, SECTION.article-body UL {margin:0px 0px;}") //07.01.2017 //removes superfluous space in margins
-
-//11.2016 redesign
-GM_addStyle("@media only screen and (max-width:1559px) {SECTION.article-body H1, SECTION.article-body H2, SECTION.article-body H3, SECTION.article-body H4, SECTION.article-body H5, SECTION.article-body H6, SECTION.article-body OL, SECTION.article-body P {margin:0px 0px;}}") //07.01.2017 //removes superfluous space in margins
-/* From a relatively original selector to cover all bases:
-// GM_addStyle("SECTION.article-body.article-body--lead P {}") */
-
 GM_addStyle("SECTION.articleContent > P {margin-left:1px; margin-right:1px;}") //
 
 GM_addStyle("DIV.articleContentImage full {max-width:648px; padding:0px;}") //
@@ -403,10 +395,20 @@ GM_addStyle("ARTICLE.article P {padding-left:2px; padding-right:2px}") //
 
 GM_addStyle("P[align=JUSTIFY] {text-align:left}") //
 
-//ARTICLE TEXT: 11.2016. redesign.  //17.11.2016
-GM_addStyle("SECTION.article-body:not([class*=article-body--lead]) P {font-family:\'Arial\',\'Helvetica\',\'Helv\',\'sans-serif\',\'TabacSans\'; font-size:80%;}")
-/* Original: Primary font was TabacSans, but I've relegated it to the end of 
-   the list, preferring Arial and Helvetica over this. */
+//ARTICLE TEXT: 11.2016. redesign.
+GM_addStyle("SECTION.article-body H1, SECTION.article-body H2, SECTION.article-body H3, SECTION.article-body H4, SECTION.article-body H5, SECTION.article-body H6, SECTION.article-body OL, SECTION.article-body P, SECTION.article-body UL {margin:0px 0px;}") //07.01.2017 //removes superfluous space in margins
+
+//11.2016 redesign
+GM_addStyle("@media only screen and (max-width:1559px) {SECTION.article-body H1, SECTION.article-body H2, SECTION.article-body H3, SECTION.article-body H4, SECTION.article-body H5, SECTION.article-body H6, SECTION.article-body OL, SECTION.article-body P {margin:0px 0px;}}") //07.01.2017 //removes superfluous space in margins
+/* From a relatively original selector to cover all bases:
+// GM_addStyle("SECTION.article-body.article-body--lead P {}") */
+
+//11.2016 redesign
+GM_addStyle("SECTION.article-body:not([class*=article-body--lead]) P {font-family:\'Arial\',\'Helvetica\',\'Helv\',\'sans-serif\',\'TabacSans\'; font-size:80%; margin-bottom:1em;}")
+/* Line added: 17.11.2016.
+   Original: Primary font was TabacSans, but I've relegated it to the end of 
+   the list, preferring Arial and Helvetica over this.
+   07.01.2017: +margin-bottom. */
 
 //IMAGE CAPTION: 11.2016 redesign. //17.11.2016
 GM_addStyle("FIGCAPTION.article-media-figure__caption {color:black;}") //
