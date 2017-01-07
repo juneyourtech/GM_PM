@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.6.7.2
+// @version 0.8.6.7.3
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -396,19 +396,33 @@ GM_addStyle("ARTICLE.article P {padding-left:2px; padding-right:2px}") //
 GM_addStyle("P[align=JUSTIFY] {text-align:left}") //
 
 //ARTICLE TEXT: 11.2016. redesign.
-GM_addStyle("SECTION.article-body H1, SECTION.article-body H2, SECTION.article-body H3, SECTION.article-body H4, SECTION.article-body H5, SECTION.article-body H6, SECTION.article-body OL, SECTION.article-body P, SECTION.article-body UL {margin:0px 0px;}") //07.01.2017 //removes superfluous space in margins
+GM_addStyle("SECTION.article-body H1, SECTION.article-body H2, SECTION.article-body H3, SECTION.article-body H4, SECTION.article-body H5, SECTION.article-body H6, SECTION.article-body OL, SECTION.article-body P, SECTION.article-body UL {margin:0px 0px;}")
+//07.01.2017 //removes superfluous space in margins
 
 //11.2016 redesign
-GM_addStyle("@media only screen and (max-width:1559px) {SECTION.article-body H1, SECTION.article-body H2, SECTION.article-body H3, SECTION.article-body H4, SECTION.article-body H5, SECTION.article-body H6, SECTION.article-body OL, SECTION.article-body P {margin:0px 0px;}}") //07.01.2017 //removes superfluous space in margins
-/* From a relatively original selector to cover all bases:
-// GM_addStyle("SECTION.article-body.article-body--lead P {}") */
+GM_addStyle("@media only screen and (max-width:1559px) {SECTION.article-body H1, SECTION.article-body H2, SECTION.article-body H3, SECTION.article-body H4, SECTION.article-body H5, SECTION.article-body H6, SECTION.article-body OL, SECTION.article-body P {margin:0px 0px;}}")
+/* Line added 07.01.2017. Removes superfluous space in margins.
+
+   From a relatively original selector to cover all bases:
+   GM_addStyle("SECTION.article-body.article-body--lead P {}") 
+   
+   07.01.2017: Turns out, that top-bottom margins have been set for all items 
+   of article-body both in general/mainline CSS _and_ for specific screen sizes 
+   of @media (1559px and so on); which means, that for one objective of setting 
+   margins to 0px, the rulesets had to be superseded twice.
+   
+   Interestingly, the ruleset below still supersedes the two above rulesets. */
 
 //11.2016 redesign
-GM_addStyle("SECTION.article-body:not([class*=article-body--lead]) P {font-family:\'Arial\',\'Helvetica\',\'Helv\',\'sans-serif\',\'TabacSans\'; font-size:80%; margin-bottom:1em;}")
+GM_addStyle("SECTION.article-body:not([class*=article-body--lead]) P {font-family:\'Arial\',\'Helvetica\',\'Helv\',\'sans-serif\',\'TabacSans\'; font-size:80%;}")
 /* Line added: 17.11.2016.
    Original: Primary font was TabacSans, but I've relegated it to the end of 
    the list, preferring Arial and Helvetica over this.
    07.01.2017: +margin-bottom. */
+
+//11.2016 redesign. Line added 08.01.2017.
+GM_addStyle("SECTION.article-body:not([class*=article-body--lead]) P:not(:last-child) {margin-bottom:1em;}") 
+/* Moved margin-bottom here to use :not(:last-chid). Let's see, how it works. */
 
 //IMAGE CAPTION: 11.2016 redesign. //17.11.2016
 GM_addStyle("FIGCAPTION.article-media-figure__caption {color:black;}") //
