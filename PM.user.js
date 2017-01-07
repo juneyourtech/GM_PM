@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.6.7.3
+// @version 0.8.6.8
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -401,7 +401,7 @@ GM_addStyle("SECTION.article-body H1, SECTION.article-body H2, SECTION.article-b
 
 //11.2016 redesign
 GM_addStyle("@media only screen and (max-width:1559px) {SECTION.article-body H1, SECTION.article-body H2, SECTION.article-body H3, SECTION.article-body H4, SECTION.article-body H5, SECTION.article-body H6, SECTION.article-body OL, SECTION.article-body P {margin:0px 0px;}}")
-/* Line added 07.01.2017. Removes superfluous space in margins.
+/* Line added on 07.01.2017. Removes superfluous space in margins.
 
    From a relatively original selector to cover all bases:
    GM_addStyle("SECTION.article-body.article-body--lead P {}") 
@@ -415,14 +415,15 @@ GM_addStyle("@media only screen and (max-width:1559px) {SECTION.article-body H1,
 
 //11.2016 redesign
 GM_addStyle("SECTION.article-body:not([class*=article-body--lead]) P {font-family:\'Arial\',\'Helvetica\',\'Helv\',\'sans-serif\',\'TabacSans\'; font-size:80%;}")
-/* Line added: 17.11.2016.
+/* Line added on 17.11.2016.
    Original: Primary font was TabacSans, but I've relegated it to the end of 
    the list, preferring Arial and Helvetica over this.
    07.01.2017: +margin-bottom. */
 
-//11.2016 redesign. Line added 08.01.2017.
+//11.2016 redesign. Line added on 08.01.2017.
 GM_addStyle("SECTION.article-body:not([class*=article-body--lead]) P:not(:last-child) {margin-bottom:1em;}") 
-/* Moved margin-bottom here to use :not(:last-chid). Let's see, how it works. */
+/* Margin-bottom is separate in order to keep font and size above, and to use 
+   :not(:last-chid). */
 
 //IMAGE CAPTION: 11.2016 redesign. //17.11.2016
 GM_addStyle("FIGCAPTION.article-media-figure__caption {color:black;}") //
@@ -491,8 +492,13 @@ GM_addStyle("OBJECT#videoPlayerContent {width:100%}") //Works. Also consider SEC
 //PAYWALLED ARTICLE TEASER FADE //
 GM_addStyle("SECTION.articleTeaser[data-fade-text]::before {background:linear-gradient(to bottom, rgba(255, 255, 255, 0) 0px, rgba(255, 255, 255, 0) 95%, #FFF 100%) repeat scroll 0% 0%}")
 /* This reduces the white linear gradient overlap with white text.
-   Introduced on 07.11.2016. for just 'arvamus', but then on 08.11.2016 moved it 
-   here, as it turned out, that it applied better globally. */
+   Introduced on 07.11.2016. for just 'arvamus', but then on 08.11.2016 moved 
+   it here, as it turned out, that it applied better globally. */
+
+//Line added on 08.01.2017
+GM_addStyle("DIV.article-share-btns {margin-top:0px; padding-top:10px; border-top:1px solid #B8B8B8;}")
+/* This moves space rom margin to padding an adds a border to visually separate 
+   article content. */
 
 //ARTICLE LINKS BELOW
 GM_addStyle("@media only screen and (max-width:1023px) {.frontBlock.frontBlock.frontType13 .frontLead, .frontBlock.frontBlock.frontType13 .frontRelated, .frontBlock.frontBlock.frontType13 .frontText, .frontBlock.frontType11 .frontArticle .frontAdditional, .frontBlock.frontType11 .frontArticle .frontRelated, .frontBlock.frontType11 .frontText, .frontBlock.frontType12 .frontArticle .frontAdditional, .frontBlock.frontType12 .frontArticle .frontLead, .frontBlock.frontType12 .frontArticle .frontRelated, .frontBlock.frontType12 .frontArticle .frontText, .frontBlock.frontType16 .frontAdditional, .frontBlock.frontType2 .articleRight .frontText, .frontBlock.frontType2 .frontAdditional, .frontBlock.frontType3 .frontAdditional, .frontBlock.frontType3 .frontLead, .frontBlock.frontType3 .frontRelated, .frontBlock.frontType3 .frontText, .frontBlock.frontType4 .articleRight .frontQuote .frontLead, .frontBlock.frontType4 .articleRight .frontQuote .frontRelated, .frontBlock.frontType4.frontType10 .articleLeft .frontQuote .frontLead, .frontBlock.frontType4.frontType10 .articleLeft .frontQuote .frontRelated, .frontBlock.frontType4.frontType10 .articleLeft .frontQuote .frontText, .frontBlock.frontType6 .frontArticle .frontAdditional, .frontBlock.frontType6 .frontLead, .frontBlock.frontType6 .frontRelated, .frontBlock.frontType6 .frontText, .frontBlock.frontType7 .frontArticle .frontAdditional, .frontBlock.frontType7 .frontLead, .frontBlock.frontType7 .frontRelated, .frontBlock.frontType7 .frontText, .frontBlock.frontType8 .frontAdditional, .frontBlock.gameFriik, .frontQuote .articleText .frontText {display:block}") //
