@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.6.8.4
+// @version 0.8.6.8.5
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -320,7 +320,17 @@ padding-left:3px; padding-right:3px; padding-bottom:2px; with font-size:0.75em
 padding-top:0px; padding-left:3px; padding-right:3px; padding-bottom:1px; with font-size:0.7em
 */
 
-//11.2016 redesign: [FRONTPAGE] mainline links to articles
+//11.2016 redesign | [FRONTPAGE] top links to articles: specifics |
+GM_addStyle("DIV.article-content {margin:0px; margin-left:2px; margin-bottom:11px; pading-top:1px; padding-left:3px;}") //08.01.2017
+
+//11.2016 redesign: background to specific words.
+GM_addStyle("A[href*=\"komisjon\"] > DIV.article-content, A[href*=\"komisjon\"]:visited > DIV.article-content {background-color:rgba(0, 0, 0, 0.7) !important;}") //08.01.2017
+GM_addStyle("A[href*=\"komisjon\"]:hover > DIV.article-content, A[href*=\"komisjon\"]:visited:hover > DIV.article-content {background-color:rgba(0, 0, 0, 0.8) !important;}") //08.01.2017
+
+//11.2016 redesign | [FRONTPAGE] top links to articles, inner element.
+GM_addStyle("SPAN.article-content__headline {margin-right:1px;}") //08.01.2017
+
+//11.2016 redesign | [FRONTPAGE] mainline links to articles
 GM_addStyle("UL.pattern-articles-list.pattern-articles-list--type-7 .article-list__item:first-child:nth-last-child(4) .article-list__headline {font-size:130%;}")
 //Added 08.01.2017 //Original: 1.5em (24px);
 //130% computed to 20.8px, applies to 'veokipommiplahvatuses'
