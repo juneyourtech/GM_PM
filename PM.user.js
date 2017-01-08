@@ -321,7 +321,7 @@ padding-top:0px; padding-left:3px; padding-right:3px; padding-bottom:1px; with f
 */
 
 //11.2016 redesign | [FRONTPAGE] top links to articles: specifics |
-GM_addStyle("DIV.article-content {margin:0px; margin-left:2px; margin-bottom:11px; padding-top:1px; padding-left:3px;}") //08.01.2017
+GM_addStyle("DIV.article-content {margin:0px; margin-left:3px; margin-bottom:11px; padding-top:1px; padding-left:3px;}") //08.01.2017
 
 //11.2016 redesign: background to specific words.
 GM_addStyle("A[href*=\"komisjon\"] > DIV.article-content, A[href*=\"komisjon\"]:visited > DIV.article-content {background-color:rgba(0, 0, 0, 0.7) !important;}") //08.01.2017
