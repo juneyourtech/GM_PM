@@ -334,24 +334,24 @@ GM_addStyle("DIV.article-content {margin:0px; margin-left:3px; margin-bottom:11p
 //Line added on 08.01.2017.
 
 //11.2016 redesign: background to specific words.
-GM_addStyle("A[href*=\"komisjon\"] > DIV.article-content, A[href*=\"komisjon\"]:visited > DIV.article-content {background:transparent linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 70px, transparent 88px, transparent 100%) repeat scroll 0% 0% !important}")
+GM_addStyle("A[href*=\"okomisjon\"] > DIV.article-content, A[href*=\"okomisjon\"]:visited > DIV.article-content {background:transparent linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 70px, transparent 88px, transparent 100%) repeat scroll 0% 0% !important}")
 /* Line added on 08.01.2017. 
    was: background-color:rgba(0, 0, 0, 0.7) !important; */
-GM_addStyle("A[href*=\"komisjon\"]:hover > DIV.article-content, A[href*=\"komisjon\"]:visited:hover > DIV.article-content {background:transparent linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 70px, transparent 88px, transparent 100%) repeat scroll 0% 0% !important}")
+GM_addStyle("A[href*=\"okomisjon\"]:hover > DIV.article-content, A[href*=\"okomisjon\"]:visited:hover > DIV.article-content {background:transparent linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 70px, transparent 88px, transparent 100%) repeat scroll 0% 0% !important}")
 /* Line added on 08.01.2017.
    was: background-color:rgba(0, 0, 0, 0.8) !important; */
 
 //11.2016 redesign | remove hover color
-GM_addStyle("A[href*=\"komisjon\"]:hover > DIV.article-content > SPAN, A[href*=\"komisjon\"]:visited:hover > DIV.article-content > SPAN {background-color:transparent !important;}") //08.01.2017
+GM_addStyle("A[href*=\"okomisjon\"]:hover > DIV.article-content > SPAN, A[href*=\"okomisjon\"]:visited:hover > DIV.article-content > SPAN {background-color:transparent !important;}") //08.01.2017
 
 //11.2016 redesign | modified inset for 'currently important'
-GM_addStyle("UL.pattern-articles-list.pattern-articles-list--type-7 > LI.article-list__item > DIV > A[href*=\"komisjon\"] + A.section-name-label {top:77px; width:100%; height:52px; max-width:222px; background-color:rgba(0, 0, 0, 0.8) !important;}")
+GM_addStyle("UL.pattern-articles-list.pattern-articles-list--type-7 > LI.article-list__item > DIV > A[href*=\"okomisjon\"] + A.section-name-label {top:77px; width:100%; height:52px; max-width:222px; background-color:rgba(0, 0, 0, 0.8) !important;}")
 
 //11.2016 redesign | modified title for article list. Big item. Inset left unaffected.
-GM_addStyle("UL.pattern-articles-list:not(.pattern-articles-list--type-7) > LI.article-list__item:first-child > DIV > A[href*=\"komisjon\"] > DIV.article-list-content {position:absolute; bottom:8px; width:100%; height:122px; margin-left:3px; padding-left:3px; background-color:rgba(0, 0, 0, 0.8) !important;}")
+GM_addStyle("UL.pattern-articles-list:not(.pattern-articles-list--type-7) > LI.article-list__item:first-child > DIV > A[href*=\"okomisjon\"] > DIV.article-list-content {position:absolute; bottom:8px; width:100%; height:122px; margin-left:3px; padding-left:3px; background-color:rgba(0, 0, 0, 0.8) !important;}")
 
 //11.2016 redesign | modified inset for article list. Smaller item, not the first one.
-GM_addStyle("UL.pattern-articles-list > LI.article-list__item:not(:first-child) > DIV > A[href*=\"komisjon\"] + A.section-name-label {top:88px; width:100%; height:57px; max-width:203px; background-color:rgba(0, 0, 0, 0.8) !important;}")
+GM_addStyle("UL.pattern-articles-list > LI.article-list__item:not(:first-child) > DIV > A[href*=\"okomisjon\"] + A.section-name-label {top:88px; width:100%; height:57px; max-width:203px; background-color:rgba(0, 0, 0, 0.8) !important;}")
 /* Line adde on 08.01.2017.
 
    At certain sizes:
