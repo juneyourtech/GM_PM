@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.6.9.8
+// @version 0.8.6.9.9
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -368,15 +368,16 @@ Currently important: max-width:222px; top:77px; height:52px;
 GM_addStyle("SPAN.article-content__headline {margin-right:1px;}") //08.01.2017
 
 //11.2016 redesign | [FRONTPAGE] mainline links to articles
-GM_addStyle("UL.pattern-articles-list.pattern-articles-list--type-7 .article-list__item .article-list__headline {font-size:130%;}")
+GM_addStyle("UL.pattern-articles-list.pattern-articles-list--type-7 .article-list__item .article-list__headline, UL.pattern-articles-list.pattern-articles-list--type-7 .article-list__item:first-child:nth-last-child(4) .article-list__headline {font-size:130%;}")
 //Added 08.01.2017 //Original: 1.5em (24px);
 //130% computed to 20.8px, applies to 'veokipommiplahvatuses'
-//rem :first-child:nth-last-child(4) from .article-list__item
+//rem :first-child:nth-last-child(4) from .article-list__item; readded later
+//Turns out, that :first-child and others superseded the more general earlier selector
 //Conditions: xpsp3, Gecko39, 100%
 
-GM_addStyle("@media only screen and (max-width:1559px) {UL.pattern-articles-list.pattern-articles-list--type-7 .article-list__item .article-list__headline {font-size:130%;}}")
+GM_addStyle("@media only screen and (max-width:1559px) {UL.pattern-articles-list.pattern-articles-list--type-7 .article-list__item .article-list__headline, UL.pattern-articles-list.pattern-articles-list--type-7 .article-list__item:first-child:nth-last-child(4) .article-list__headline {font-size:130%;}}")
 //Added 08.01.2017. | Original: 1.375em (22px)
-//rem :first-child:nth-last-child(4) from .article-list__item
+//rem :first-child:nth-last-child(4) from .article-list__item; readded later
 //Conditions: xpsp3, Gecko39, 100%
 
 //NATIVE VIDEO hover. This is in part about Flashblock. //31.10.2016.
