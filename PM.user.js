@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.6.9.4
+// @version 0.8.6.9.5
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -345,10 +345,10 @@ GM_addStyle("A[href*=\"komisjon\"]:hover > DIV.article-content, A[href*=\"komisj
 GM_addStyle("A[href*=\"komisjon\"]:hover > DIV.article-content > SPAN, A[href*=\"komisjon\"]:visited:hover > DIV.article-content > SPAN {background-color:transparent !important;}") //08.01.2017
 
 //11.2016 redesign | modified inset for 'currently important'
-GM_addStyle("UL.pattern-articles-list.pattern-articles-list--type-7 > LI.article-list__item > DIV > A[href*=\"komisjon\"] + A.section-name-label {top:88px; width:100%; height:57px; max-width:203px; background-color:rgba(0, 0, 0, 0.8) !important;}")
+GM_addStyle("UL.pattern-articles-list.pattern-articles-list--type-7 > LI.article-list__item > DIV > A[href*=\"komisjon\"] + A.section-name-label {top:77px; width:100%; height:52px; max-width:222px; background-color:rgba(0, 0, 0, 0.8) !important;}")
 
 //11.2016 redesign | modified inset for article list
-GM_addStyle("UL.pattern-articles-list > LI.article-list__item > DIV > A[href*=\"komisjon\"] + A.section-name-label {top:88px; width:100%; height:57px; max-width:203px; background-color:rgba(0, 0, 0, 0.8) !important;}")
+GM_addStyle("UL.pattern-articles-list > LI.article-list__item:not(:first-child) > DIV > A[href*=\"komisjon\"] + A.section-name-label {top:88px; width:100%; height:57px; max-width:203px; background-color:rgba(0, 0, 0, 0.8) !important;}")
 /* Line adde on 08.01.2017.
 
    At certain sizes:
