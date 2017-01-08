@@ -327,7 +327,7 @@ GM_addStyle("DIV.article-content {margin:0px; margin-left:3px; margin-bottom:11p
 GM_addStyle("A[href*=\"komisjon\"] > DIV.article-content, A[href*=\"komisjon\"]:visited > DIV.article-content {background:transparent linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 70px, transparent 98px, transparent 100%) repeat scroll 0% 0% !important}")
 /* Line added on 08.01.2017. 
    was: background-color:rgba(0, 0, 0, 0.7) !important; */
-GM_addStyle("A[href*=\"komisjon\"]:hover > DIV.article-content, A[href*=\"komisjon\"]:visited:hover > DIV.article-content {background:transparent linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 70px, transparent 98px, transparent 100%) repeat scroll 0% 0% !important}")
+GM_addStyle("A[href*=\"komisjon\"]:hover > DIV.article-content, A[href*=\"komisjon\"]:visited:hover > DIV.article-content {background:transparent linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 70px, transparent 98px, transparent 100%) repeat scroll 0% 0% !important}")
 /* Line added on 08.01.2017.
    was: background-color:rgba(0, 0, 0, 0.8) !important; */
 
