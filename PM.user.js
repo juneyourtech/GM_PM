@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.6.9.7
+// @version 0.8.6.9.8
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -345,14 +345,19 @@ GM_addStyle("A[href*=\"okomisjon\"]:hover > DIV.article-content, A[href*=\"okomi
 GM_addStyle("A[href*=\"okomisjon\"]:hover > DIV.article-content > SPAN, A[href*=\"okomisjon\"]:visited:hover > DIV.article-content > SPAN {background-color:transparent !important;}") //08.01.2017
 
 //11.2016 redesign | modified inset for 'currently important'
-GM_addStyle("UL.pattern-articles-list.pattern-articles-list--type-7 > LI.article-list__item > DIV > A[href*=\"okomisjon\"] + A.section-name-label {top:77px; width:100%; height:52px; max-width:222px; background-color:rgba(0, 0, 0, 0.8) !important;}")
+GM_addStyle("@media only screen and (max-width:1169px) {UL.pattern-articles-list.pattern-articles-list--type-7 > LI.article-list__item > DIV > A[href*=\"okomisjon\"] + A.section-name-label {top:77px; width:100%; height:52px; max-width:222px; background-color:rgba(0, 0, 0, 0.8) !important;}}")
+/* Line added on 08.01.2017
+   Turns out, that image widths in most-important sections are dependent 
+   on the width of MAIN#wrap, the width of which itself is made dependent 
+   on viewport width. */
 
 //11.2016 redesign | modified title for article list. Big item. Inset left unaffected.
 GM_addStyle("UL.pattern-articles-list:not(.pattern-articles-list--type-7) > LI.article-list__item:first-child > DIV > A[href*=\"okomisjon\"] > DIV.article-list-content {position:absolute; bottom:8px; width:100%; height:122px; margin-left:3px; padding-left:3px; background-color:rgba(0, 0, 0, 0.8) !important;}")
+// Line added on 08.01.2017
 
 //11.2016 redesign | modified inset for article list. Smaller item, not the first one.
 GM_addStyle("UL.pattern-articles-list > LI.article-list__item:not(:first-child) > DIV > A[href*=\"okomisjon\"] + A.section-name-label {top:88px; width:100%; height:57px; max-width:203px; background-color:rgba(0, 0, 0, 0.8) !important;}")
-/* Line adde on 08.01.2017.
+/* Line added on 08.01.2017.
 
    At certain sizes:
  max-width:203px; top:88px; height:57px;
