@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.6.9.3
+// @version 0.8.6.9.4
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -344,8 +344,17 @@ GM_addStyle("A[href*=\"komisjon\"]:hover > DIV.article-content, A[href*=\"komisj
 //11.2016 redesign | remove hover color
 GM_addStyle("A[href*=\"komisjon\"]:hover > DIV.article-content > SPAN, A[href*=\"komisjon\"]:visited:hover > DIV.article-content > SPAN {background-color:transparent !important;}") //08.01.2017
 
-//11.2016 redesign | modified inset
-GM_addStyle("LI.article-list__item > DIV > A[href*=\"komisjon\"] + A.section-name-label {top:88px; width:203px; height:57px; max-width:203px; background-color:rgba(0, 0, 0, 0.8);}")
+//11.2016 redesign | modified inset for 'currently important'
+GM_addStyle("UL.pattern-articles-list.pattern-articles-list--type-7 > LI.article-list__item > DIV > A[href*=\"komisjon\"] + A.section-name-label {top:88px; width:100%; height:57px; max-width:203px; background-color:rgba(0, 0, 0, 0.8) !important;}")
+
+//11.2016 redesign | modified inset for article list
+GM_addStyle("UL.pattern-articles-list > LI.article-list__item > DIV > A[href*=\"komisjon\"] + A.section-name-label {top:88px; width:100%; height:57px; max-width:203px; background-color:rgba(0, 0, 0, 0.8) !important;}")
+/* Line adde on 08.01.2017.
+
+   At certain sizes:
+ max-width:203px; top:88px; height:57px;
+Currently important: max-width:222px; top:77px; height:52px;
+*/
 
 //11.2016 redesign | [FRONTPAGE] top links to articles, inner element.
 GM_addStyle("SPAN.article-content__headline {margin-right:1px;}") //08.01.2017
