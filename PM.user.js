@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.6.8
+// @version 0.8.6.8.1
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -374,6 +374,10 @@ GM_addStyle("BODY.body--article ARTICLE {background-color:inherit;}")
 
 GM_addStyle("SECTION.articlePhotos {padding-left:0x;}") //
 
+//11.2016 redesign. Line added on 08.01.2017
+GM_addStyle("DIV.article-gallery__container > DIV.spacer {display:none;}")
+//This should remove the spacer div from above and below the gallery.
+
 //11.2016 redesign
 GM_addStyle("FIGURE.article-media-figure {min-height:unset;}") //07.01.2017
 //Removes superfluous whitespace from below photos
@@ -526,7 +530,7 @@ GM_addStyle("DIV.gImageInfo:hover {bottom:0px !important;}") //
 GM_addStyle("SPAN.hideInfoBar {float:left; margin-top:-5px; margin-left:0px; margin-right:16px;}") //
 GM_addStyle("SPAN.gTitle {float:left; margin-right:16px;}") //
 
-//ENTIRE SCREEN / GALLERY LATE 2016 DESIGN
+//ENTIRE SCREEN / FULLSCREEN / GALLERY | 11.2016 REDESIGN
 GM_addStyle("DIV.fotorama__caption {line-height:1.2em;}") //R., 30.12.2016.
 
 GM_addStyle("DIV.fotorama__caption::before {background:transparent; display:none;}") //R., 30.12.2016.
