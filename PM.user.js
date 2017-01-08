@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.6.8.2
+// @version 0.8.6.8.3
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -184,15 +184,15 @@ GM_addStyle("HTML.topMenu #moveMenuCont {line-height:11px;}") //
 //PM BLUE BLAR / HEADER_NAV //new design 11.2016
 GM_addStyle("DIV.header__menus, LABEL.profile-menu-label {height:37px;}") //17.11.2016
 
-//HEADER TALK BUBBLE //new design of 11.2016 //Added 07.01.2017
-GM_addStyle("DIV.header__visible-in-article > A > IMG {height:19px; width:20px; margin-top:3px;}")
-//This sets the talk bubble to about the same height as the fb share icon.
-
 GM_addStyle("DIV.section-bg-color {background-color:#005bbb;}") //17.11.2016.
 //applies to the www side, mostly.
 
 //HEADER: SUBSITE NAME
 GM_addStyle("DIV.pm-logo__subs-section--header {font-size:1.3em;}") //17.11.2016.
+
+//11.2016 redesign: Fi100
+GM_addStyle("A[href*=\"soome100.postimees\"] > SPAN {background-color:white; color:#002f6c;}") //08.01.2017.
+//Let's see, how it works.
 
 //BLUE BAR AFTER SCROLL
 GM_addStyle("DIV#moveMenuCont .pmMainCont {background-color:transparent !important; background:linear-gradient(to right, rgb(0, 91, 187), rgb(0, 91, 187) 132px, transparent 132px, transparent 100%); opacity:1.0;}") //Sets bgcolor to overall darker //opacity was 0.8
@@ -227,6 +227,11 @@ GM_addStyle("NAV.pmSubNav a {background-color:rgba(255,255,255,0.5) !important;}
 
 GM_addStyle("NAV.pmSubNav a:hover {background-color:rgba(255,255,255,0.75) !important;}") //
 
+//HEADER TALK BUBBLE //new design of 11.2016 //Added 07.01.2017
+GM_addStyle("DIV.header__visible-in-article > A > IMG {height:19px; width:20px; margin-top:3px;}")
+//This sets the talk bubble to about the same height as the fb share icon.
+
+//MAINSPACE
 GM_addStyle("DIV#wrap {width:auto; min-width:985px; max-width:1232px;}") //original width:1232px
 
 //CONTAINER (both left and right)
