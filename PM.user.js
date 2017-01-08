@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.6.8.9
+// @version 0.8.6.9.0
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -324,10 +324,10 @@ padding-top:0px; padding-left:3px; padding-right:3px; padding-bottom:1px; with f
 GM_addStyle("DIV.article-content {margin:0px; margin-left:3px; margin-bottom:11px; padding-top:1px; padding-left:3px;}") //08.01.2017
 
 //11.2016 redesign: background to specific words.
-GM_addStyle("A[href*=\"komisjon\"] > DIV.article-content, A[href*=\"komisjon\"]:visited > DIV.article-content {background:linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) 70px, transparent 100%) !important;}")
+GM_addStyle("A[href*=\"komisjon\"] > DIV.article-content, A[href*=\"komisjon\"]:visited > DIV.article-content {background:transparent linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 70px, transparent 98px, transparent 100%) repeat scroll 0% 0% !important}")
 /* Line added on 08.01.2017. 
    was: background-color:rgba(0, 0, 0, 0.7) !important; */
-GM_addStyle("A[href*=\"komisjon\"]:hover > DIV.article-content, A[href*=\"komisjon\"]:visited:hover > DIV.article-content {background:linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) 70px, transparent 100%) !important;}")
+GM_addStyle("A[href*=\"komisjon\"]:hover > DIV.article-content, A[href*=\"komisjon\"]:visited:hover > DIV.article-content {background:transparent linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 70px, transparent 98px, transparent 100%) repeat scroll 0% 0% !important}")
 /* Line added on 08.01.2017.
    was: background-color:rgba(0, 0, 0, 0.8) !important; */
 
