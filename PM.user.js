@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.6.8.3
+// @version 0.8.6.8.4
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -299,7 +299,7 @@ GM_addStyle("MAIN#wrap {border-left:1px solid #B8B8B8;}") //07.01.2017
 GM_addStyle("DIV.article-container, DIV.article-side {background-color:inherit;}") //17.11.2016.
 /* Inheriting the background color is predicated on the default browser 
    background color being Silver or some form of gray between Silver and white, 
-   but not white outright. */
+   but not white outright. So far applies to articles only. */
 
 //ARTICLE PADDING: 11.2016 redesign
 GM_addStyle("DIV.article-container {padding-top:0px; padding-bottom:0px;}") //07.01.2017
@@ -319,6 +319,16 @@ GM_addStyle("A.section-name-label {top:1px; left:3px; padding-top:0px; padding-l
 padding-left:3px; padding-right:3px; padding-bottom:2px; with font-size:0.75em
 padding-top:0px; padding-left:3px; padding-right:3px; padding-bottom:1px; with font-size:0.7em
 */
+
+//11.2016 redesign: [FRONTPAGE] mainline links to articles
+GM_addStyle("UL.pattern-articles-list.pattern-articles-list--type-7 .article-list__item:first-child:nth-last-child(4) .article-list__headline {font-size:130%;}")
+//Added 08.01.2017 //Original: 1.5em (24px);
+//130% computed to 20.8px, applies to 'veokipommiplahvatuses'
+//Conditions: xpsp3, Gecko39, 100%
+
+GM_addStyle("@media only screen and (max-width:1559px) {UL.pattern-articles-list.pattern-articles-list--type-7 .article-list__item:first-child:nth-last-child(4) .article-list__headline {font-size:130%;}}")
+//Added 08.01.2017. | Original: 1.375em (22px)
+//Conditions: xpsp3, Gecko39, 100%
 
 //NATIVE VIDEO hover. This is in part about Flashblock. //31.10.2016.
 GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-preview {display:block; z-index:0;}")
