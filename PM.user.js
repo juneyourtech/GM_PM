@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.6.9.9
+// @version 0.8.7.0.0
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -227,9 +227,13 @@ GM_addStyle("NAV.pmSubNav a {background-color:rgba(255,255,255,0.5) !important;}
 
 GM_addStyle("NAV.pmSubNav a:hover {background-color:rgba(255,255,255,0.75) !important;}") //
 
-//HEADER TALK BUBBLE //new design of 11.2016 //Added 07.01.2017
-GM_addStyle("DIV.header__visible-in-article > A > IMG {height:19px; width:20px; margin-top:3px;}")
+//HEADER TALK/COMMENTS BUBBLE //new design of 11.2016 //Added 07.01.2017
+GM_addStyle("DIV.header__visible-in-article > A {padding-top:3px;}") //09.01.2017
+
+GM_addStyle("DIV.header__visible-in-article > A > IMG {height:19px; width:20px;}"
+//Line added on 07.01.2017.
 //This sets the talk bubble to about the same height as the fb share icon.
+//margin 
 
 //MAINSPACE
 GM_addStyle("DIV#wrap {width:auto; min-width:985px; max-width:1232px;}") //original width:1232px
