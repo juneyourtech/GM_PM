@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.7.0.8
+// @version 0.8.7.0.9
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -290,6 +290,13 @@ GM_addStyle("DIV.subscLinkBlock:hover:before DIV.newsletter-form:hover:after {di
 //TOP COMMENTS and bulleted lists
 GM_addStyle("SECTION.listSection .item {padding-left:26px; background-position:8px 9px}") //08.11.2016
 
+//11.2016 redesign
+//new right bar | article links
+GM_addStyle("DIV.pattern-side--right .article-list__headline {font-size:90%;}") //T., 10.01.2017
+GM_addStyle("@media only screen and (max-width:1559px) {DIV.pattern-side--right .article-list__headline {font-size:90%;}}")
+//T., 10.01.2017
+/* Original: 1em (1559px), 1.063em. 90% for word 'ajateenistuskohustusest' */
+
 //LEFT CONTENT
 
 GM_addStyle("SECTION#leftContent {background-color:transparent;}")
@@ -383,7 +390,6 @@ GM_addStyle("UL.pattern-articles-list.pattern-articles-list--type-7 .article-lis
 //rem :first-child:nth-last-child(4) from .article-list__item; readded later
 //Turns out, that :first-child and others superseded the more general earlier selector
 //Conditions: xpsp3, Gecko39, 100%
-
 GM_addStyle("@media only screen and (max-width:1559px) {UL.pattern-articles-list.pattern-articles-list--type-7 .article-list__item .article-list__headline, UL.pattern-articles-list.pattern-articles-list--type-7 .article-list__item:first-child:nth-last-child(4) .article-list__headline {font-size:130%;}}")
 //Added 08.01.2017. | Original: 1.375em (22px)
 //rem :first-child:nth-last-child(4) from .article-list__item; readded later
@@ -437,6 +443,13 @@ GM_addStyle("SECTION.frontType8 .articleRight .frontArticle:last-child {margin-b
 
 GM_addStyle("SECTION.frontType8 .articleRight .frontIcons {margin-right:9px;}")
 //28.10.2016: for 1024x768px, but works on others.
+
+//11.2016 redesign. [FRONTPAGE] and elsewhere | one bar
+GM_addStyle("DIV.dfp-ad--center {background-color:inherit}") //T., 10.01.2017
+//Makes bgcolor less intrusive.
+
+GM_addStyle("LI.list__ad .dfp-ad:not(:empty) {border-left:1px solid #E5E5E5; border-right:1px solid #E5E5E5;}")
+//T., 10.01.2017. | Adds borders left and right.
 
 //ARTICLE
 GM_addStyle("ARTICLE {padding-left:0px;}") //
