@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.7.0.4
+// @version 0.8.7.0.5
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -583,12 +583,14 @@ GM_addStyle("DIV.article-share-btns {margin-top:0px; padding-top:10px; border-to
 //ARTICLE LINKS BELOW
 GM_addStyle("@media only screen and (max-width:1023px) {.frontBlock.frontBlock.frontType13 .frontLead, .frontBlock.frontBlock.frontType13 .frontRelated, .frontBlock.frontBlock.frontType13 .frontText, .frontBlock.frontType11 .frontArticle .frontAdditional, .frontBlock.frontType11 .frontArticle .frontRelated, .frontBlock.frontType11 .frontText, .frontBlock.frontType12 .frontArticle .frontAdditional, .frontBlock.frontType12 .frontArticle .frontLead, .frontBlock.frontType12 .frontArticle .frontRelated, .frontBlock.frontType12 .frontArticle .frontText, .frontBlock.frontType16 .frontAdditional, .frontBlock.frontType2 .articleRight .frontText, .frontBlock.frontType2 .frontAdditional, .frontBlock.frontType3 .frontAdditional, .frontBlock.frontType3 .frontLead, .frontBlock.frontType3 .frontRelated, .frontBlock.frontType3 .frontText, .frontBlock.frontType4 .articleRight .frontQuote .frontLead, .frontBlock.frontType4 .articleRight .frontQuote .frontRelated, .frontBlock.frontType4.frontType10 .articleLeft .frontQuote .frontLead, .frontBlock.frontType4.frontType10 .articleLeft .frontQuote .frontRelated, .frontBlock.frontType4.frontType10 .articleLeft .frontQuote .frontText, .frontBlock.frontType6 .frontArticle .frontAdditional, .frontBlock.frontType6 .frontLead, .frontBlock.frontType6 .frontRelated, .frontBlock.frontType6 .frontText, .frontBlock.frontType7 .frontArticle .frontAdditional, .frontBlock.frontType7 .frontLead, .frontBlock.frontType7 .frontRelated, .frontBlock.frontType7 .frontText, .frontBlock.frontType8 .frontAdditional, .frontBlock.gameFriik, .frontQuote .articleText .frontText {display:block}") //
 
-//11.2016 redesign //Line added 08.01.2017
-GM_addStyle("DIV.related-fluid-list .related-fluid-list__item .article-list__headline {font-size:115%}")
+//11.2016 redesign //Line added 08.01.2017.
+GM_addStyle("DIV.related-fluid-list .related-fluid-list__item .article-list__headline {font-size:109%}")
 //original: 1.375em
-/* This can be set to lower even, as normal in-box font size for 
+/*    08.01.2017.: This can be set to lower even, as normal in-box font size for 
    'käsipallikoondislased' is 109%.
-   T., 10.01.2017: Set to 115%, because 'jalgpallirevolutsionäär' touched the next box. */
+   T., 10.01.2017: First set to 115%, because 'jalgpallirevolutsionäär' touched 
+   the next box. Then to 109%, when it turned out, that as the last item in the 
+   carousel list, the last letter of that long a word wasn't visible. */
 
 //COMMENT ANCHOR
 GM_addStyle("DIV#comments {padding-top:11px;}")
