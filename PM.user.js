@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.7.0.6
+// @version 0.8.7.0.7
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -112,18 +112,21 @@ GM_addStyle("BODY A[href*=\"www.60pluss\"], BODY A[href*=\"www.60pluss\"] STRONG
 GM_addStyle("BODY A[href*=\"www.60pluss\"]:hover, BODY A[href*=\"www.60pluss\"] STRONG:hover, BODY A[href*=\"www.60pluss\"] SPAN:hover, BODY A[href*=\"www.60pluss\"] *:hover {background-color:rgb(255, 253, 236) !important;}") //Works
 
 //PM SPORT links
-GM_addStyle("BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link):not(.article-btn--facebook):not(.article-btn--twitter), BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link):not(.article-btn--facebook):not(.article-btn--twitter) STRONG, BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link):not(.article-btn--facebook):not(.article-btn--twitter) SPAN, BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link):not(.article-btn--facebook):not(.article-btn--twitter) * {color:#005749 !important; border:none !important;}")
-//original: 0, 142, 121 (#008e79); brightness 43%: 0,110,93 (#006e5d); brightness 34%: #005749
-//21.11.2016: Added :not([class*=sections-menu__link])
-//10.01.2017: Added :not(.pm-logo__link) (exact class name)
+GM_addStyle("BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link):not(.article-btn--facebook):not(.article-btn--twitter):not(.section-name-label), BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link) STRONG, BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link):not(.article-btn--facebook):not(.article-btn--twitter) SPAN, BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link) * {color:#005749 !important; border:none !important;}")
+/* Original: 0, 142, 121 (#008e79); brightness 43%: 0,110,93 (#006e5d); brightness 34%: #005749
+   21.11.2016: Added :not([class*=sections-menu__link])
+   10.01.2017: Added :not(.pm-logo__link) (exact class name) to some selectors,
+   and :not(.section-name-label) to the first selector. fb & tw :nots use span, 
+   too, but are not required for all selectors. This should work. */
 
 //PM SPORT HOVER
 GM_addStyle("BODY A[href*=\"sport.postimees\"]:hover, BODY A[href*=\"sport.postimees\"] STRONG:hover, BODY A[href*=\"sport.postimees\"] SPAN:hover, BODY A[href*=\"sport.postimees\"] *:hover {color:#008e79 !important;}") //Works
 
 //PM SPORT VISITED
 GM_addStyle("BODY A[href*=\"sport.postimees\"]:visited, BODY A[href*=\"sport.postimees\"]:visited STRONG, BODY A[href*=\"sport.postimees\"]:visited SPAN, BODY A[href*=\"sport.postimees\"]:visited *, BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link):not(.article-btn--facebook):not(.article-btn--twitter):visited * {color:#00b398 !important;}") // #008502.
-//Turns out, that A:visited must be, while hover applies to _all_ elements, though.
-//T., 10.01.2017. Added last selector as a matter of experimentation.
+// Turns out, that A:visited must be, while hover applies to _all_ elements, though.
+/* T., 10.01.2017. Added last selector to experiment, and most :visited links 
+   should now work. */
 
 //"REPORTER.EE VIDEOLOOD"
 GM_addStyle("SECTION.frontType11 .frontArticle {margin-bottom:0px; margin-top:1px;}") //was: margin-bottom:14px; used selector: ARTICLE.frontArticle 
@@ -488,13 +491,15 @@ GM_addStyle("@media only screen and (max-width:1559px) {SECTION.article-body H1,
    
    Interestingly, the ruleset below still supersedes the two above rulesets. */
 
-//11.2016 redesign //ARTICLE LEDE //T., 10.01.2017
-GM_addStyle("SECTION.article-body.article-body--lead P {font-size:1em;}")
+//11.2016 redesign //ARTICLE LEDE
+GM_addStyle("SECTION.article-body.article-body--lead P {font-size:1em;}") //T., 10.01.2017
 
 //GM_addStyle("@media only screen and (max-width:1559px) {SECTION.article-body.article-body--lead P {font-size:1em;}}")
-//Line aded on 10.01.2017. This is currently commented out to see, if the above line works without interference.
+/* Line aded on 10.01.2017. While the above line seems to work without 
+   interference by superseding even the max-width rule well above, then it's 
+   still commented out to see, if that above line works like that for certain. */
 
-//11.2016 redesign
+//11.2016 redesign //ARTICLE BODY TEXT, excluding lede
 GM_addStyle("SECTION.article-body:not([class*=article-body--lead]) P {font-family:\'Arial\',\'Helvetica\',\'Helv\',\'sans-serif\',\'TabacSans\'; font-size:80%;}")
 /* Line added on 17.11.2016.
    Original: Primary font was TabacSans, but I've relegated it to the end of 
@@ -584,7 +589,7 @@ GM_addStyle("DIV.article-share-btns {margin-top:0px; padding-top:10px; border-to
 //ARTICLE LINKS BELOW
 GM_addStyle("@media only screen and (max-width:1023px) {.frontBlock.frontBlock.frontType13 .frontLead, .frontBlock.frontBlock.frontType13 .frontRelated, .frontBlock.frontBlock.frontType13 .frontText, .frontBlock.frontType11 .frontArticle .frontAdditional, .frontBlock.frontType11 .frontArticle .frontRelated, .frontBlock.frontType11 .frontText, .frontBlock.frontType12 .frontArticle .frontAdditional, .frontBlock.frontType12 .frontArticle .frontLead, .frontBlock.frontType12 .frontArticle .frontRelated, .frontBlock.frontType12 .frontArticle .frontText, .frontBlock.frontType16 .frontAdditional, .frontBlock.frontType2 .articleRight .frontText, .frontBlock.frontType2 .frontAdditional, .frontBlock.frontType3 .frontAdditional, .frontBlock.frontType3 .frontLead, .frontBlock.frontType3 .frontRelated, .frontBlock.frontType3 .frontText, .frontBlock.frontType4 .articleRight .frontQuote .frontLead, .frontBlock.frontType4 .articleRight .frontQuote .frontRelated, .frontBlock.frontType4.frontType10 .articleLeft .frontQuote .frontLead, .frontBlock.frontType4.frontType10 .articleLeft .frontQuote .frontRelated, .frontBlock.frontType4.frontType10 .articleLeft .frontQuote .frontText, .frontBlock.frontType6 .frontArticle .frontAdditional, .frontBlock.frontType6 .frontLead, .frontBlock.frontType6 .frontRelated, .frontBlock.frontType6 .frontText, .frontBlock.frontType7 .frontArticle .frontAdditional, .frontBlock.frontType7 .frontLead, .frontBlock.frontType7 .frontRelated, .frontBlock.frontType7 .frontText, .frontBlock.frontType8 .frontAdditional, .frontBlock.gameFriik, .frontQuote .articleText .frontText {display:block}") //
 
-//11.2016 redesign //Line added 08.01.2017.
+//11.2016 redesign | RELATED STORIES //Line added 08.01.2017.
 GM_addStyle("DIV.related-fluid-list .related-fluid-list__item .article-list__headline {font-size:109%}")
 //original: 1.375em
 /*    08.01.2017.: This can be set to lower even, as normal in-box font size for 
@@ -599,6 +604,9 @@ GM_addStyle("DIV#comments {padding-top:11px;}")
 GM_addStyle("@media only screen and (max-width:1024px) {DIV#comments .commentSortOptionsContainer {height:37px; margin-top:4px;} DIV#comments .commentSortOptionsContainer:hover {background:linear-gradient(to bottom, Silver, transparent 100%);}}")
 
 //to right, yellow, transparent 50%, transparent 100%
+
+//11.2016 redesign | IMPORTANT STORIES | Lined added on T., 10.07.2017.
+GM_addStyle("SECTION.article-editors {background-color:inherit;}") //
 
 //FOOTER
 GM_addStyle("DIV.usefulLinks {margin-left:0px; margin-right:0px; padding-left:0px; width:auto;}") //
