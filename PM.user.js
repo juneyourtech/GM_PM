@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.7.0.3
+// @version 0.8.7.0.4
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -112,7 +112,7 @@ GM_addStyle("BODY A[href*=\"www.60pluss\"], BODY A[href*=\"www.60pluss\"] STRONG
 GM_addStyle("BODY A[href*=\"www.60pluss\"]:hover, BODY A[href*=\"www.60pluss\"] STRONG:hover, BODY A[href*=\"www.60pluss\"] SPAN:hover, BODY A[href*=\"www.60pluss\"] *:hover {background-color:rgb(255, 253, 236) !important;}") //Works
 
 //PM SPORT links
-GM_addStyle("BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link), BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link) STRONG, BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link) SPAN, BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link) * {color:#005749 !important; border:none !important;}")
+GM_addStyle("BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link):not(.article-btn--facebook):not(.article-btn--twitter), BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link):not(.article-btn--facebook):not(.article-btn--twitter) STRONG, BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link):not(.article-btn--facebook):not(.article-btn--twitter) SPAN, BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link):not(.article-btn--facebook):not(.article-btn--twitter) * {color:#005749 !important; border:none !important;}")
 //original: 0, 142, 121 (#008e79); brightness 43%: 0,110,93 (#006e5d); brightness 34%: #005749
 //21.11.2016: Added :not([class*=sections-menu__link])
 //10.01.2017: Added :not(.pm-logo__link) (exact class name)
@@ -486,6 +486,12 @@ GM_addStyle("@media only screen and (max-width:1559px) {SECTION.article-body H1,
    margins to 0px, the rulesets had to be superseded twice.
    
    Interestingly, the ruleset below still supersedes the two above rulesets. */
+
+//11.2016 redesign //ARTICLE LEDE //T., 10.01.2017
+GM_addStyle("SECTION.article-body.article-body--lead P {font-size:1em;}")
+
+//GM_addStyle("@media only screen and (max-width:1559px) {SECTION.article-body.article-body--lead P {font-size:1em;}}")
+//Line aded on 10.01.2017. This is currently commented out to see, if the above line works without interference.
 
 //11.2016 redesign
 GM_addStyle("SECTION.article-body:not([class*=article-body--lead]) P {font-family:\'Arial\',\'Helvetica\',\'Helv\',\'sans-serif\',\'TabacSans\'; font-size:80%;}")
