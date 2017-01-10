@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.7.0.7
+// @version 0.8.7.0.8
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -342,7 +342,7 @@ GM_addStyle("A:hover > DIV.article-content, A:hover > DIV.article-content * {bac
 GM_addStyle("DIV.article-content {margin:0px; margin-left:3px; margin-bottom:11px; padding-top:1px; padding-left:3px;}")
 //Line added on 08.01.2017.
 
-//11.2016 redesign: background to specific words.
+//11.2016 redesign | [FRONTPAGE] and elsewhere | background to specific words.
 GM_addStyle("A[href*=\"okomisjon\"] > DIV.article-content, A[href*=\"okomisjon\"]:visited > DIV.article-content {background:transparent linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 70px, transparent 88px, transparent 100%) repeat scroll 0% 0% !important}")
 /* Line added on 08.01.2017. 
    was: background-color:rgba(0, 0, 0, 0.7) !important; */
@@ -350,21 +350,21 @@ GM_addStyle("A[href*=\"okomisjon\"]:hover > DIV.article-content, A[href*=\"okomi
 /* Line added on 08.01.2017.
    was: background-color:rgba(0, 0, 0, 0.8) !important; */
 
-//11.2016 redesign | remove hover color
+//11.2016 redesign | [FRONTPAGE] and elsewhere | specific words links | remove hover color
 GM_addStyle("A[href*=\"okomisjon\"]:hover > DIV.article-content > SPAN, A[href*=\"okomisjon\"]:visited:hover > DIV.article-content > SPAN {background-color:transparent !important;}") //08.01.2017
 
-//11.2016 redesign | modified inset for 'currently important'
+//11.2016 redesign | [FRONTPAGE] and elsewhere | specific words links | modified inset for 'currently important'
 GM_addStyle("@media only screen and (max-width:1169px) {UL.pattern-articles-list.pattern-articles-list--type-7 > LI.article-list__item > DIV > A[href*=\"okomisjon\"] + A.section-name-label {top:77px; width:100%; height:52px; max-width:222px; background-color:rgba(0, 0, 0, 0.8) !important;}}")
 /* Line added on 08.01.2017
    Turns out, that image widths in most-important sections are dependent 
    on the width of MAIN#wrap, the width of which itself is made dependent 
    on viewport width. */
 
-//11.2016 redesign | modified title for article list. Big item. Inset left unaffected.
+//11.2016 redesign | specific words links | modified title for article list. Big item. Inset left unaffected.
 GM_addStyle("UL.pattern-articles-list:not(.pattern-articles-list--type-7) > LI.article-list__item:first-child > DIV > A[href*=\"okomisjon\"] > DIV.article-list-content {position:absolute; bottom:8px; width:100%; height:122px; margin-left:3px; padding-left:3px; background-color:rgba(0, 0, 0, 0.8) !important;}")
 // Line added on 08.01.2017
 
-//11.2016 redesign | modified inset for article list. Smaller item, not the first one.
+//11.2016 redesign | specific words links | modified inset for article list. Smaller item, not the first one.
 GM_addStyle("UL.pattern-articles-list > LI.article-list__item:not(:first-child) > DIV > A[href*=\"okomisjon\"] + A.section-name-label {top:88px; width:100%; height:57px; max-width:203px; background-color:rgba(0, 0, 0, 0.8) !important;}")
 /* Line added on 08.01.2017.
 
@@ -448,13 +448,16 @@ GM_addStyle("BODY.body--article ARTICLE {background-color:inherit;}")
 
 GM_addStyle("SECTION.articlePhotos {padding-left:0x;}") //
 
-//11.2016 redesign. Line added on 08.01.2017
+//11.2016 redesign. GALLERY | Line added on 08.01.2017
 GM_addStyle("DIV.article-gallery__container > DIV.spacer {display:none;}")
 //This should remove the spacer div from above and below the gallery.
 
-//11.2016 redesign
+//11.2016 redesign | PHOTOS (ONE PHOTO?)
 GM_addStyle("FIGURE.article-media-figure {min-height:unset;}") //07.01.2017
 //Removes superfluous whitespace from below photos
+
+//11.2016 redesign | PHOTO: BIG
+GM_addStyle("DIV.fullscreen-picture {background-color:black;}") //T., 10.01.2017.
 
 GM_addStyle("SECTION.articleContent {line-height:1.4em;}") //
 
