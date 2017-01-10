@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.7.0.5
+// @version 0.8.7.0.6
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -121,8 +121,9 @@ GM_addStyle("BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link])
 GM_addStyle("BODY A[href*=\"sport.postimees\"]:hover, BODY A[href*=\"sport.postimees\"] STRONG:hover, BODY A[href*=\"sport.postimees\"] SPAN:hover, BODY A[href*=\"sport.postimees\"] *:hover {color:#008e79 !important;}") //Works
 
 //PM SPORT VISITED
-GM_addStyle("BODY A[href*=\"sport.postimees\"]:visited, BODY A[href*=\"sport.postimees\"]:visited STRONG, BODY A[href*=\"sport.postimees\"]:visited STRONG, BODY A[href*=\"sport.postimees\"]:visited SPAN, BODY A[href*=\"sport.postimees\"]:visited * {color:#00b398 !important;}") // #008502.
-//Turns out, that A:visited must be; hover applies to _all_ elements, though.
+GM_addStyle("BODY A[href*=\"sport.postimees\"]:visited, BODY A[href*=\"sport.postimees\"]:visited STRONG, BODY A[href*=\"sport.postimees\"]:visited SPAN, BODY A[href*=\"sport.postimees\"]:visited *, BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link):not(.article-btn--facebook):not(.article-btn--twitter):visited * {color:#00b398 !important;}") // #008502.
+//Turns out, that A:visited must be, while hover applies to _all_ elements, though.
+//T., 10.01.2017. Added last selector as a matter of experimentation.
 
 //"REPORTER.EE VIDEOLOOD"
 GM_addStyle("SECTION.frontType11 .frontArticle {margin-bottom:0px; margin-top:1px;}") //was: margin-bottom:14px; used selector: ARTICLE.frontArticle 
