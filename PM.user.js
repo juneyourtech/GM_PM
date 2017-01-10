@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.7.0.9
+// @version 0.8.7.1.0
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -292,10 +292,21 @@ GM_addStyle("SECTION.listSection .item {padding-left:26px; background-position:8
 
 //11.2016 redesign
 //new right bar | article links
+GM_addStyle("DIV.pattern-side--right .article-list__image {margin-top:3px;}") //T., 10.01.2017
+//Sets the image on the same top-level with headline text.
+
 GM_addStyle("DIV.pattern-side--right .article-list__headline {font-size:90%;}") //T., 10.01.2017
 GM_addStyle("@media only screen and (max-width:1559px) {DIV.pattern-side--right .article-list__headline {font-size:90%;}}")
 //T., 10.01.2017
-/* Original: 1em (1559px), 1.063em. 90% for word 'ajateenistuskohustusest' */
+/* Original: 1em (1559px), 1.063em. 90% for word 'ajateenistuskohustusest'.
+   Trouble is, though, that the font won't look good, so there is room to play 
+   with margins and spacing instead. 
+   
+   If a top margin is set to the headline, then it requires a 96px left margin. 
+   Interestingly, this extends the widths of the right bar to allow good font 
+   size, and reduces the width of left content. Looks like a dilemma for me. 
+   Ideally, it should be possible to extend the right bar without reducing the 
+   width of left content. */
 
 //LEFT CONTENT
 
