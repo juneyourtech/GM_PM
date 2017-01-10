@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.7.0.0
+// @version 0.8.7.0.1
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -106,21 +106,22 @@ GM_addStyle("A:visited:hover > H1#sectionHeader {background:none; background-col
 GM_addStyle("A[href*=\"pluss\.\"] {font-weight:300 !important; color:#e94022 !important; background:none; background-color:LavenderBlush !important; border:solid 1px #e94022 !important;}") // A[href*=pluss] strong, A[href*=pluss] span, A[href*=pluss] *
 
 //PM 60PLUSS LINKS
-GM_addStyle("BODY A[href*=\"www.60pluss\"], BODY A[href*=\"www.60pluss\"] strong, BODY A[href*=\"www.60pluss\"] span, BODY A[href*=\"www.60pluss\"] * {color:brown !important; background-color:inherit !important; border:none !important;}") //Works
+GM_addStyle("BODY A[href*=\"www.60pluss\"], BODY A[href*=\"www.60pluss\"] STRONG, BODY A[href*=\"www.60pluss\"] SPAN, BODY A[href*=\"www.60pluss\"] * {color:brown !important; background-color:inherit !important; border:none !important;}") //Works
 
 //PM 60PLUSS HOVER
-GM_addStyle("BODY A[href*=\"www.60pluss\"]:hover, BODY A[href*=\"www.60pluss\"] strong:hover, BODY A[href*=\"www.60pluss\"] span:hover, BODY A[href*=\"www.60pluss\"] *:hover {background-color:rgb(255, 253, 236) !important;}") //Works
+GM_addStyle("BODY A[href*=\"www.60pluss\"]:hover, BODY A[href*=\"www.60pluss\"] STRONG:hover, BODY A[href*=\"www.60pluss\"] SPAN:hover, BODY A[href*=\"www.60pluss\"] *:hover {background-color:rgb(255, 253, 236) !important;}") //Works
 
 //PM SPORT links
-GM_addStyle("BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]), BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]) strong, BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]) span, BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]) * {color:#005749 !important; border:none !important;}")
+GM_addStyle("BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link), BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link) STRONG, BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link) SPAN, BODY A[href*=\"sport.postimees\"]:not([class*=sections-menu__link]):not(.pm-logo__link) * {color:#005749 !important; border:none !important;}")
 //original: 0, 142, 121 (#008e79); brightness 43%: 0,110,93 (#006e5d); brightness 34%: #005749
 //21.11.2016: Added :not([class*=sections-menu__link])
+//10.01.2017: Added :not(.pm-logo__link) (exact class name)
 
 //PM SPORT HOVER
-GM_addStyle("BODY A[href*=\"sport.postimees\"]:hover, BODY A[href*=\"sport.postimees\"] strong:hover, BODY A[href*=\"sport.postimees\"] span:hover, BODY A[href*=\"sport.postimees\"] *:hover {color:#008e79 !important;}") //Works
+GM_addStyle("BODY A[href*=\"sport.postimees\"]:hover, BODY A[href*=\"sport.postimees\"] STRONG:hover, BODY A[href*=\"sport.postimees\"] SPAN:hover, BODY A[href*=\"sport.postimees\"] *:hover {color:#008e79 !important;}") //Works
 
 //PM SPORT VISITED
-GM_addStyle("BODY A[href*=\"sport.postimees\"]:visited, BODY A[href*=\"sport.postimees\"]:visited strong, BODY A[href*=\"sport.postimees\"]:visited strong, BODY A[href*=\"sport.postimees\"]:visited span, BODY A[href*=\"sport.postimees\"]:visited * {color:#00b398 !important;}") // #008502.
+GM_addStyle("BODY A[href*=\"sport.postimees\"]:visited, BODY A[href*=\"sport.postimees\"]:visited STRONG, BODY A[href*=\"sport.postimees\"]:visited STRONG, BODY A[href*=\"sport.postimees\"]:visited SPAN, BODY A[href*=\"sport.postimees\"]:visited * {color:#00b398 !important;}") // #008502.
 //Turns out, that A:visited must be; hover applies to _all_ elements, though.
 
 //"REPORTER.EE VIDEOLOOD"
@@ -580,7 +581,8 @@ GM_addStyle("@media only screen and (max-width:1023px) {.frontBlock.frontBlock.f
 GM_addStyle("DIV.related-fluid-list .related-fluid-list__item .article-list__headline {font-size:120%}")
 //original: 1.375em
 /* This can be set to lower even, as normal in-box font size for 
-   'käsipallikoondislased' is 109%. */
+   'käsipallikoondislased' is 109%.
+   T., 10.01.2017: Set to 115%, because 'jalgpallirevolutsionäär' touched the next box. */
 
 //COMMENT ANCHOR
 GM_addStyle("DIV#comments {padding-top:11px;}")
