@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.7.1.0
+// @version 0.8.7.1.1
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -495,6 +495,12 @@ GM_addStyle("DIV.articleContentImage img {border:0px;}") //
 
 GM_addStyle("DIV.articleContentImage .articleContentImageText {padding-left:1px; padding-top:1px; color:black}") //
 //17.11.2016: Added color after 11.2016 redesign.
+
+//EMBEDDED uTube videos | 11.2016 redesign
+GM_addStyle("BODY.site-center-aligned #player {display:inline;}") //18.01.2017
+//experimental
+
+//APPARENTLY ARTICLE TEXT
 
 GM_addStyle("ARTICLE.article P {padding-left:2px; padding-right:2px}") //
 
