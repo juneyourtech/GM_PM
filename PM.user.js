@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.7.1.2
+// @version 0.8.7.1.3
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -339,9 +339,14 @@ GM_addStyle("@media only screen and (max-width:1559px) {DIV.article-container.fl
 //FONT FIX
 GM_addStyle("SECTION#leftContent > ARTICLE {font-family:\'Arial\',\'sans-serif\'; font-size:10pt; color:black;}")
 
-//SUBSITE FRONTPAGE LINKS and BLURB: 11.2016 redesign
+//SUBSITE [FRONTPAGE] LINKS and BLURB/LEDE: 11.2016 redesign
+GM_addStyle("DIV.article-list__lead {font-family:'\Arial\','\Helvetica\','\Helv\','\sans-serif\','\TabacSans\'; font-size:75%;}") //P., 22.01.2017
+//Font into Arial for better legibility
+
+//11.2016 redesign | [FRONTPAGE?] | LINKS and BLURB
 GM_addStyle("DIV.content-wrapper--section .article-list__lead {font-family:\'Arial\',\'Helvetica\',\'Helv\',\'sans-serif\',\'TabacSans\'; font-size:84%;}") //18.11.2016
 //84% applies in Windows xp, modern Firefox, and at 100% viewport zoom.
+//These two rules could be consolidated.
 
 //[FRONTPAGE] IN-IMAGE TITLES / SUBSITE LINKS AS IMAGE INSETS //Ruleset: 18.11.2016
 GM_addStyle("A.section-name-label {top:1px; left:3px; padding-top:0px; padding-left:3px; padding-right:3px; padding-bottom:1px; font-size:0.7em;}")
@@ -350,15 +355,18 @@ padding-left:3px; padding-right:3px; padding-bottom:2px; with font-size:0.75em
 padding-top:0px; padding-left:3px; padding-right:3px; padding-bottom:1px; with font-size:0.7em
 */
 
-//11.2016 redesign | [FRONTPAGE] top links to articles
+//11.2016 redesign | [FRONTPAGE] TOP links to articles
 GM_addStyle("A:hover > DIV.article-content, A:hover > DIV.article-content * {background-color:transparent !important;}")
 /* Line added on 08.01.2017.
    This overrides hover background color for top links, since the original 
    already has good hover properties for some items. */
 
-//11.2016 redesign | [FRONTPAGE] top links to articles: specifics
+//11.2016 redesign | [FRONTPAGE] TOP links to articles: specifics
 GM_addStyle("DIV.article-content {margin:0px; margin-left:3px; margin-bottom:11px; padding-top:1px; padding-left:3px;}")
 //Line added on 08.01.2017.
+
+//11.2016 redesign | [FONTPAGE] TOP links with dark bg
+GM_addStyle("BODY A[href*=\"sport.postimees\"]:not([class*=\"sections-menu__link\"]):not(.pm-logo__link):not(.article-btn--facebook):not(.article-btn--twitter) SPAN.article-content__headline {color:#00b398 !important;}")
 
 //11.2016 redesign | [FRONTPAGE] and elsewhere | background to specific words.
 GM_addStyle("A[href*=\"okomisjon\"] > DIV.article-content, A[href*=\"okomisjon\"]:visited > DIV.article-content {background:transparent linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 70px, transparent 88px, transparent 100%) repeat scroll 0% 0% !important}")
@@ -378,11 +386,11 @@ GM_addStyle("@media only screen and (max-width:1169px) {UL.pattern-articles-list
    on the width of MAIN#wrap, the width of which itself is made dependent 
    on viewport width. */
 
-//11.2016 redesign | specific words links | modified title for article list. Big item. Inset left unaffected.
+//11.2016 redesign | [FRONTPAGE] specific words links | modified title for article list. Big item. Inset left unaffected.
 GM_addStyle("UL.pattern-articles-list:not(.pattern-articles-list--type-7) > LI.article-list__item:first-child > DIV > A[href*=\"okomisjon\"] > DIV.article-list-content {position:absolute; bottom:8px; width:100%; height:122px; margin-left:3px; padding-left:3px; background-color:rgba(0, 0, 0, 0.8) !important;}")
 // Line added on 08.01.2017
 
-//11.2016 redesign | specific words links | modified inset for article list. Smaller item, not the first one.
+//11.2016 redesign | [FRONTPAGE] specific words links | modified inset for article list. Smaller item, not the first one.
 GM_addStyle("UL.pattern-articles-list > LI.article-list__item:not(:first-child) > DIV > A[href*=\"okomisjon\"] + A.section-name-label {top:88px; width:100%; height:57px; max-width:203px; background-color:rgba(0, 0, 0, 0.8) !important;}")
 /* Line added on 08.01.2017.
 
@@ -394,7 +402,7 @@ Currently important: max-width:222px; top:77px; height:52px;
 //11.2016 redesign | [FRONTPAGE] top links to articles, inner element.
 GM_addStyle("SPAN.article-content__headline {margin-right:1px;}") //08.01.2017
 
-//11.2016 redesign | [FRONTPAGE] mainline links to articles
+//11.2016 redesign | [FRONTPAGE] mainline links to articles (type 7)
 GM_addStyle("UL.pattern-articles-list.pattern-articles-list--type-7 .article-list__item .article-list__headline, UL.pattern-articles-list.pattern-articles-list--type-7 .article-list__item:first-child:nth-last-child(4) .article-list__headline {font-size:130%;}")
 //Added 08.01.2017 //Original: 1.5em (24px);
 //130% computed to 20.8px, applies to 'veokipommiplahvatuses'
@@ -405,6 +413,12 @@ GM_addStyle("@media only screen and (max-width:1559px) {UL.pattern-articles-list
 //Added 08.01.2017. | Original: 1.375em (22px)
 //rem :first-child:nth-last-child(4) from .article-list__item; readded later
 //Conditions: xpsp3, Gecko39, 100%
+
+//11.2016 redeisgn | [FRONTPAGE] mainline links to articles (type 12) //P., 22.01.2017
+GM_addStyle("UL.pattern-articles-list.pattern-articles-list--type-12 .article-list__item:first-child:nth-last-child(2) ~ .article-list__item .article-list__headline {font-size:128%}")
+//for word 'heategevusorganisatsioonis'
+/* At 1559+ pix, the containing big div gets much thinner relative to overall 
+   viewport width. */
 
 //NATIVE VIDEO hover. This is in part about Flashblock. //31.10.2016.
 GM_addStyle("HTML > BODY .jwplayer.jw-flag-flash-blocked .jw-preview {display:block; z-index:0;}")
