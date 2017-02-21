@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.7.1.4
+// @version 0.8.7.1.5
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -652,10 +652,17 @@ GM_addStyle("DIV#comments {padding-top:11px;}")
 
 //11.2016 redesign with 02.2017 upstream changes //Line added T., 21.02.2017
 GM_addStyle("DIV.flex--equal-width > DIV#comments {margin-top:-25px;}")
+//Removes large negative margin that would place top comments out of view.
 
 GM_addStyle("@media only screen and (max-width:1024px) {DIV#comments .commentSortOptionsContainer {height:37px; margin-top:4px;} DIV#comments .commentSortOptionsContainer:hover {background:linear-gradient(to bottom, Silver, transparent 100%);}}")
 
 //to right, yellow, transparent 50%, transparent 100%
+
+//COMMENT THUMBS
+//11.2016 redesign with 02.2017 upstream changes //Line added T. 21.02.2017
+GM_addStyle("SPAN.comment-thumb--up {background-color:green;}")
+GM_addStyle("SPAN.comment-thumb--down {background-color:maroon;}")
+//border-bottom:medium solid maroon
 
 //11.2016 redesign | IMPORTANT STORIES | Lined added on T., 10.07.2017.
 GM_addStyle("SECTION.article-editors {background-color:inherit;}") //
