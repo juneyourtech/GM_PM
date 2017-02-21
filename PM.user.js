@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.7.1.3
+// @version 0.8.7.1.4
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -649,6 +649,9 @@ GM_addStyle("DIV.related-fluid-list .related-fluid-list__item .article-list__hea
 
 //COMMENT ANCHOR
 GM_addStyle("DIV#comments {padding-top:11px;}")
+
+//11.2016 redesign with 02.2017 upstream changes //Line added T., 21.02.2017
+GM_addStyle("DIV.flex--equal-width > DIV#comments {margin-top:-25px;}")
 
 GM_addStyle("@media only screen and (max-width:1024px) {DIV#comments .commentSortOptionsContainer {height:37px; margin-top:4px;} DIV#comments .commentSortOptionsContainer:hover {background:linear-gradient(to bottom, Silver, transparent 100%);}}")
 
