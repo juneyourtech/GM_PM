@@ -179,6 +179,13 @@ DIV.liveblog .event .content EM {color:#cdcdcd;}
 @-moz-document domain('arvamus.postimees.ee') {
 SECTION.articleContent, SECTION.articleLead {background-color:rgba(0,0,0,0.75); color:white;}
 }
+@-moz-document url('http://www.postimees.ee/teemad') {
+  SECTION#leftContent {display:none;}
+  SECTION#rightContent {display:inline-block;}
+  /* Whole -moz-document and contents added on R., 24.02.2017.
+     Still in testing phase. */
+}
+
 @-moz-document domain('facebook.com') {
 HTML#facebook > BODY .pluginSkinLight ._5pbx {color:Silver;}
 }
