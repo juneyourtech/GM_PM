@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.7.1.5
+// @version 0.8.7.1.6
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -29,7 +29,7 @@ GM_addStyle("HTML, BODY.body--article {overflow-x:auto; min-width:480px;}")
 //L., 17.12.2016: +overflow-x and min-width.
 
 //ARVAMUS et al. BG
-GM_addStyle("div#bgOverlay {position:fixed;}")
+GM_addStyle("DIV#bgOverlay {position:fixed;}")
 
 //LINK MOUSEOVER BGCOLOR
 GM_addStyle("A:hover, A:hover strong, A:hover span, A:hover * {background-color:Lavender !important;}")
@@ -67,7 +67,7 @@ GM_addStyle("ARTICLE.frontSuperArt > A:hover, ARTICLE.frontSuperArt > A:hover ST
 GM_addStyle("A > H1#sectionHeader {background-color:inherit; border:solid 1px white;}") //
 
 //IN-ARTICLE LINK COLOR
-GM_addStyle("HTML > BODY .article .articleContent a, BODY.section-81 .article .articleContent a {color:blue;}") //body.section-123 body.section-2283 //works
+GM_addStyle("HTML > BODY .article .articleContent A, BODY.section-81 .article .articleContent A {color:blue;}") //body.section-123 body.section-2283 //works
 
 //VISITED LINKS
 /* GM_addStyle("BODY {background-color:black !important;}") */ //works
@@ -206,7 +206,7 @@ GM_addStyle("DIV#moveMenuCont .pmMainCont {background-color:transparent !importa
 //linear-gradient(to right, rgb(192, 192, 192) 200px, transparent 650px,
 
 //BLUE BAR AFTER SCROLL
-GM_addStyle("DIV#moveMenuCont .pmMainNav, #paidMenu nav, .headerProfileContainer {max-width:unset; max-width:100%; width:100%; height:25px; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:16px; padding-top:0px; padding-bottom:0px; padding-left:132px; background-color:transparent !important; background:linear-gradient(to bottom, rgb(0, 91, 187), rgb(0, 91, 187) 17px, transparent 17px, transparent 100%); line-height:17px;}")
+GM_addStyle("DIV#moveMenuCont .pmMainNav, #paidMenu NAV, .headerProfileContainer {max-width:unset; max-width:100%; width:100%; height:25px; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:16px; padding-top:0px; padding-bottom:0px; padding-left:132px; background-color:transparent !important; background:linear-gradient(to bottom, rgb(0, 91, 187), rgb(0, 91, 187) 17px, transparent 17px, transparent 100%); line-height:17px;}")
 /* was: margin left-right were auto in order to center the mainNav block. 
         background-color:transparent; border-bottom:solid 1px rgb(0, 91, 187); */
 
@@ -228,9 +228,9 @@ GM_addStyle(".pmMainNav A {line-height:unset; margin-bottom:8px;}")
 
 GM_addStyle("A.mainSectionLogo, A.mainSectionLogo:visited {background-color:inherit !important; color:white !important;}") //
 
-GM_addStyle("NAV.pmSubNav a {background-color:rgba(255,255,255,0.5) !important;}") //
+GM_addStyle("NAV.pmSubNav A {background-color:rgba(255,255,255,0.5) !important;}") //
 
-GM_addStyle("NAV.pmSubNav a:hover {background-color:rgba(255,255,255,0.75) !important;}") //
+GM_addStyle("NAV.pmSubNav A:hover {background-color:rgba(255,255,255,0.75) !important;}") //
 
 //HEADER TALK/COMMENTS BUBBLE //new design of 11.2016 //Added 07.01.2017
 GM_addStyle("DIV.header__visible-in-article > A {padding-top:3px;}") //09.01.2017
@@ -296,7 +296,7 @@ GM_addStyle("DIV.pattern-side--right .article-list__image {margin-top:3px;}") //
 //Sets the image on the same top-level with headline text.
 
 GM_addStyle("DIV.pattern-side--right .article-list__headline {font-size:90%;}") //T., 10.01.2017
-GM_addStyle("@media only screen and (max-width:1559px) {DIV.pattern-side--right .article-list__headline {font-size:90%;}}")
+GM_addStyle("@media only screen and (max-width:1559px) { DIV.pattern-side--right .article-list__headline {font-size:90%;} }")
 //T., 10.01.2017
 /* Original: 1em (1559px), 1.063em. 90% for word 'ajateenistuskohustusest'.
    Trouble is, though, that the font won't look good, so there is room to play 
@@ -318,12 +318,16 @@ GM_addStyle("SECTION#leftContent {background-color:transparent;}")
 GM_addStyle("SECTION#leftContent > ARTICLE, SECTION#leftContent > DIV {background-color:inherit;}") //rgba(255,255,255,0.25)
 
 //11.2016. redesign
-GM_addStyle("DIV.content-wrapper {background-color:inherit;}") //07.01.2017
+GM_addStyle("DIV.content-wrapper {background-color:inherit;}") //+07.01.2017
 
-//11.2016. redesign
+//11.2016. redesign{}
 GM_addStyle("MAIN#wrap {border-left:1px solid #B8B8B8;}") //07.01.2017
 //adds border to better orient eye focus when reading article content.
 //This is one of the primary article containers.
+//As of 05.2017, a container with this ID selector does not seem to exist.
+
+//2017 design update
+GM_addStyle("BODY.body--article MAIN .wrap {background-color:inherit}") //27.05.2017
 
 //11.2016 redesign
 GM_addStyle("DIV.article-container, DIV.article-side {background-color:inherit;}") //17.11.2016.
@@ -501,11 +505,12 @@ GM_addStyle("SECTION.articleContent {line-height:1.4em;}") //
 
 GM_addStyle("SECTION.articleContent > P {margin-left:1px; margin-right:1px;}") //
 
-GM_addStyle("DIV.articleContentImage full {max-width:648px; padding:0px;}") //
+GM_addStyle("DIV.articleContentImage full {max-width:648px; padding:0px;}")
+//Are there issues with a space here and a dot below between selector and 'full'?
 
 GM_addStyle("DIV.articleContentImage.full {clear:both;}")
 
-GM_addStyle("DIV.articleContentImage img {border:0px;}") //
+GM_addStyle("DIV.articleContentImage IMG {border:0px;}") //
 
 GM_addStyle("DIV.articleContentImage .articleContentImageText {padding-left:1px; padding-top:1px; color:black}") //
 //17.11.2016: Added color after 11.2016 redesign.
@@ -622,7 +627,7 @@ GM_addStyle("IFRAME[src*=\'facebook.com\'] {background-color:Silver;}")
 
 //YOUTUBE PLAYER FIT TO WIDTH
 
-GM_addStyle("OBJECT#videoPlayerContent {width:100%}") //Works. Also consider SECTION > OBJECT
+GM_addStyle("OBJECT#videoPlayerContent {width:100%;}") //Works. Also consider SECTION > OBJECT
 
 //PAYWALLED ARTICLE TEASER FADE //
 GM_addStyle("SECTION.articleTeaser[data-fade-text]::before {background:linear-gradient(to bottom, rgba(255, 255, 255, 0) 0px, rgba(255, 255, 255, 0) 95%, #FFF 100%) repeat scroll 0% 0%}")
@@ -641,11 +646,11 @@ GM_addStyle("@media only screen and (max-width:1023px) {.frontBlock.frontBlock.f
 //11.2016 redesign | RELATED STORIES //Line added 08.01.2017.
 GM_addStyle("DIV.related-fluid-list .related-fluid-list__item .article-list__headline {font-size:109%}")
 //original: 1.375em
-/*    08.01.2017.: This can be set to lower even, as normal in-box font size for 
-   'käsipallikoondislased' is 109%.
-   T., 10.01.2017: First set to 115%, because 'jalgpallirevolutsionäär' touched 
-   the next box. Then to 109%, when it turned out, that as the last item in the 
-   carousel list, the last letter of that long a word wasn't visible. */
+/*  08.01.2017.: This can be set to lower even, as normal in-box font size for 
+    'käsipallikoondislased' is 109%.
+T., 10.01.2017: First set to 115%, because 'jalgpallirevolutsionäär' touched 
+    the next box. Then to 109%, when it turned out, that as the last item in the 
+    carousel list, the last letter of that long a word wasn't visible. */
 
 //COMMENT ANCHOR
 GM_addStyle("DIV#comments {padding-top:11px;}")
@@ -663,6 +668,10 @@ GM_addStyle("@media only screen and (max-width:1024px) {DIV#comments .commentSor
 GM_addStyle("SPAN.comment-thumb--up {background-color:green;}")
 GM_addStyle("SPAN.comment-thumb--down {background-color:maroon;}")
 //border-bottom:medium solid maroon
+
+//COMMENT TEXT
+//11.2016 redesign, 2017 spring design update //Line added 27.05.2017.
+GM_addStyle("DIV.article-comment-content {font-family:'\Arial'\,\'Hevetica\',\'Helv\',\'sans-serif\',\'TabacSans\'; font-size:80%; line-height:1.6em;}")
 
 //11.2016 redesign | IMPORTANT STORIES | Lined added on T., 10.07.2017.
 GM_addStyle("SECTION.article-editors {background-color:inherit;}") //
