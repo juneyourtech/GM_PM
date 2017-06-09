@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.7.1.6
+// @version 0.8.7.1.7
 // @include       *.postimees.ee/*
 // @include       http://www.60pluss.ee/*
 // @include       http://www.e24.ee/*
@@ -418,7 +418,7 @@ GM_addStyle("@media only screen and (max-width:1559px) {UL.pattern-articles-list
 //rem :first-child:nth-last-child(4) from .article-list__item; readded later
 //Conditions: xpsp3, Gecko39, 100%
 
-//11.2016 redeisgn | [FRONTPAGE] mainline links to articles (type 12) //P., 22.01.2017
+//11.2016 redesign | [FRONTPAGE] mainline links to articles (type 12) //P., 22.01.2017
 GM_addStyle("UL.pattern-articles-list.pattern-articles-list--type-12 .article-list__item:first-child:nth-last-child(2) ~ .article-list__item .article-list__headline {font-size:128%}")
 //for word 'heategevusorganisatsioonis'
 /* At 1559+ pix, the containing big div gets much thinner relative to overall 
@@ -673,8 +673,11 @@ GM_addStyle("SPAN.comment-thumb--down {background-color:maroon;}")
 //11.2016 redesign, 2017 spring design update //Line added 27.05.2017.
 GM_addStyle("DIV.article-comment-content {font-family:'\Arial'\,\'Hevetica\',\'Helv\',\'sans-serif\',\'TabacSans\'; font-size:80%; line-height:1.6em;}")
 
-//11.2016 redesign | IMPORTANT STORIES | Lined added on T., 10.07.2017.
+//11.2016 redesign | IMPORTANT STORIES | Line added on K., 10.05.2017.
 GM_addStyle("SECTION.article-editors {background-color:inherit;}") //
+
+//KOOMIKS //11.2016-06.2017 redesign | Line added on R., 09.06.2017.
+GM_addStyle("DIV.comics-items .comic-item .comic-img  {width:100%; max-width:unset;}") //
 
 //FOOTER
 GM_addStyle("DIV.usefulLinks {margin-left:0px; margin-right:0px; padding-left:0px; width:auto;}") //
