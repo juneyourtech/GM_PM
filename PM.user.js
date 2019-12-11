@@ -3,16 +3,17 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.7.1.9
+// @version 0.8.7.2.0
 // @include       *.postimees.ee/*
-// @include       http://www.60pluss.ee/*
-// @include       http://www.e24.ee/*
-// @include       http://www.naine24.ee/*
-// @include       http://www.tallinnapostimees.ee/*
-// @include       http://www.tallinncity.ee/*
-// @include       http://www.tarbija24.ee/*
-// @include       http://www.tartupostimees.ee/*
-// @include       http://www.parnupostimees.ee/*
+// @include       https://rus.postimees.ee/*
+// @include       https://www.60pluss.ee/*
+// @include       https://www.e24.ee/*
+// @include       https://www.naine24.ee/*
+// @include       https://www.tallinnapostimees.ee/*
+// @include       https://www.tallinncity.ee/*
+// @include       https://www.tarbija24.ee/*
+// @include       https://www.tartupostimees.ee/*
+// @include       https://www.parnupostimees.ee/*
 // @include       *.infogram.com/*
 // @grant		GM_addStyle
 // ==/UserScript==
@@ -201,6 +202,9 @@ GM_addStyle("HEADER.site-header .icons .icon:first-child {margin-right:0px;}"); 
 /* 2018 redesign: HEADER/NAV */
 GM_addStyle("NAV.menu-items {display:block; overflow:hidden; height:45px;}");
 
+/* 2019 (R) | HEADER/NAV (BLUE BAR: "PM TÄNANE LEHT ARVAMUS") */
+GM_addStyle("NAV.menu-items.menu-items--main {min-width:unset;}");
+
 /* 2018 redesign: HEADER/NAV: PM ARVAMUS MEIE EESTI, jne. */
 GM_addStyle("NAV.menu-items.menu-items--main.js-sticky-menu {height:17px; background-color:#123e9d; padding-left:0px; padding-right:0px;}");
 /* 30.11.2018 */
@@ -227,6 +231,44 @@ GM_addStyle("BODY NAV.menu-items.menu-items--main.js-sticky-menu A.menu-item[HRE
 /* sport dark color:#005749; | green
  medium: #008e79
 lighter: #00b398 */
+
+/* 2019 R.: MENU ABOVE HEADER (originally gray bg) | E., 04.11.2019. */
+GM_addStyle("DIV.tanane-leht-header-menu {background-color:black; }");
+
+/* 2019 R.: MENU ABOVE HEADER (originally gray bg) | E., 04.11.2019. */
+GM_addStyle("DIV.tanane-leht-header-menu > DIV.container-1600 {height:16px !important;}");
+/* !important is important :-) */
+
+/* 2019 R: MENU ABOVE HEADER container (be careful here) */
+GM_addStyle("DIV.tanane-leht-header-menu .menu-items.menu-items--sub {min-height:auto;}");
+/* N., 07.11.2019.: alternative selector:
+                    NAV.submenu-container > DIV.menu-items */
+
+GM_addStyle("DIV.tanane-leht-header-menu .menu-items.menu-items--sub .menu-item {color:LightSteelBlue;}");
+
+/* 2019 R.: LEHT HEADER (includes SISUKORD, |ARVAMUS|, POSTIMEES, MINU LOOD, SISENE | E., 04.11.2019. */
+GM_addStyle("HEADER.tanane-leht-header {background-color:MidnightBlue; top:16px;}");
+/* Original bgcolor:white; */
+
+/* 2019 R: LEHT HEADER INNER SIDES (directly affects all inner elements on hover) | E., 04.11.2019. */
+GM_addStyle("HEADER.tanane-leht-header:hover * {color:white;}");
+/* works */
+
+/* 2019 R.: LEHT HEADER container (still includes SISUKORD, |ARVAMUS|, Postimees, MINU LOOD, SISENE | E., 04.11.2019. */
+GM_addStyle("HEADER.tanane-leht-header > DIV {height:22px !important;}");
+/* !important is important :-) */
+
+/* 2019 R: LEHT HEADER INNER SIDES (directly affects SISUKORD | ARVAMUS, Postimees, MINU LOOD, SISENE) | E., 04.11.2019. */
+GM_addStyle("DIV.tanane-leht-header__placement {background-color:rgba(255,255,255,0.2);}");
+
+/* 2019 R: LEHT HEADER INNER SIDES (directly affects SISUKORD | ARVAMUS, Postimees, MINU LOOD, SISENE) | E., 04.11.2019. */
+GM_addStyle("HEADER.tanane-leht-header:hover DIV.tanane-leht-header__placement {background-color:inherit;}");
+
+/* 2019 R: LEHT HEADER INNER SIDES (directly affects "Postimees" only) | E., 04.11.2019. */
+GM_addStyle("DIV.tanane-leht-header__placement--center {background-color:inherit; padding-top:3px;}");
+
+/* 2019 R: LEHT HEADER INNER SIDES (directly affects section name only) | E., 04.11.2019. */
+GM_addStyle("A.tanane-leht-header__article-section {padding-top:1px; font-weight:600; color:#ddd;}");
 
 /* ARTICLE: BIG STORY (new design, Autumn 2015) */
 GM_addStyle("SECTION#fullScreenImage DIV.container {background:none;}");
@@ -376,10 +418,23 @@ GM_addStyle("ARTICLE.list-article--content-on-image-big .list-article__text {bot
 GM_addStyle("DIV.custom-block .custom-block__bottom {background-color:inherit; padding-bottom:0px; padding-top:1px; padding-left:0px; padding-right:0px; margin:0px 0px 0px 0px;}");
 /* 16.04.2018 */
 
-/* additional stories on top of big story (insets) | 16.04.2018 */
-GM_addStyle("DIV.custom-block .custom-block__bottom .list-article {background-color:rgba(255,255,255,0.25); margin-right:0px;}");
+/* [FRONTPAGE] additional stories on top of big story (insets) | Also: top-story / big-story sub-stories | 16.04.2018 */
+GM_addStyle("DIV.custom-block .custom-block__bottom .list-article {background-color:rgba(255,255,255,0.25); margin-right:1px; max-width:unset;}");
+/* N., 14.11.2019.: margin-right set to 1px from 0px; added an unset max-width. */
 
+/* [FRONTPAGE] Coincidentally, this selector applies to big-story / top-story sub-stories.*/
 GM_addStyle("DIV.custom-block .custom-block__bottom .list-article__text {padding-left:75px; padding-right:10px;}");
+/* Comment added N., 14.11.2019.:
+This is probably some kind of an older design that no longer appears. 
+It was likely meant to allow left-side small pictures. I've kept it for 
+legacy purposes, but the below selector now supersedes it. */
+
+/* 2019 R [FRONTPAGE] | Applies to big-story / top-story sub-stories. 
+ | N., 14.11.2019. */
+GM_addStyle("SECTION.flex--equal-width > DIV.custom-block .custom-block__bottom ARTICLE.list-article > .list-article__text {padding-left:0px; padding-right:1px;}");
+
+/* 2019 R [FRONTPAGE] | Applies to big-story / top-story sub-story images. | N., 14.11.2019. */
+GM_addStyle("DIV.custom-block__masonry .custom-block__bottom.custom-block__bottom-4 .list-article__image {dislay:inline-flex; width:100%;}");
 
 /* FRONTPAGE | 2018 redesign | BIGGER TOPIC (but not big story) header */
 GM_addStyle("SECTION.structured-content .group-topic-with-custom-header {background-color:inherit;}");
@@ -388,6 +443,14 @@ GM_addStyle("SECTION.structured-content .group-topic-with-custom-header {backgro
    includes BIG WEATHER ITEM BELOW */
 GM_addStyle("DIV.layout {background-color:inherit; padding:0px;}");
 /* covers */
+
+/* FRONTPAGE (and articles) | 2019 (R) | BLUE BAR / BLUE HEADER ("PM TÄNANE LEHT ARVAMUS") & SUBMENU ("Kõik uudised | Podcast | juhtimine") */
+GM_addStyle("DIV.layout.layout--1030 {min-width:unset;}");
+/* K., 06.11.2019. */
+
+/* FRONTAGE (and articles) | 2019 (R) | BELOW BLUE BAR / B. BLUE HEADER / B. BLUE NAV*/
+GM_addStyle("DIV.menu-items--sub {flex-wrap:wrap; height:auto; min-height:35px;}");
+/* K., 06.11.2019. */
 
 /* FRONTPAGE | 2018 redesign | BIGGER TOPIC (but not big story) */
 GM_addStyle("SECTION.structured-content .group-topic-with-custom-header--full-bg-image {padding-right:0px; padding-bottom:0px; padding-left:0px;}");
@@ -496,14 +559,14 @@ GM_addStyle("SECTION[data-v-304de258] .weather-header .weather-header__data-grou
 GM_addStyle("SECTION[data-v-304de258] .weather-header .weather-header__right-side {display:inline; width:auto; left:unset; top:unset; height:unset; min-height:unset;}");
 /* K., 28.08.2019: Fix: :1:84 expected end of value, but found ','; error in parsing display. Another fix: replaced auto: with auto;*/
 
+/* 2018 Design | WEATHER */
 GM_addStyle("DIV.weather-header__right-side[data-v-380906ac] {position:relative;}");
 
+/* 2018 Design | WEATHER */
 GM_addStyle("SECTION[data-v-304de258] .weather-header DIV.weather-header__right-side > DIV.weather-header__data-group.flex--align-items-center.flex--justify-content-space-between {float:left;}");
 
-/* "pikem prognoos" */
+/* 2018 Design | ILM "pikem prognoos" */
 GM_addStyle("SECTION[data-v-304de258] .weather-header .weather-header__extended-forecast {left:0px; bottom:0px; height:20px;}");
-
-/* GM_addStyle(" {}"); */
 
 /* [FRONTPAGE / OTHER PAGES] RIGHT bar */
 GM_addStyle("SECTION#rightContent {padding-left:5px;}");
@@ -513,7 +576,7 @@ GM_addStyle("SECTION#rightContent {padding-left:5px;}");
 /* [FRONTPAGE / OTHER PAGES] RIGHT BAR 19.02.2015 */
 /* GM_addStyle("SECTION#rightContent {display:block; position:absolute; top:200px; right:0px;}"); */
 
-/* USERSTYLE 'ABOUT' HOVER | SECTION#rightContent:before | SECTION#rightContent:hover:before */
+/* [FRONTPAGE] USERSTYLE 'ABOUT' HOVER | SECTION#rightContent:before | SECTION#rightContent:hover:before */
 GM_addStyle("DIV.subscLinkBlock:before, DIV.newsletter-form:after {content:\'Kasutajaskripti info\'; display:inline-block; width:100%; margin:0px; padding:0px; background-color:inherit; color:#0077ee; font-size:x-small; font-family:\'Verdana\',\'sans-serif\',\'Arial\'; text-decoration:underline; text-align:right; height:15px;}");
 /* DIV.pmHeaderBar:after | top:12px; right:0px; border:solid 1px black; background-color:Silver; color:#0077ee; height:97px; width:515px; overflow-y:none; border:solid 1px black;
    NAV.pmSubNav:after
@@ -569,14 +632,14 @@ GM_addStyle("DIV.pattern-side--right .article-list__headline {font-size:90%;}");
 GM_addStyle("@media only screen and (max-width:1559px) { DIV.pattern-side--right .article-list__headline {font-size:90%;} }");
 /* T., 10.01.2017 */
 /* Original: 1em (1559px), 1.063em. 90% for word 'ajateenistuskohustusest'.
-   Trouble is, though, that the font won't look good, so there is room to play 
-   with margins and spacing instead. 
+   Trouble is, though, that the font won't look good, so there is room 
+   to play with margins and spacing instead. 
    
-   If a top margin is set to the headline, then it requires a 96px left margin. 
-   Interestingly, this extends the widths of the right bar to allow good font 
-   size, and reduces the width of left content. Looks like a dilemma for me. 
-   Ideally, it should be possible to extend the right bar without reducing the 
-   width of left content. */
+   If a top margin is set to the headline, then it requires a 96px left 
+   margin. Interestingly, this extends the widths of the right bar to 
+   allow good font size, and reduces the width of left content. Looks 
+   like a dilemma for me. Ideally, it should be possible to extend the 
+   right bar without reducing the width of left content. */
 
 /* LEFT CONTENT */
 
@@ -661,22 +724,35 @@ GM_addStyle("DIV.commercial-articles {background-color:transparent; padding:0px;
 
 border-left:solid 1px maroon; border-right:solid 1px maroon; border-bottom:solid 1px maroon; */
 
+/* 2019 R to 2018 design | "SOOVITAME LUGEDA" top RIGHT side | 
+   parem pool | N., 14.11.2019. */
+GM_addStyle("DIV.article .structured-content__group.structured-content__group--aside {background-color:inherit; border:solid 1px #707070; margin-top:0px;}");
+/* bgcolor original was: #F8F8F8*/
+
 /* 2019 R | "SOOVITAME LUGEDA" | "commercial articles" | SISUTURUNDUS | Superseding selector for right-side | parem | commercial content. */
 GM_addStyle("DIV.article ~ DIV.structured-content__group > DIV.commercial-articles.flex {display:inline-block; padding:0px;}");
 /* K., 28.08.2019. 
 +padding.*/
 
-/* 2019 R | "SOOVITAME LUGEDA" | "commercial articles" (inner) */
-GM_addStyle("DIV.commercial-articles--aside {padding:0px; padding-left:1px;}");
+/* 2019 R | "SOOVITAME LUGEDA" | "commercial articles" (inner) | 
+APPLIES TO TOP RIGHT section next to article content (picture and all). */
+GM_addStyle("DIV.commercial-articles--aside {padding:0px 1px 1px 1px; padding-left:1px;}");
 /* ^ K., 12.06.2019. */
+/*   N., 14.11.2019.: Set right, bottom, and left paddings to 1px. */
 
 /* 2019 R | "SOOVITAME LUGEDA" | "commercial articles" (inner) */
 GM_addStyle("DIV.commercial-articles.commercial-articles--aside {background-color:transparent;}");
 /* ^ P., 16.06.2019. */
 
+/* 2019 R to 2018 design | "SOOVITAE LUGEDA" items (insets) | containers for each item | N., 14.11.2019. */
+GM_addStyle("DIV.structured-content__group--aside > DIV.commercial-articles.commercial-articles--aside > DIV:not(.block-title) {display:inline-block;}");
+
 /* 2019 R | "SOOVITAME LUGEDA" | PILDID väikeseks (normaalsuurusesse) */
 GM_addStyle("DIV.commercial-articles--aside > DIV > ARTICLE.list-article > A.list-article__media > DIV.list-article__image[data-v-0db7a51c] {clear:both; float:left; width:107px; height:60px; padding:0px; margin-right:10px;}");
 /* ^ K., 12.06.2019. */
+
+/* 2019 R (on 2018 design) | "SOOVITAME LUGEDA" > "ENIM LOETUD" notice inset. | N., 14.11.2019. */
+GM_addStyle("DIV.commercial-articles .list-article__week-top {top:2px; left:2px; background-color:navy; padding-top:1px; padding-botto:0px; padding-left:6px; padding-right:6px; font-weight:600;}"); /* original positions were at -10px for both. letter-spacing:1px; was considered. */
 
 /* 2019 R | AFTER HEADER BARS STARTS ARTICLE AND TITLE. */
 GM_addStyle("DIV.article-top {display:inline-block;}");
@@ -687,7 +763,7 @@ GM_addStyle("DIV.list-article__text .flex--align-items-baseline {display:inline;
 /* ^ K., 16.06.2019. */
 
 /* 2019 R | "SOOVITAME LUGEDA" | ARTIKLI LINGI TEKST */
-GM_addStyle("DIV.commercial-articles .list-article__text {overflow:unset;}");
+GM_addStyle("DIV.commercial-articles .list-article__text {overflow:unset; margin-bottom:1px !important;}");
 /* ^ P., 16.06.2019. */
 
 /* 2018/2019 minor redesign */
@@ -696,9 +772,10 @@ GM_addStyle("DIV.article ~ DIV.structured-content__group {float:right; width:aut
 /*max-width was:300px; K., 28.08.2019: now 221px.*/
 
 /* 2019 R | SISUTURUNDUS | ITEMS before article begin */
-GM_addStyle("DIV.commercial-articles .list-article {float:left; margin-right:1px; margin-bottom:1px; border:solid 1px gray;  background-color:inherit;}");
+GM_addStyle("DIV.commercial-articles .list-article { margin-right:1px; margin-bottom:1px !important; border:solid 1px gray;  background-color:inherit;}");
 /* K., 28.08.2019. Later added float:right, but it might have to apply to a superseding selector.
-R., 29.08.2019.: +margin-bottom. */
+R., 29.08.2019.: +margin-bottom.
+N., 14.11.2019.: Added !important to margin-bottom, removed float:left; to help with margins. */
 
 /* 2019 R | SISUTURUNDUS | ITEMS before article begin (superseding selector for right-side commercial articles.) */
 GM_addStyle("DIV.article ~ DIV.structured-content__group > DIV.commercial-articles.flex .list-article {margin-right:0px; margin-bottom:1px; height:auto; min-height:149px; width:100%; max-width:300px;}");
@@ -722,6 +799,7 @@ GM_addStyle("DIV.commercial-articles .list-article__url {height:auto; clear:both
 /* ^ K., 12.06.2019. */
 /* Remove clear:both after it's not needed. */
 
+/* Might also apply to the right side | parem pool. */
 GM_addStyle("DIV.article ~ DIV.structured-content__group > DIV.commercial-articles .list-article__headline {font-size:14px;}")
 /* R., 30.08.2019. | font-size was: 1em;*/
 /* > ARTICLE.list-article > .list-article__text > .list-article__url */
@@ -789,20 +867,23 @@ GM_addStyle("SPAN.article-content__headline {margin-right:1px;}");
 /* 11.2016 redesign | [FRONTPAGE] mainline links to articles (type 7) */
 GM_addStyle("UL.pattern-articles-list.pattern-articles-list--type-7 .article-list__item .article-list__headline, UL.pattern-articles-list.pattern-articles-list--type-7 .article-list__item:first-child:nth-last-child(4) .article-list__headline {font-size:130%;}");
 /* Added 08.01.2017 | Original: 1.5em (24px);
-   130% computed to 20.8px, applies to 'veokipommiplahvatuses'
-   rem :first-child:nth-last-child(4) from .article-list__item; readded later
-Turns out, that :first-child and others superseded the more general earlier selector
+ • 130% computed to 20.8px, applies to 'veokipommiplahvatuses'
+ - removed :first-child:nth-last-child(4) from .article-list__item; 
+ + readded later.
+Turns out, that :first-child and others superseded the more general 
+earlier selector.
    Conditions: xpsp3, Gecko39, 100% */
 GM_addStyle("@media only screen and (max-width:1559px) { UL.pattern-articles-list.pattern-articles-list--type-7 .article-list__item .article-list__headline, UL.pattern-articles-list.pattern-articles-list--type-7 .article-list__item:first-child:nth-last-child(4) .article-list__headline {font-size:130%;} }");
 /* Added 08.01.2017. | Original: 1.375em (22px)
-   rem :first-child:nth-last-child(4) from .article-list__item; readded later
+ - removed :first-child:nth-last-child(4) from .article-list__item; 
+ + readded later.
 Conditions: xpsp3, Gecko39, 100% */
 
 /* 11.2016 redesign | [FRONTPAGE] mainline links to articles (type 12) | P., 22.01.2017 */
 GM_addStyle("UL.pattern-articles-list.pattern-articles-list--type-12 .article-list__item:first-child:nth-last-child(2) ~ .article-list__item .article-list__headline {font-size:128%;}");
 /* for word 'heategevusorganisatsioonis' */
-/* At 1559+ pix, the containing big div gets much thinner relative to overall 
-   viewport width. */
+/* At 1559+ pix, the containing big div gets much thinner relative to 
+overall viewport width. */
 
 GM_addStyle("H1.custom-block__title {width:auto; max-width:1000px; min-width:320px;}");
 
@@ -870,14 +951,17 @@ GM_addStyle("SECTION.frontType8 .articleRight .frontIcons {margin-right:9px;}");
 /* 28.10.2016: for 1024x768px, but works on others. */
 
 /* 11.2016 redesign. [FRONTPAGE] and elsewhere | one bar */
-GM_addStyle("DIV.dfp-ad--center {background-color:inherit;}"); /* T., 10.01.2017.
-| Makes bgcolor less intrusive. */
+GM_addStyle("DIV.dfp-ad--center {background-color:inherit;}");
+/* T., 10.01.2017. | Makes bgcolor less intrusive. */
 
 GM_addStyle("LI.list__ad .dfp-ad:not(:empty) {border-left:1px solid #E5E5E5; border-right:1px solid #E5E5E5;}");
 /* T., 10.01.2017. | Adds borders left and right. */
 
 /* ARTICLE */
 GM_addStyle("ARTICLE {padding-left:0px;}");
+
+/* 2019 (R) | ARTICLE/SISU (LOTS OF CONTENT) */
+GM_addStyle("ARTICLE.root {min-width:unset;}");
 
 /* Late-2016 new design. */
 GM_addStyle("BODY.body--article ARTICLE {background-color:inherit;}");
@@ -971,6 +1055,9 @@ GM_addStyle("ARTICLE.article, DIV.article {background-color:inherit; padding-lef
 /* 01.2018 redesign | 06.03.2018 | ARTICLE */
 GM_addStyle("DIV.article {padding-bottom:0px;}");
 
+/* 2018 design | N., 14.11.2019. | */
+GM_addStyle("DIV.dfp-ad--horizontal {background-color:inherit;}");
+
 /* 2019 R | AUDIO ARTICLE UI (teaster) | 29.08.2019. */
 GM_addStyle("DIV.article-body__item.article-body__item--audio-teaser {margin-bottom:1em;}"); /* margin-bottom: 1em or 15px */
 
@@ -991,6 +1078,23 @@ GM_addStyle("DIV.dfp-ad ~ DIV.article > DIV.flex {position:relative;}");
 /* MOST ARTILCE CONTENT BELOW HEADER */
 GM_addStyle("@media only screen and (max-width:1039px) { DIV.article {padding-left:0px; padding-right:0px;} }");
 /* 19.08.2018 */
+
+/* 2019 R: LEHT: ARTICLE container | P., 03.11.2019. */
+GM_addStyle("DIV.tanane-article {background-color:inherit; border:1px solid #F8F8F8;}");
+
+/* 2019 R: LEHT: ARTICLE container, incl. ARTICLE TEXT | P., 03.11.2019. */
+GM_addStyle("DIV.tanane-article .article-body__item--htmlElement {font-family:\'Arial\',\'Helvetica\',\'Helv\',\'sans-serif\'; font-size:13px; line-height:1.6em; margin-bottom:1em; color:black;}");
+/* E., 04.11.2019.: +margin-bottom 
+   L., 09.11.2019.: +black color */
+
+/* 2019 R: LEHT: ARTICLE paragraphs (blurb?) | P., 03.11.2019. */
+GM_addStyle("DIV.tanane-article .article-body H2 {margin:0px; margin-top:0.6em; margin-bottom:0.3em;}");
+
+/* 2019 R: LEHT: PAYWALL | MAKSUMÜÜR | P., 03.11.2019. */
+GM_addStyle("DIV.paywall-wrapper {border:1px solid #F8F8F8; border-radius:8px; margin-top:15px; padding-top:15px; padding-bottom:16px;}");
+
+/* 2019 R: LEHT: ARTICLE paragraphs | P., 03.11.2019. */
+GM_addStyle("DIV.tanane-article P {margin:0px;}");
 
 /* 01.02.2018. redesign
   [ARTICLE] kuupäev */
@@ -1061,6 +1165,9 @@ GM_addStyle("SECTION.suggested-premiums[data-v-d8639286] .suggested-premiums__ar
 /* "Minu Meedia digipaketiga..." */
 GM_addStyle("SECTION.suggested-premiums .title[data-v-d8639286] {margin-bottom:3px;}");
 
+/* 2019 R: LEHT: teaser | P., 03.11.2019. */
+GM_addStyle("DIV.tanane-article .article-body--teaser::after {background:unset;}");
+
 /* 01.2018. redesign | 16.01.2018 */
 /* GM_addStyle("ARTICLE.article .article-body {overflow-y:scroll;}"); */
 /* Comment out, if not needed. */
@@ -1095,12 +1202,14 @@ GM_addStyle("@media only screen and (max-width:1559px) { SECTION.article-body H1
    From a relatively original selector to cover all bases:
    GM_addStyle("SECTION.article-body.article-body--lead P {}"); 
    
-   07.01.2017: Turns out, that top-bottom margins have been set for all items 
-   of article-body both in general/mainline CSS _and_ for specific screen sizes 
-   of @media (1559px and so on); which means, that for the one objective of
-   setting margins to 0px, the rulesets had to be superseded twice.
+   07.01.2017: Turns out, that top-bottom margins have been set for all 
+   items of article-body both in general/mainline CSS _and_ for specific 
+   screen sizes of @media (1559px and so on); which means, that for the 
+   one objective of setting margins to 0px, the rulesets had to be 
+   superseded twice.
    
-   Interestingly, the ruleset below still supersedes the two above rulesets. */
+   Interestingly, the ruleset below still supersedes the two above 
+   rulesets. */
 
 /* 01.2018. redesign | ARTICLE LEDE */
 GM_addStyle("ARTICLE.article .article-body__item--lead {font-weight:600;}");
@@ -1114,15 +1223,15 @@ GM_addStyle("SECTION.article-body.article-body--lead P {font-size:1em;}");
 
 /* GM_addStyle("@media only screen and (max-width:1559px) { SECTION.article-body.article-body--lead P {font-size:1em;} }"); */
 /* Line aded on 10.01.2017. While the above line seems to work without 
-   interference by superseding even the max-width rule well above, then it's 
-   still commented out to see, if that above line works like that for 
-   certain. */
+   interference by superseding even the max-width rule well above, then 
+   it's still commented out to see, if that above line works like that 
+   for certain. */
 
 /* 11.2016 redesign | ARTICLE BODY TEXT, excluding lede */
 GM_addStyle("SECTION.article-body:not([class*=\"article-body--lead\"]) P {font-family:\'Arial\',\'Helvetica\',\'Helv\',\'sans-serif\',\'TabacSans\'; font-size:80%;}");
 /* Line added on 17.11.2016.
-   Original: Primary font was TabacSans, but I've relegated it to the end of 
-   the list, preferring Arial and Helvetica over this.
+   Original: Primary font was TabacSans, but I've relegated it to the 
+   end of the list, preferring Arial and Helvetica over this.
    07.01.2017: +margin-bottom.
 K., 28.08.2019: Added \" to article-body--lead in :not. */
 
@@ -1171,8 +1280,8 @@ GM_addStyle("DIV.liveblog .event .content {color:Silver; margin-left:30px; margi
 
 /* 11.2016 redesign: font and font size. | Added 07.01.2017. */
 GM_addStyle("DIV.liveblog .event .content P {font-family:\'Arial\',\'Roboto\',\'sans-serif\'; font-size:89%;}");
-/* 77%-89% works with Arial. 95% works with Roboto, but I'm keeping it at 89% 
-   to allow people with only Roboto not to have too small text.
+/* 77%-89% works with Arial. 95% works with Roboto, but I'm keeping it
+   at 89% to allow people with only Roboto not to have too small text.
    DIV.article-container.flex--equal-width top selector does not work. */
 
 GM_addStyle("DIV.liveblog .event .content DIV.ng-binding {padding-right:4px;}"); /* 08.11.2016 */
@@ -1186,7 +1295,8 @@ GM_addStyle("DIV.liveblog .event .content P > STRONG {color:white;}");
 
 GM_addStyle("DIV.liveblog .event .content BLOCKQUOTE {background-color:black; border:dashed 1px gray;}"); /* 07.11.2016 */
 
-GM_addStyle("DIV.liveblog .event .content EM {color:#cdcdcd;}"); /* 07.11.2016 */
+GM_addStyle("DIV.liveblog .event .content EM {color:#cdcdcd;}");
+/* 07.11.2016 */
 
 /* FACEBOOK EMBED IN LIVEBLOG | 06.11.2016 */
 GM_addStyle("IFRAME[src*=\"facebook.com\"] {background-color:Silver;}");
@@ -1238,17 +1348,21 @@ GM_addStyle("DIV.article-share-btns {margin-top:0px; padding-top:10px; border-to
 /* This moves space rom margin to padding an adds a border to visually
    separate article content. */
 
+/* 2019 R (on 2018 design) | AFTER ALL ARTICLE TEXT - "Liitu uudiskirjaga" | N., 14.11.2019. */
+GM_addStyle("DIV.content.postimees-subscribe-iframe {background-color:MidnightBlue; color:#ccc;}");
+/* bgcolor was: #4DADE9; now: MidnightBlue. color was white. */
+
 /* ARTICLE LINKS BELOW */
 GM_addStyle("@media only screen and (max-width:1023px) { .frontBlock.frontBlock.frontType13 .frontLead, .frontBlock.frontBlock.frontType13 .frontRelated, .frontBlock.frontBlock.frontType13 .frontText, .frontBlock.frontType11 .frontArticle .frontAdditional, .frontBlock.frontType11 .frontArticle .frontRelated, .frontBlock.frontType11 .frontText, .frontBlock.frontType12 .frontArticle .frontAdditional, .frontBlock.frontType12 .frontArticle .frontLead, .frontBlock.frontType12 .frontArticle .frontRelated, .frontBlock.frontType12 .frontArticle .frontText, .frontBlock.frontType16 .frontAdditional, .frontBlock.frontType2 .articleRight .frontText, .frontBlock.frontType2 .frontAdditional, .frontBlock.frontType3 .frontAdditional, .frontBlock.frontType3 .frontLead, .frontBlock.frontType3 .frontRelated, .frontBlock.frontType3 .frontText, .frontBlock.frontType4 .articleRight .frontQuote .frontLead, .frontBlock.frontType4 .articleRight .frontQuote .frontRelated, .frontBlock.frontType4.frontType10 .articleLeft .frontQuote .frontLead, .frontBlock.frontType4.frontType10 .articleLeft .frontQuote .frontRelated, .frontBlock.frontType4.frontType10 .articleLeft .frontQuote .frontText, .frontBlock.frontType6 .frontArticle .frontAdditional, .frontBlock.frontType6 .frontLead, .frontBlock.frontType6 .frontRelated, .frontBlock.frontType6 .frontText, .frontBlock.frontType7 .frontArticle .frontAdditional, .frontBlock.frontType7 .frontLead, .frontBlock.frontType7 .frontRelated, .frontBlock.frontType7 .frontText, .frontBlock.frontType8 .frontAdditional, .frontBlock.gameFriik, .frontQuote .articleText .frontText {display:block;} }");
 
 /* 11.2016 redesign | RELATED STORIES | Line added 08.01.2017. */
 GM_addStyle("DIV.related-fluid-list .related-fluid-list__item .article-list__headline {font-size:109%;}");
 /*  original: 1.375em */
-/*  08.01.2017.: This can be set to lower even, as normal in-box font size for 
-   'käsipallikoondislased' is 109%.
-T., 10.01.2017: First set to 115%, because 'jalgpallirevolutsionäär' touched 
-    the next box. Then to 109%, when it turned out, that as the last item in 
-    the carousel list, the last letter of that long a word wasn't visible. */
+/*  08.01.2017.: This can be set to lower even, as normal in-box font 
+size for 'käsipallikoondislased' is 109%.
+T., 10.01.2017: First set to 115%, because 'jalgpallirevolutsionäär'
+touched the next box. Then to 109%, when it turned out, that as the last 
+item in the carousel list, the last letter of that long a word wasn't visible. */
 
 /* COMMENT ANCHOR */
 GM_addStyle("DIV#comments {padding-top:11px;}");
@@ -1272,6 +1386,14 @@ GM_addStyle("SPAN.comment-thumb--down {background-color:maroon;}");
 GM_addStyle("DIV.article-comment-content {font-family:\'Arial\',\'Hevetica\',\'Helv\',\'sans-serif\',\'TabacSans\'; font-size:80%; line-height:1.6em;}");
 /* 16.08.2019.: Fixed the code by moving the apostrophe escape backslash
    to the before the apostrophe. */
+
+/* 2019 R [leht]: COMMENT TEXT FONT SIZE */
+GM_addStyle("ARTICLE.tanane-article.comments-view .article-comment-content {font-size:13px; line-height:1.6em;}");
+/* L., 26.10.2019. */
+
+/* 2019 R [leht]: COMMENT RATINGS */
+GM_addStyle("SPAN.reacting__reaction-count[data-v-3da6488c], SPAN.reacting__reaction-count[data-v-3bbacb58], SPAN.reacting__reaction-count {color:black; font-size:16px;}");
+/* L., 26.10.2019. */
 
 /* 11.2016 redesign | IMPORTANT STORIES | Line added on K., 10.05.2017. */
 GM_addStyle("SECTION.article-editors {background-color:inherit;}");
@@ -1377,7 +1499,14 @@ Previously: right:unset; display:inline-block; margin-top:-20px;
 
 Before R., 30.08.2019: top:-154px; right:-6px; max-width:235px; max-height:310px. This probably applies to empty content marketing insets.
 
-T., 03.09.2019: +border-radius to make an empty one a circle (this property enables round borders). */
+T., 03.09.2019: +border-radius to make an empty one a circle (this property enables round borders).
+
+K., 06.11.2019.: Right -220px set to 0px (temporarily for testing because of a layout error.
+
+Turns out, that there's two of these right columns
+*/
+GM_addStyle("DIV.dfp-ad ~ DIV.article ~ DIV.dfp-ad ~ DIV.article > DIV.flex > DIV.flex--equal-width ~ ASIDE.layout--right.flex.flex--direction-column {display:block; z-index:5; position:absolute; top:0px; right:0px; max-width:219px; max-height:209px; margin-top:0px; border:solid 5px navy; border-radius:5px; overflow-x:hidden; overflow-y:auto;}");
+/*11.11.2019.: Same as above, but better.*/
 
 /* 2019 R | SISUTURUNDUS INSET | "SISUTURUNDUS" title | R., 30.09.2019. */
 GM_addStyle("DIV.dfp-ad ~ DIV.article > DIV.flex > DIV.flex--equal-width ~ ASIDE.layout--right.flex.flex--direction-column .block-title {margin-top:2px; margin-bottom:1px;}");
