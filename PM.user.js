@@ -1,13 +1,15 @@
-﻿// ==UserScript==
+// ==UserScript==
 // @name          	PM.leht
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.7.2.0
+// @version 0.8.7.2.1
 // @include       *.postimees.ee/*
 // @include       https://rus.postimees.ee/*
 // @include       https://www.60pluss.ee/*
 // @include       https://www.e24.ee/*
+// @include       https://www.elu24.ee/*
+// @include       https://lemmik.elu24.ee/*
 // @include       https://www.naine24.ee/*
 // @include       https://www.tallinnapostimees.ee/*
 // @include       https://www.tallinncity.ee/*
@@ -21,8 +23,13 @@
 //   * is a wildcard character
 //   .tld is magic that matches all top-level domains (e.g. .com, .co.uk, .us, etc.)
 
-
 /* _80______________________________________________________________________ */
+
+GM_addStyle("HTML > BODY * {animation:none !important; animate-delay:unset !important; animate-delay:none !important;}")
+
+GM_addStyle("DIV[id*=\"hype-obj\"][class=\"HYPE_element\"][role=\"img\"] {transform:none !important; transform-origin:unset !important; pointer-events:none !important;}");
+/* display:none !important; */
+/* DIV[id*="hype-obj"][class="HYPE_element"][role="img"] */
 
 /* TEXT COLOR */
 GM_addStyle("HTML > BODY:not([data-n-head]) {color:black; background-color:Silver;}"); /* Old: rgb(58, 64, 65) */
@@ -66,7 +73,9 @@ GM_addStyle("A[TARGET=\"_blank\"]:hover, A[TARGET=\"_blank\"]:hover STRONG, A[TA
 /* 
 GM_addStyle("A[TARGET=\"_blank\"]:hover, A[TARGET=\"_blank\"]:hover strong, A[TARGET=\"_blank\"]:hover span, A[TARGET=\"_blank\"]:hover * {background-color:yellow !important;}"); */
 
-GM_addStyle("A:hover, A:hover > H1#sectionHeader {border-bottom:solid 1px #99CCFF !important; margin-bottom:-1px;}"); /*background-color:Lavender !important; */
+GM_addStyle("A:hover, A:hover > H1#sectionHeader {border-bottom:solid 1px #99CCFF !important; margin-bottom:0px;}");
+/* background-color:Lavender !important; */
+/* E., 27.01.2020.: margin-bottom set from -1px to 0px. */
 
 /* hover over bigger-story links below article, but before comments */
 GM_addStyle("A.blockArticle:hover > H1.frontHeading {margin-bottom:14px;}");
@@ -206,17 +215,21 @@ GM_addStyle("NAV.menu-items {display:block; overflow:hidden; height:45px;}");
 GM_addStyle("NAV.menu-items.menu-items--main {min-width:unset;}");
 
 /* 2018 redesign: HEADER/NAV: PM ARVAMUS MEIE EESTI, jne. */
-GM_addStyle("NAV.menu-items.menu-items--main.js-sticky-menu {height:17px; background-color:#123e9d; padding-left:0px; padding-right:0px;}");
+GM_addStyle("NAV.menu-items.menu-items--main.js-sticky-menu {height:17px; background-color:#191970; padding-top:0px; padding-left:0px; padding-right:0px;}");
 /* 30.11.2018 */
+/* R., 31.01.2020.: +padding-top. */
+/* L., 21.03.2020.: bgcolor changed from #123e9d to #191970*/
 
-/* 2018 redesign: HEADER/NAV */
-GM_addStyle("NAV.menu-items.menu-items--main .menu-item {padding-top:3px; padding-bottom:1px; line-height:1.0em; transform:none; transition:none; font-family:\'TabacSans\'; font-weight:600;}"); 
+/* 2018 redesign: HEADER/NAV | "PM ELU24 SÕBRANNA KODUSTIIL SPORT" etc items. */
+GM_addStyle("NAV.menu-items.menu-items--main .menu-item {padding-top:3px; padding-bottom:1px; line-height:1.0em; transform:none; transition:none; font-family:\'TabacSans\'; font-weight:600; padding-left:12px; padding-right:12px;}"); 
 /* same level | 30.11.2018 */
+/* R., 31.01.2020.: + padding-left, padding-right */
 
 GM_addStyle("NAV.menu-items.menu-items--main > DIV {float:left; line-height:0.9em; margin-left:0px; padding-left:0px; background-color:inherit;}");
 /* 30.11.2018: +line-height, margin-left, padding-left */
 
-GM_addStyle("NAV.menu-items.menu-items--main > DIV.burger-container.menu-item {position:absolute; height:17px; margin-left:0px; padding-left:0px; width:20px; padding-left:3px; padding-top:3px;}"); /* 30.11.2018 */
+GM_addStyle("NAV.menu-items.menu-items--main > DIV.burger-container.menu-item {position:absolute; height:17px; margin-left:0px; width:20px; padding-left:3px; padding-top:3px;}"); /* 30.11.2018 */
+/* K., 20.05.2020: duplicate item padding-left:0px; removed. */
 
 GM_addStyle("NAV.menu-items.menu-items--main > DIV.burger-container.menu-item ~ DIV:nth-child(2) {margin-left:20px;}"); /* 30.11.2018 */
 
@@ -225,15 +238,36 @@ GM_addStyle("NAV.menu-items.menu-items--main::after {display:none; right:0px; le
 
 GM_addStyle("A.menu-item {transform:none; transition:none;}"); /* 30.11.2018 */
 
-GM_addStyle("NAV.menu-items.menu-items--main.js-sticky-menu A.menu-item {color:white;}"); /* 30.11.2018. */
+/* PM "klassikaline" classic sticky menu items | PM, TÄNANE LEHT, KOROONA, ARVAMUS, MEIE EESTI, MAJANDUS, jne. */
+GM_addStyle("NAV.menu-items.menu-items--main.js-sticky-menu A.menu-item {color:#EEE;}"); /* 30.11.2018. */
+/* 21.03.2020: changed color from white to #DDD*/
+
+/* PM "klassikaline" classic sticky menu hover */
+GM_addStyle("NAV.menu-items.menu-items--main.js-sticky-menu A.menu-item:hover {background-color:rgba(255,255,255,0.2) !important; border-bottom:unset !important; color:white;}");
 
 GM_addStyle("BODY NAV.menu-items.menu-items--main.js-sticky-menu A.menu-item[HREF*=\"sport\.postimees\"]:not([class*=\"sections-menu__link\"]):not(.pm-logo__link):not(.article-btn--facebook):not(.article-btn--twitter):not(.section-name-label), BODY NAV.menu-items.menu-items--main.js-sticky-menu A.menu-item[HREF*=\"sport\.postimees\"]:not([class*=\"sections-menu__link\"]):not(.pm-logo__link):not(.article-btn--facebook):not(.article-btn--twitter):not(.section-name-label):visited {color:#00b398 !important;}"); /* 30.11.2018 */
 /* sport dark color:#005749; | green
  medium: #008e79
 lighter: #00b398 */
 
+/* 2019 R: LEHT: HEADER CONTAINER and FOOTER | L., 23.05.2020. */
+GM_addStyle("HTML:not(.device-phone) HEADER.tanane-leht-header, HTML:not(.device-phone) FOOTER.footer-2 {min-width:320px;}");
+
+/* 2019 R.: MENU ABOVE HEADER (originally gray bg) | P., 15.12.2019. */
+GM_addStyle("DIV.tanane-leht-header-menu {background-color:black;}");
+
+/* 2019 R: menu above header */
+GM_addStyle("BODY.scrolling-down DIV.tanane-leht-header-menu {display:none;}");
+
+/* 2019 R: menu above header */
+GM_addStyle("BODY.scrolled-top DIV.tanane-leht-header-menu {display:block;}");
+
 /* 2019 R.: MENU ABOVE HEADER (originally gray bg) | E., 04.11.2019. */
-GM_addStyle("DIV.tanane-leht-header-menu {background-color:black; }");
+GM_addStyle("DIV.tanane-leht-header-menu {background-color:black; transition:none;}");
+/* P., 15.12.2019. | +no transition*/
+
+/* MENU ABOVE HEADER: header "Tänane leht", "postimees.ee", "Meie Eesti", "Arvamus" */
+GM_addStyle("HEADER.tanane-leht-header > DIV.tanane-leht-header-menu {height:16px !important;}");
 
 /* 2019 R.: MENU ABOVE HEADER (originally gray bg) | E., 04.11.2019. */
 GM_addStyle("DIV.tanane-leht-header-menu > DIV.container-1600 {height:16px !important;}");
@@ -244,34 +278,51 @@ GM_addStyle("DIV.tanane-leht-header-menu .menu-items.menu-items--sub {min-height
 /* N., 07.11.2019.: alternative selector:
                     NAV.submenu-container > DIV.menu-items */
 
+/* 2019 R: menu above header: "tänane leht", "meie eesti" individual links. */
 GM_addStyle("DIV.tanane-leht-header-menu .menu-items.menu-items--sub .menu-item {color:LightSteelBlue;}");
 
-/* 2019 R.: LEHT HEADER (includes SISUKORD, |ARVAMUS|, POSTIMEES, MINU LOOD, SISENE | E., 04.11.2019. */
-GM_addStyle("HEADER.tanane-leht-header {background-color:MidnightBlue; top:16px;}");
-/* Original bgcolor:white; */
+/* 2019 R.: LEHT HEADER (includes SISUKORD, |ARVAMUS|, POSTIMEES, MINU LOOD, SISENE, and the top black bar... | E., 04.11.2019. */
+GM_addStyle("HEADER.tanane-leht-header {top:0px; border-bottom:0px; background-color:transparent;}");
+/* Original bgcolor:white; early top:16px;
+15.12.2019: top t 0
+30.12.2019: +border-bottom to 0.; background-color:MidnightBlue replaced with transparent.;
+*/
 
 /* 2019 R: LEHT HEADER INNER SIDES (directly affects all inner elements on hover) | E., 04.11.2019. */
 GM_addStyle("HEADER.tanane-leht-header:hover * {color:white;}");
 /* works */
 
 /* 2019 R.: LEHT HEADER container (still includes SISUKORD, |ARVAMUS|, Postimees, MINU LOOD, SISENE | E., 04.11.2019. */
-GM_addStyle("HEADER.tanane-leht-header > DIV {height:22px !important;}");
+GM_addStyle("HEADER.tanane-leht-header > DIV:not(.article-progress-container):not(.tanane-leht-header-menu) {height:22px !important;}");
 /* !important is important :-) */
+/* 30.12.2019: +not on both selectors */
 
-/* 2019 R: LEHT HEADER INNER SIDES (directly affects SISUKORD | ARVAMUS, Postimees, MINU LOOD, SISENE) | E., 04.11.2019. */
+/* 2019 R: LEHT HEADER INNER SIDES (directly affects SISUKORD, |ARVAMUS|, Postimees, MINU LOOD, SISENE) | E., 30.12.2019. */
+GM_addStyle("HEADER.tanane-leht-header > .container-1600 {background-color:MidnightBlue;}");
+
+/* 2019 R: LEHT HEADER INNER SIDES (directly affects SISUKORD, |ARVAMUS|, Postimees, MINU LOOD, SISENE) | E., 04.11.2019. */
 GM_addStyle("DIV.tanane-leht-header__placement {background-color:rgba(255,255,255,0.2);}");
 
-/* 2019 R: LEHT HEADER INNER SIDES (directly affects SISUKORD | ARVAMUS, Postimees, MINU LOOD, SISENE) | E., 04.11.2019. */
+/* 2019 R: LEHT HEADER INNER SIDES (directly affects SISUKORD, |ARVAMUS|, Postimees, MINU LOOD, SISENE) | E., 04.11.2019. */
 GM_addStyle("HEADER.tanane-leht-header:hover DIV.tanane-leht-header__placement {background-color:inherit;}");
 
-/* 2019 R: LEHT HEADER INNER SIDES (directly affects "Postimees" only) | E., 04.11.2019. */
+/* 2019 R: LEHT HEADER INNER SIDES (directly affects "Postimees" / PM logo only) | E., 04.11.2019. */
 GM_addStyle("DIV.tanane-leht-header__placement--center {background-color:inherit; padding-top:3px;}");
+
+/* 2019 R: LEHT HEADER PM LOGO image*/
+GM_addStyle("DIV.tanane-leht-header__placement A IMG[alt=\"Postimees\"] {width:81px; height:16px}");
+/* Original: width:127px; height:25px;*/
+/* DIV.tanane-leht-header__placement A IMG[alt="Postimees"] */
 
 /* 2019 R: LEHT HEADER INNER SIDES (directly affects section name only) | E., 04.11.2019. */
 GM_addStyle("A.tanane-leht-header__article-section {padding-top:1px; font-weight:600; color:#ddd;}");
 
-/* ARTICLE: BIG STORY (new design, Autumn 2015) */
-GM_addStyle("SECTION#fullScreenImage DIV.container {background:none;}");
+/* 2019 R: LEHT: progress bar below header: | E., 30.12.2019. */
+GM_addStyle("DIV.article-progress-container {position:relative; bottom:0px; height:4px !important;}");
+
+/* 2019 R: LEHT: progress bar below header: | E., 30.12.2019. */
+GM_addStyle("DIV.article-progress-container #article-progress {background-color:MidnightBlue; height:4px !important;}");
+/* MidnightBlue = #191970 */
 
 /* HEADER small links [arvamus] */
 GM_addStyle("SPAN.pmHeaderNavi {background-color:rgb(218, 218, 218);}");
@@ -329,7 +380,7 @@ GM_addStyle("DIV#moveMenuCont .pmMainCont {background-color:transparent !importa
 /* linear-gradient(to right, rgb(192, 192, 192) 200px, transparent 650px, */
 
 /* TOP: BLUE BAR AFTER SCROLL */
-GM_addStyle("DIV#moveMenuCont .pmMainNav, #paidMenu NAV, .headerProfileContainer {max-width:unset; max-width:100%; width:100%; height:25px; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:16px; padding-top:0px; padding-bottom:0px; padding-left:132px; background-color:transparent !important; background:linear-gradient(to bottom, rgb(0, 91, 187), rgb(0, 91, 187) 17px, transparent 17px, transparent 100%); line-height:17px;}");
+GM_addStyle("DIV#moveMenuCont .pmMainNav, #paidMenu NAV, .headerProfileContainer {max-width:unset; max-width:100%; width:100%; height:25px; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:16px; background-color:transparent !important; background:linear-gradient(to bottom, rgb(0, 91, 187), rgb(0, 91, 187) 17px, transparent 17px, transparent 100%); line-height:17px; padding-top:0px; padding-bottom:0px; padding-left:132px;}");
 /* was: margin left-right were auto in order to center the mainNav block. 
         background-color:transparent; border-bottom:solid 1px rgb(0, 91, 187); */
 
@@ -365,6 +416,10 @@ GM_addStyle("HEADER.site-header .menu-items > DIV {float:left;}");
 /* TOP: LARGE PM LOGO */
 GM_addStyle("A.pmLogo, A.pmLogo:visited, A.mainSectionLogo, A.mainSectionLogo:visited {background-color:inherit !important;}");
 
+/* 2019/2020 R | QUOTE AFTER BIG LOGO | P., 24.05.2020. */
+GM_addStyle("@media only screen and (max-width:800px) HEADER.site-header .midblock-container {display:block;}");
+GM_addStyle("@media only screen and (max-width:560px) HEADER.site-header .quote-container {margin-left:5px;}");
+
 /* TOP: BLUE BAR LINKS' LINE HEIGHT */
 GM_addStyle(".pmMainNav A {line-height:unset; margin-bottom:8px;}");
 
@@ -383,6 +438,75 @@ GM_addStyle("DIV.header__visible-in-article > A > IMG {height:19px; width:20px;}
    This sets the talk bubble to about the same height as the fb share icon.
    margin */
 
+/* ARTICLE: BIG STORY (new design, Autumn 2015) */
+GM_addStyle("SECTION#fullScreenImage DIV.container {background:none;}");
+
+/* MAINSPACE | FRONTPAGE | Suur lärakas peale suure loo linke ("Vaata statistikat") | 04.04.2020. */
+GM_addStyle("DIV.feed-button {background-color:inherit; border:solid 1px #F8F8F8; margin-bottom:2px; padding:5px;}");
+/* K., 08.04.2020.: +margin-bottom, padding */
+
+/* MAINSPACE | FRONTPAGE | Suur lärakas peale suure loo linke ("ülevaade Eestis ja maailmas") | 08.04.2020. */
+GM_addStyle("DIV.feed-button__top-text {font-weight:500; font-size:19px; color:#343434;}");
+
+/* MAINSPACE | FRONTPAGE | Suur kollane lärakas "TELLI DIGIPAKETT" | K., 15.04.2020. */
+GM_addStyle("DIV.section-branding-bg.section-branding--digipakett {padding:0px;}");
+
+/* MAINSPACE | FRONTPAGE | Suur kollane lärakas "TELLI DIGIPAKETT" | K., 15.04.2020. */
+GM_addStyle("DIV.root.root--section-brading-digipakett > DIV ~ DIV.section-branding-bg[style*=\"fixed\"] {padding-left:0px; padding-right:0px; background-color:transparent;}");
+/* E., 25.05.2020.: +transparent */
+/* bwahaha, the developer made a CSS typo in the selector, writing 'brading' instead of branding >:) */
+
+/* MAINSPACE | FRONTPAGE | Suur kollane lärakas "TELLI DIGIPAKETT" suur konteiner | K., 15.04.2020. */
+GM_addStyle("A.section-branding__digipakett.section-branding__digipakett-sticky {background-color:transparent; display:inline-flex; padding:0px; margin:0px;}");
+
+/* MAINSPACE | FRONTPAGE | Suur kollane lärakas "TELLI DIGIPAKETT" sticky */
+GM_addStyle("DIV.root--section-brading-digipakett DIV.section-branding-bg[style*=\"fixed\"] {top:16px !important; width:auto; background-color:transparent; z-index:19;}");
+/* data-exact-start="true"
+data-has-stop="false"
+data-sticky=""
+top: 115px; bottom: auto; position: fixed; = sticky
+top: auto; bottom: auto; position: static;
+
+K., 15.04.2020. +z-index
+E., 25.05.2020.: z-index: 19 from 20. */
+
+/* 2020 R: LEHT: Fixes z-index and position at leht relative to blue bar height.
+ | E., 25.05.2020. */
+GM_addStyle("HTML.theme-tanane-leht > BODY.not-scrolled-top.scrolling-down DIV.root--section-brading-digipakett DIV.section-branding-bg[style*=\"fixed\"] {top:21px !important;}");
+/* HTML.theme-tanane-leht > BODY.not-scrolled-top.scrolling-down DIV.root--section-brading-digipakett DIV.section-branding-bg[style*="fixed"] */
+
+/* MAINSPACE | LEHT | Suure kollase läraka "Proovi esimene kuu..."  sticky | L., 23.05.2020. */
+GM_addStyle("HTML.theme-tanane-leht:not(.device-phone) .not-scrolled-top:not(.scrolling-down) .root--section-brading-digipakett .section-branding-bg {top:37px !important; z-index:1; background-color:transparent; transition:none;}");
+
+/* MAINSPACE | LEHT | Suure kollase läraka "Proovi esimene kuu..."  sticky (scrolling down) | L., 23.05.2020. */
+GM_addStyle("HTML:not(.device-phone) > BODY.tanane-article-view.scrolling-down .root--section-brading-digipakett DIV.section-branding-bg[data-v-f8d4cf16] {top:25px !important; background-color:transparent; transition:none;}");
+
+/* SUURE KOLLASE LÄRAKA "TELLI DIGIPAKETT" SISU | K., 15.04.2020. */
+GM_addStyle("A.section-branding__digipakett-sticky .section-branding__digipakett-contents {display:inline-flex; height:18px; padding-left:0px; padding-right:0px; justify-content:unset;}");
+
+/* SUURE KOLLASE LÄRAKA "TELLI DIGIPAKETT" SISU konteiner | K., 15.04.2020. */
+GM_addStyle("A.section-branding__digipakett-sticky DIV.flex.flex--align-items-center {align-items:unset; display:inline-flex;}");
+/* 21.05.2020: +display:inline-flex from inline-table. Seems to work. */
+
+/* SUURE KOLLASE LÄRAKA IKOON | K., 15.04.2020. */
+GM_addStyle("A.section-branding__digipakett.section-branding__digipakett-sticky IMG {background-color:rgb(235, 210, 14); width:20px !important; height:18px !important;}");
+
+/* SUURE KOLLASE LÄRAKA TEKSTIKONTEINER | K., 15.04.2020. */
+GM_addStyle("A.section-branding__digipakett.section-branding__digipakett-sticky DIV.section-branding__digipakett-title {height:18px; margin-left:0px; margin-right:0px; background-color:rgb(235, 210, 14); padding:0px 11px; font-size:12px; line-height:20px; text-transform:uppercase; border-radius:0px;}");
+/* K., 20.05.2020: Duplicate item border-radius:20px; removed.  */
+
+/* SUURE KOLLASE LÄRAKA SUUR MUST NUPP "TELLI DIGIPAKETT" */
+GM_addStyle("A.section-branding__digipakett.section-branding__digipakett-sticky DIV.section-branding__digipakett-btn {height:18px; margin-left:0px; padding:0px 11px; font-size:12px; line-height:18px; border-radius:0px 0px 5px;}");
+/* border-radius: 0px 0px 5px makes the lower-right corner round. */
+
+/* SUURE KOLLASE LÄRAKA "ESIMENE KUU" */
+GM_addStyle("DIV.section-branding__digipakett-disclaimer {right:407px; bottom:62px; color:white;}");
+
+/* SPINNER | ANIMATION | DIAMOND | K., 15.04.2020. */
+GM_addStyle("SPAN.diamond::before {transform:none;}");
+GM_addStyle("SPAN.diamond::after {transform:none; animation:none;}");
+GM_addStyle("SPAN.button--for-subscription__diamond::after {transform:none; display:none; animation:none;}"); /* P., 17.05.2020. */
+
 /* MAINSPACE | FRONTPAGE */
 GM_addStyle("DIV#wrap {width:auto; min-width:985px; max-width:1232px;}");
 /* original width:1232px */
@@ -396,14 +520,34 @@ GM_addStyle("SECTION.structured-content {background-color:inherit; clear:both;}"
 /* 10.02.2018 */
 
 /* FRONTPAGE / ESILEHT | SUUR LUGU | PEALKIRI à la "TARKUSEPÄEV TÕI KOOLIJÜTSID KOOLI" | 01.09.2019. */
-GM_addStyle(".structured-content__group--breaking .block-title, DIV.structured-content__group--masonry .block-title {width:100%; max-width:1000;}"); /* original width: 1000px; */
+GM_addStyle(".structured-content__group--breaking .block-title, DIV.structured-content__group--masonry .block-title {width:100%; max-width:1000px;}"); /* original width: 1000px; */
 
 /* FRONTPAGE | CONTENT | SISU | 16.04.2018 */
 GM_addStyle("DIV.structured-content__group {background-color:inherit; padding-left:0px; padding-right:0px; padding-bottom:0px;}");
 /* 20.09.2018: padding */
 
+/* FRONTPAGE | SISU | BIG STORY | SMALLER ARTICLE LINKS | 12.01.2020. */
+GM_addStyle("DIV.custom-block__masonry .custom-block__bottom .list-article__image {width:100%;}");
+
+/* 2019 R | FRONTPAGE: side-by-side article links with pictures must be closer together. | 09.01.2020. */
+GM_addStyle("DIV.structured-content__block .list-article, DIV.structured-content__block.y2019 {margin-right:1px;}");
+/* K., 22.01.2020.: At times, this ruleset is supeseded by 
+original/source with 16px padding, then by userstyle at 
+DIV.structured-content__group--topic.y2019 , then by original/source 
+with 7px, then by SECTION.y2019.m09 . */
+
 /* dark gradient below text */
 GM_addStyle("A.list-article__media:before {height:31%; bottom:0px; left:0px; right:0px;}"); /* 16.04.2018. | 22% for two-line, 31% for four-line */
+
+/* [2019 R] | FRONTPAGE | : Side-by-side titles must be separated with 
+ more space. | 09.01.2020. */
+GM_addStyle("A.list-article__url, A.list-article__url.y2020-01 {padding-right:5px;}");
+
+GM_addStyle("@media only screen and (max-width:651px) { DIV.structured-content__group--topic .structured-content__block--quadruple .list-article:last-child > DIV.list-article__text > A.list-article__url {word-break:break-all;} }");
+/* P., 24.05.2020. */
+
+GM_addStyle("@media only screen and (max-width:578px) { DIV.structured-content__group .structured-content__block--quintuple .list-article:last-child > DIV.list-article__text > A.list-article__url {word-break:break-all;} }");
+/* P., 24.05.2020. */
 
 GM_addStyle("A.list-article__url:hover {background-color:rgba(0,0,0,0.5) !important;}"); /* 16.04.2018 */
 
@@ -434,7 +578,7 @@ legacy purposes, but the below selector now supersedes it. */
 GM_addStyle("SECTION.flex--equal-width > DIV.custom-block .custom-block__bottom ARTICLE.list-article > .list-article__text {padding-left:0px; padding-right:1px;}");
 
 /* 2019 R [FRONTPAGE] | Applies to big-story / top-story sub-story images. | N., 14.11.2019. */
-GM_addStyle("DIV.custom-block__masonry .custom-block__bottom.custom-block__bottom-4 .list-article__image {dislay:inline-flex; width:100%;}");
+GM_addStyle("DIV.custom-block__masonry .custom-block__bottom.custom-block__bottom-4 .list-article__image {display:inline-flex; width:100%;}");
 
 /* FRONTPAGE | 2018 redesign | BIGGER TOPIC (but not big story) header */
 GM_addStyle("SECTION.structured-content .group-topic-with-custom-header {background-color:inherit;}");
@@ -444,6 +588,28 @@ GM_addStyle("SECTION.structured-content .group-topic-with-custom-header {backgro
 GM_addStyle("DIV.layout {background-color:inherit; padding:0px;}");
 /* covers */
 
+/* 2019 R [FRONTPAGE] | "Tänane leht" right-side article links in 
+column formation. (container) | 09.01.2020. */
+GM_addStyle("SECTION.tanane-custom .right-side {margin-left:1px;}");
+
+/* 2019 R [FRONTPAGE] | "Tänane leht" right-side article links in 
+column formation. (inner) | 09.01.2020. */
+GM_addStyle("DIV.structured-content__block--list .list-article + .list-article {margin-top:1px;}");
+/* Change later to 1px. */
+
+/* 2019 R [FRONTPAGE] | "Tänane leht" right-side article links in 
+column formation: IMAGES | 09.01.2020. */
+GM_addStyle("A.list-article__media {margin-bottom:0px;}");
+GM_addStyle("SECTION.tanane-custom .right-side .list-article__media {margin-right:4px;}");
+
+/* 2019 R [FRONTPAGE] | "Tänane leht" right-side article links in 
+column formation: LINKS below images | 09.01.2020. */
+GM_addStyle("DIV.right-side A.list-article__url > DIV {padding-bottom:3px;}");
+/* padding-bottom is meant to add some space, if there is a longer title, and it gets too close to the next item's URL text. */
+
+/* 2020 R | FRONTPAGE | Lots of bars at the top */
+GM_addStyle("NAV.layout--1030 {min-width:320px;}");
+
 /* FRONTPAGE (and articles) | 2019 (R) | BLUE BAR / BLUE HEADER ("PM TÄNANE LEHT ARVAMUS") & SUBMENU ("Kõik uudised | Podcast | juhtimine") */
 GM_addStyle("DIV.layout.layout--1030 {min-width:unset;}");
 /* K., 06.11.2019. */
@@ -451,6 +617,10 @@ GM_addStyle("DIV.layout.layout--1030 {min-width:unset;}");
 /* FRONTAGE (and articles) | 2019 (R) | BELOW BLUE BAR / B. BLUE HEADER / B. BLUE NAV*/
 GM_addStyle("DIV.menu-items--sub {flex-wrap:wrap; height:auto; min-height:35px;}");
 /* K., 06.11.2019. */
+
+/* 2020 R | FRONTPAGE | alamlehe (à la Elu24) alamlingid; samuti "Sõbranna" alamlingid.  */
+GM_addStyle("NAV.submenu-container {padding-bottom:0px;}");
+GM_addStyle("NAV.submenu-container.layout--1030 {background:linear-gradient(to bottom, white 0%, transparent 100%);}");
 
 /* FRONTPAGE | 2018 redesign | BIGGER TOPIC (but not big story) */
 GM_addStyle("SECTION.structured-content .group-topic-with-custom-header--full-bg-image {padding-right:0px; padding-bottom:0px; padding-left:0px;}");
@@ -473,7 +643,7 @@ GM_addStyle("SECTION.structured-content .group-topic-with-custom-header--full-bg
 /* FRONTPAGE bigger topic links (2019) | Actual text url. */
 GM_addStyle("SECTION.structured-content .group-topic-with-custom-header--full-bg-image .structured-content__group--topic .list-article__url {color:white; background-color:rgba(0,0,0,0.5);}");
 
-/* FRONTPAGE | SISUTURUNDUS (2018 redesign?) */
+/* FRONTPAGE | SISUTURUNDUS (2018 redesign? 2019?) */
 GM_addStyle("DIV.group-topic-with-custom-header--full-bg-image .layout .url-above-image {width:auto; max-width:1000px;}");
 
 /* FRONTPAGE | ELU24 MUST/VALGE WIDE ARTICLE SELECTION container, 
@@ -488,11 +658,15 @@ GM_addStyle("SECTION.structured-content .group-topic-with-custom-header--full-bg
 
 /* FRONTPAGE | ELU24 must/valge wide article selection | LINK ITEMS | 
    T., 03.09.2019. */
-GM_addStyle("SECTION.structured-content .group-topic-with-custom-header--full-bg--color-with-header .structured-content__group.structured-content__group--topic .structured-content__block--quadruple .list-article {margin-right:1px;}");
+GM_addStyle("SECTION.structured-content .group-topic-with-custom-header--full-bg--color-with-header .structured-content__group.structured-content__group--topic .structured-content__block--quadruple .list-article, SECTION.y2019.m09 {margin-right:1px;}");
 
 /* FRONTPAGE | ELU24 must/valge wide article selection | IMAGES | 
    T., 03.09.2019.*/
 GM_addStyle("SECTION.structured-content .group-topic-with-custom-header--full-bg--color-with-header .structured-content__group .list-article__image {border-width:1px;}");
+
+/* FRONTPAGE | ELU24 must/valge wide article selection | TEXT BELOW 
+IMAGES | K., 22.01.2020.*/
+GM_addStyle("SECTION.structured-content .group-topic-with-custom-header--full-bg--color-with-header .structured-content__group.structured-content__group--topic .structured-content__block--quadruple .list-article A.list-article__url {padding-right:2px;}");
 
 /* "CHOOSE CHANNEL" | KANAL 2 | KANAL 11 | K12 | pleier.ee | 
    2018 redesign video section */
@@ -501,9 +675,29 @@ GM_addStyle("SPAN.schedule-event__live.slab:before {animation:none;}");
 • attribute names cannot be wildcarded as of April 2018.
   The current solution works. */
 
+/* FRONTPAGE | channels | Spinners (container): KANAL 2 • K12 • K11 • Kanal 12 • Kanal 11 | K., 15.04.2020. */
+GM_addStyle("DIV.schedule.tv-schedule[data-v-20c8ce14] .VueCarousel-inner {transition:none !important;} ");
+
+/* FRONTPAGE | channels | Spinners (container): KANAL 2 • K12 • K11 • Kanal 12 • Kanal 11 | K., 15.04.2020. */
+GM_addStyle("DIV.radial-progress-container > .radial-progress-bar * {transition:none !important; transform:none !important; animation:none !important;}");
+GM_addStyle("DIV.radial-progress-container > .radial-progress-bar > circle {transition:none !important; transform:none !important; animation:none !important;}");
+
+GM_addStyle("DIV.radial-progress-container > .radial-progress-bar {display:none !important; transition:none !important; transform:none !important; animation:none !important;}");
+
+/* this spinner moves a lot all the time | K., 15.04.2020. */
+GM_addStyle("DIV.radial-progress-container radialgradient {transition:none !important; transform:none !important; animation:none !important;}"); /* display:none; */
+
 /* FRONTPAGE | CONTAINER (both left and right) */
 GM_addStyle("SECTION#leftContent, DIV.frontPlace SECTION, SECTION[class~=\"listSection\"], SECTION#rightContent SECTION {background-color:inherit;}"); /* rgba(255,255,255,0.25); can be made transparent, if other areas are set to white */
 /* K., 28.08.2019: added \" inside square braces to 'listSection'.
+
+/* P., 17.05.2020. SPINNER with dots  */
+
+GM_addStyle("DIV.sk-circle * {display:none !important; animation:none !important; transform:none !important;}");
+GM_addStyle("DIV.sk-circle[data-v-d50f6dfc] * {display:none; animation:none; transform:none;}");
+GM_addStyle("DIV.sk-circle:before {content:\'\"Ootame, vaatame\.\.\.\"\'; word-wrap:normal;}");
+GM_addStyle("DIV.sk-circle DIV.sk-child[class*=\"sk-circle\"][data-v-d50f6dfc] {display:none; animation:none; transform:none;}");
+GM_addStyle("DIV.sk-circle DIV.sk-child[data-v-d50f6dfc]::before {display:none; animation:none; transform:none;}");
 
 /* FRONTPAGE | 2018 redesign */
 GM_addStyle("DIV.structured-content__group.structured-content__group--grid-block .section-group {margin-left:0px; margin-right:0px;}");
@@ -511,9 +705,11 @@ GM_addStyle("DIV.structured-content__group.structured-content__group--grid-block
 /* FRONTPAGE | 2018 redesign | alumised lugude lingid väiksed */
 GM_addStyle("SECTION.structured-content__block .list-article {margin-right:1px;}");
 
-GM_addStyle("DIV.structured-content__group--topic .structured-content__block--quadruple .list-article {margin-right:1px;}");
+GM_addStyle("DIV.structured-content__group--topic .structured-content__block--quadruple .list-article, DIV.structured-content__group--topic.y2019 {margin-right:1px;}");
+/* DIV.2018 | K., 22.01.2020.: Ruleset superseded by original/source 
+CSS with 7px, itself superseded by SECTION, at SECTION.y2019.m09. */
 
-GM_addStyle("DIV.structured-content__group--topic .structured-content__block--quadruple .list-article:last {margin-right:0px;}"); /* "Browser error: unknown pseudo-class or pseudo-element 'last'. Rule ignored due to bad selector." */
+GM_addStyle("DIV.structured-content__group--topic .structured-content__block--quadruple .list-article:last-child {margin-right:0px;}"); /* "Browser error: unknown pseudo-class or pseudo-element 'last'. Rule ignored due to bad selector." */
 
 /* FRONTPAGE | 2018 redesign | sünnipäevad */
 GM_addStyle("SECTION.birthday .birthday-list__item {display:block;}");
@@ -541,7 +737,8 @@ GM_addStyle("DIV.layout--group {overflow-x:hidden;}");
 /* group-branding group-branding--optibet-est group-branding--spaced flex flex--align-items-center */
 
 /* [FRONTPAGE / OTHER PAGES] | WEATHER / ILM | WIDTH */
-GM_addStyle("SECTION.weather-header-container > DIV.weather-header {width:auto; min-width:230px; max-width:1000px; max-height:unset; min-height:231px; height:100%; overflow-x:auto; height:435px;}");
+GM_addStyle("SECTION.weather-header-container > DIV.weather-header {width:auto; min-width:230px; max-width:1000px; max-height:unset; min-height:231px; overflow-x:auto; height:435px;}");
+/* K., 20.05.2020.: Duplicate property height:100%; removed. */
 
 /* 2018 WEATHER: CONTENT CONTAINER */
 GM_addStyle("SECTION.weather-header-container[data-v-380906ac] {min-height:230px; height:100%; box-sizing:unset; max-height:640px;}");
@@ -553,20 +750,74 @@ GM_addStyle("SECTION[data-v-304de258] .weather-header .weather-header__left-side
 GM_addStyle("SECTION[data-v-304de258] .weather-header .weather-header__location {width:auto; text-overflow:unset; overflow:visible;}");
 
 /* 2018 WEATHER: WIND (CLOCK), but affects ALL other data points, too! */
-GM_addStyle("SECTION[data-v-304de258] .weather-header .weather-header__data-group {margin-right:0px; width:auto; float:right; position:relative; display:inline; right:unset; top:unset;}");
+GM_addStyle("SECTION[data-v-304de258] .weather-header .weather-header__data-group {display:inline; position:relative; top:unset; right:unset; float:right; width:auto; margin-right:0px;}");
 
 /* 2018 WEATHER: DETAILED DATA (Data points) */
-GM_addStyle("SECTION[data-v-304de258] .weather-header .weather-header__right-side {display:inline; width:auto; left:unset; top:unset; height:unset; min-height:unset;}");
+GM_addStyle("SECTION[data-v-304de258] .weather-header .weather-header__right-side {display:inline; top:unset; left:unset; width:auto; height:unset; min-height:unset;}");
 /* K., 28.08.2019: Fix: :1:84 expected end of value, but found ','; error in parsing display. Another fix: replaced auto: with auto;*/
 
 /* 2018 Design | WEATHER */
 GM_addStyle("DIV.weather-header__right-side[data-v-380906ac] {position:relative;}");
 
-/* 2018 Design | WEATHER */
+/* 2018 Design | FRONTPAGE | WEATHER LINKS (below survey?) */
 GM_addStyle("SECTION[data-v-304de258] .weather-header DIV.weather-header__right-side > DIV.weather-header__data-group.flex--align-items-center.flex--justify-content-space-between {float:left;}");
 
 /* 2018 Design | ILM "pikem prognoos" */
 GM_addStyle("SECTION[data-v-304de258] .weather-header .weather-header__extended-forecast {left:0px; bottom:0px; height:20px;}");
+
+/* 2020 R LEHT | div enne kollast plärakat ja enne navigatsiooniribasid üleval. | R., 31.01.2020. */
+GM_addStyle("BODY.tanane-article-view > DIV[id] ~ DIV[style*=\"height: 75px;\"] {height:40px !important; margin-bottom:2px;}");
+/* BODY.tanane-article-view > DIV[id] ~ DIV[style*="height"] */
+
+/* above: HEADER.tanane-leht-header
+             DIV.tanane-leht-header__overlay */
+/* 2020 R LEHT | Suur kollane plärakas "Minu Meedia digipaketiga saad igast värki..." | R., 31.01.2020. */
+GM_addStyle("DIV.my-media-campaign-container {margin-bottom:1px; padding:1px;}");
+
+/* 2020 R LEHT | Suure kollase pläraka sisu | R., 31.01.2020. */
+GM_addStyle("A.my-media-campaign {display:flex; height:unset; min-height:89px; padding-left:9px; padding-right:9px; padding-top:0px; padding-bottom:0px;}");
+
+/* 2020 R LEHT | Suure kollase pläraka sisu (v2?) | L., 21.03.2020. */
+GM_addStyle("DIV.my-media-campaign {height:unset; min-height:88px; padding-top:20px; padding-bottom:20px;}");
+
+/* 2020 R LEHT | Suure kollase pläraka sulgemise nupp | R., 31.01.2020. */
+GM_addStyle("DIV.my-media-campaign-container .my-media-close {top:4px; right:34px;}");
+
+/* 2020 R LEHT | Suure kollase pläraka sisukonteiner | R., 31.01.2020. */
+GM_addStyle("A.my-media-campaign .content {width:100%;}");
+
+/* 2020 R LEHT | Suure kollase pläraka sisukonteiner (v2?) | L., 21.03.2020. */
+GM_addStyle("DIV.my-media-campaign .content {width:100%;}");
+
+/* 2020 R LEHT | Suure kollase pläraka tiitel "| minu meedia" | R., 31.01.2020. */
+GM_addStyle("A.my-media-campaign .title {white-space:nowrap;}");
+
+/* 2020 R LEHT | Suure kollase pläraka tekst "| minu meedia digipaketiga..." | R., 31.01.2020. */
+GM_addStyle("A.my-media-campaign .description {padding-left:10px; padding-right:10px; text-align:left;}");
+
+
+/* 2020 R LEHT | Suure kollase pläraka STICKY variant | R., 22.05.2020. */
+/* GM_addStyle("DIV.root--section-brading-digipakett[data-v-f8d4cf16] {height:}"); */
+
+/* 2020 R LEHT | Suure kollase pläraka STICKY variant | P., 17.05.2020. */
+GM_addStyle("HTML:not(.device-phone) BODY.tanane-article-view.scrolling-down .root--section-brading-digipakett DIV.section-branding-bg[data-v-2f7583f5] {transition:none; top:26px !important; border-radius:0px 0px 5px; background-color:#EBD20E;}");
+
+/* 2020 R LEHT | Suure kollase pläraka STICKY variant | P., 17.05.2020. */
+GM_addStyle("A.section-branding__digipakett .section-branding__digipakett-contents[data-v-2f7583f5] {padding-left:0px; padding-right:0px;}");
+
+/* 2020 R LEHT | Suure kollase pläraka STICKY variant | P., 17.05.2020. */
+/* This selector appears to have an often-variable [data-v-xxxxxxxx] parameter. */
+GM_addStyle("A.section-branding__digipakett-sticky .section-branding__digipakett-contents[data-v-2f7583f5], A.section-branding__digipakett-sticky .section-branding__digipakett-contents[data-v-f8d4cf16] {height:18px; padding-left:0px; padding-right:0px;}");
+/* R., 22.05.2020.: +second selector with another data-v-xxxxxxxx number. I might have to being using !important, if this repeats too much. Removed padding-left:0px. Temporarily. */
+
+/* STICKY: "Proovi esimene kuu...", "Edaspidi..." | P., 17.05.2020. */
+/* This selector appears to have an often-variable [data-v-xxxxxxxx] parameter. */
+GM_addStyle("A.section-branding__digipakett-sticky .section-branding__digipakett-desc[data-v-2f7583f5], A.section-branding__digipakett-sticky .section-branding__digipakett-desc[data-v-f8d4cf16] {background-color:#EBD20E; padding-left:31px; padding-right:10px; font-size:13px; line-height:18px;}");
+/* R., 22.05.2020.: Temporarily removed padding-left:0px., then readded, but instead of 10x, added 31px. */
+
+/* STICKY: "Proovi esimene kuu...", "Edaspidi..." | N., 21.05.2020.: +bgcolor. */
+GM_addStyle("A.section-branding__digipakett-sticky .section-branding__digipakett-desc > * {display:inline;}");
+GM_addStyle("A.section-branding__digipakett-sticky .section-branding__digipakett-desc > STRONG {margin-right:0px; font-weight:600 !important;}"); /* "Proovi esimene kuu..." */
 
 /* [FRONTPAGE / OTHER PAGES] RIGHT bar */
 GM_addStyle("SECTION#rightContent {padding-left:5px;}");
@@ -666,8 +917,8 @@ GM_addStyle("BODY.body--article MAIN .wrap {background-color:inherit;}");
 /* 11.2016 redesign */
 GM_addStyle("DIV.article-container, DIV.article-side {background-color:inherit;}"); /* 17.11.2016. */
 /* Inheriting the background color is predicated on the default browser 
-   background color being Silver or some form of gray between Silver and white, 
-   but not white outright. So far applies to articles only. */
+   background color being Silver or some form of gray between Silver and 
+   white, but not white outright. So far applies to articles only. */
 
 /* ARTICLE PADDING: 11.2016 redesign */
 GM_addStyle("DIV.article-container {padding-top:0px; padding-bottom:0px;}");
@@ -731,8 +982,7 @@ GM_addStyle("DIV.article .structured-content__group.structured-content__group--a
 
 /* 2019 R | "SOOVITAME LUGEDA" | "commercial articles" | SISUTURUNDUS | Superseding selector for right-side | parem | commercial content. */
 GM_addStyle("DIV.article ~ DIV.structured-content__group > DIV.commercial-articles.flex {display:inline-block; padding:0px;}");
-/* K., 28.08.2019. 
-+padding.*/
+/* K., 28.08.2019.:(?) +padding.*/
 
 /* 2019 R | "SOOVITAME LUGEDA" | "commercial articles" (inner) | 
 APPLIES TO TOP RIGHT section next to article content (picture and all). */
@@ -744,7 +994,7 @@ GM_addStyle("DIV.commercial-articles--aside {padding:0px 1px 1px 1px; padding-le
 GM_addStyle("DIV.commercial-articles.commercial-articles--aside {background-color:transparent;}");
 /* ^ P., 16.06.2019. */
 
-/* 2019 R to 2018 design | "SOOVITAE LUGEDA" items (insets) | containers for each item | N., 14.11.2019. */
+/* 2019 R to 2018 design | "SOOVITAME LUGEDA" items (insets) | containers for each item | N., 14.11.2019. */
 GM_addStyle("DIV.structured-content__group--aside > DIV.commercial-articles.commercial-articles--aside > DIV:not(.block-title) {display:inline-block;}");
 
 /* 2019 R | "SOOVITAME LUGEDA" | PILDID väikeseks (normaalsuurusesse) */
@@ -752,7 +1002,7 @@ GM_addStyle("DIV.commercial-articles--aside > DIV > ARTICLE.list-article > A.lis
 /* ^ K., 12.06.2019. */
 
 /* 2019 R (on 2018 design) | "SOOVITAME LUGEDA" > "ENIM LOETUD" notice inset. | N., 14.11.2019. */
-GM_addStyle("DIV.commercial-articles .list-article__week-top {top:2px; left:2px; background-color:navy; padding-top:1px; padding-botto:0px; padding-left:6px; padding-right:6px; font-weight:600;}"); /* original positions were at -10px for both. letter-spacing:1px; was considered. */
+GM_addStyle("DIV.commercial-articles .list-article__week-top {top:2px; left:2px; background-color:navy; padding-top:1px; padding-bottom:0px; padding-left:6px; padding-right:6px; font-weight:600;}"); /* original positions were at -10px for both. letter-spacing:1px; was considered. */
 
 /* 2019 R | AFTER HEADER BARS STARTS ARTICLE AND TITLE. */
 GM_addStyle("DIV.article-top {display:inline-block;}");
@@ -772,7 +1022,7 @@ GM_addStyle("DIV.article ~ DIV.structured-content__group {float:right; width:aut
 /*max-width was:300px; K., 28.08.2019: now 221px.*/
 
 /* 2019 R | SISUTURUNDUS | ITEMS before article begin */
-GM_addStyle("DIV.commercial-articles .list-article { margin-right:1px; margin-bottom:1px !important; border:solid 1px gray;  background-color:inherit;}");
+GM_addStyle("DIV.commercial-articles .list-article {margin-right:1px; margin-bottom:1px !important; border:solid 1px gray;  background-color:inherit;}");
 /* K., 28.08.2019. Later added float:right, but it might have to apply to a superseding selector.
 R., 29.08.2019.: +margin-bottom.
 N., 14.11.2019.: Added !important to margin-bottom, removed float:left; to help with margins. */
@@ -1015,11 +1265,26 @@ GM_addStyle("HEADER.site-header .site-header__top {height:auto; min-height:45px;
 
 /* 01.2018 redesign | TOP LINKS CONTAINER (SMALL TYPE, WITH SEARCH) */
 GM_addStyle("HEADER.site-header .menu-items.menu-items--top {display:inline-flex; flex-flow:wrap;}");
-/* 10.09.2019.: replaced inline-block with inline-fex, added flex-flow. */
+/* 10.09.2019.: replaced inline-block with inline-flex, added flex-flow. */
+
+/* 2019 R / 2020 R | HEADER | new design (kuupäev, ilm, "Vihje | Klienditugi, Tellimine, Reklaam") | N., 19.03.2020. */
+GM_addStyle("HEADER.layout--1030 {min-width:unset;}");
 
 /* 01.2018 redesign | TOP LINKS CONTAINER (SMALL TYPE) */
 GM_addStyle("HEADER.site-header .site-header__top:last-child {display:inline-flex}");
 /* OTSINGU LUUP | LOOKING GLASS | SEARCH ICON | removed the following properties: position:absolute; top:0px; right:0px; */
+
+/* 2018R | OTSING | TULEMUSED | LINK | 19.03.2020. */
+GM_addStyle("SPAN.search-result__headline A {transition:none; color:black;}");
+
+/* 2018R | OTSING | TULEMUSED | LEHE/SEKTSIOONI NIMI | 19.03.2020. */
+GM_addStyle("SPAN.search-result__section-label A {color:black;}");
+
+/* 2018R | OTSING | TULEMUSED | KUUPÄEV/DATE | 19.03.2020. */
+GM_addStyle("SPAN.search-result__date {color:black;}");
+
+/* 2018R | OTSING | TULEMUSED | AUTOR/AUTHOR | 19.03.2020. */
+GM_addStyle("DIV.search-result__authors {color:#222;}");
 
 /* 01.2018 redesign */
 GM_addStyle("HEADER.site-header > DIV.layout DIV.icons.flex--align-items-center {display:inline-flex;}");
@@ -1028,6 +1293,28 @@ GM_addStyle("HEADER.site-header > DIV.layout DIV.icons.flex--align-items-center 
 
 /* 01.2018 redesign | header gradient separator */
 GM_addStyle("DIV.header-logo__bottom-gradient.gradient-separator--after {width:auto; max-width:1000px;}");
+
+/* 2019/2020 R | (SÕBRANNA) SUBHEADER after blue bar | white bar container (originally) | "Suhted & seks", "Mida vanemad", "Ema ja laps" jne. | N., 19.03.2020. */
+/* GM_addStyle(""); */
+
+/* 2019/2020 R | (SÕBRANNA) SUBHEADER after blue bar | white bar (originally) | "Suhted & seks", "Mida vanemad", "Ema ja laps" jne. | N., 19.03.2020. */
+GM_addStyle("NAV.submenu-container DIV.menu-items .menu-item DIV.menu-items .menu-item {border-right:solid 1px navy; padding-left:5px; padding-top:0px; padding-bottom:0px; padding-right:5px;}");
+
+/* 2020 R | N., 19.03.2020. | (SÕBRANNA) WHITE SUBHEADER after blue bar. | FIRST ITEM */
+GM_addStyle("NAV.submenu-container DIV.menu-items.menu-items--sub > DIV:first-child .menu-item.menu-item--active {padding-left:0px; color:#99CCFF; font-weight:500; letter-spacing:1px;}");
+
+/* GM_addStyle("NAV.submenu-container DIV.menu-items.menu-items--sub > DIV:first-child A.menu-item.menu-item--active::before {display:inline; content:\'\\>\';}");*/ /* does not seem to work. */
+
+/* 2020 R | N., 19.03.2020. | (SÕBRANNA) WHITE SUBHEADER after blue bar. | LAST ITEM */
+GM_addStyle("NAV.submenu-container DIV.menu-items.menu-items--sub > DIV:last-child .menu-item {border-right:none;}");
+
+/* 2020 R | N., 19.03.2020. | Reklaam (Postimehe enda oma; seda peita ei tohi.) */
+GM_addStyle("HTML:not(.device-phone) DIV.section-branding-container:not(:empty) {margin-top:0px;}");
+/* margin-top can be 1px, too. */
+
+/* 2020 R | N., 19.03.2020. | Reklaam (Postimehe enda oma; seda peita ei tohi.) */
+GM_addStyle("A.section-branding-bg {padding-top:2px; padding-right:0px; padding-left:2px; padding-bottom:0px;}");
+/* 21.03.2020: padding-bottom from 2px to 0px; */
 
 /* 01.2018 redesign | EMBEDDED VIMEO VIDEOS | 16.03.2018 */
 /* Note, that the !important rule is used in order to avoid 
@@ -1054,6 +1341,17 @@ GM_addStyle("ARTICLE.article, DIV.article {background-color:inherit; padding-lef
 
 /* 01.2018 redesign | 06.03.2018 | ARTICLE */
 GM_addStyle("DIV.article {padding-bottom:0px;}");
+
+/* 2020R: ARTICLE | N., 09.04.2020. | Fixes a layout issue when right-side promos, apparently floated right, are not cleared. */
+GM_addStyle("ARTICLE.root ~ ARTICLE.root.js-single-article {clear:right;}");
+/* Also works on ARTICLE.root, but I'd decided to add .js-single-article as a qualifier. */
+/* GM_addStyle("DIV.breadcrumb.breadcrumb--article ~ DIV.article {clear:right;}"); */
+/* Although this works, it's not specific enough. */
+
+GM_addStyle("DIV.article-loader .load-three-bounce:before {content:\'Mõtleme veel\.\.\.\'; word-wrap:normal; white-space:nowrap;}");
+GM_addStyle("DIV.article-loader .load-three-bounce .load-child {display:none; animation:none; transform:none;}");
+GM_addStyle("DIV.article-loader .load-three-bounce .bounce1 {display:none; animation-delay:unset; animation:none; transform:none;}");
+GM_addStyle("DIV.article-loader .load-three-bounce .bounce1 {animation-delay:unset; animation:none; transform:none;}");
 
 /* 2018 design | N., 14.11.2019. | */
 GM_addStyle("DIV.dfp-ad--horizontal {background-color:inherit;}");
@@ -1086,6 +1384,9 @@ GM_addStyle("DIV.tanane-article {background-color:inherit; border:1px solid #F8F
 GM_addStyle("DIV.tanane-article .article-body__item--htmlElement {font-family:\'Arial\',\'Helvetica\',\'Helv\',\'sans-serif\'; font-size:13px; line-height:1.6em; margin-bottom:1em; color:black;}");
 /* E., 04.11.2019.: +margin-bottom 
    L., 09.11.2019.: +black color */
+
+/* 2020 R: SÕBRANNA / sobranna */
+GM_addStyle("DIV.article-body__item.article-body__item--htmlElement {margin-bottom:10px;}");
 
 /* 2019 R: LEHT: ARTICLE paragraphs (blurb?) | P., 03.11.2019. */
 GM_addStyle("DIV.tanane-article .article-body H2 {margin:0px; margin-top:0.6em; margin-bottom:0.3em;}");
@@ -1244,7 +1545,7 @@ GM_addStyle("SECTION.article-body:not([class*=\"article-body--lead\"]) P:not(:la
 /* IMAGE CAPTION: 11.2016 redesign. | 17.11.2016 */
 GM_addStyle("FIGCAPTION.article-media-figure__caption {color:black;}");
 
-/* OTSE */
+/* OTSE | LIVEBLOG */
 GM_addStyle("HTML > BODY > DIV.content {padding-left:0px;}");
 
 /* 11.2016 redesign */
@@ -1279,14 +1580,17 @@ GM_addStyle("LIVEBLOG.liveblogEmbedContainer.mobile .liveblog .event .bullet {ba
 GM_addStyle("DIV.liveblog .event .content {color:Silver; margin-left:30px; margin-right:1px; border-bottom-color:#525252;}");
 
 /* 11.2016 redesign: font and font size. | Added 07.01.2017. */
-GM_addStyle("DIV.liveblog .event .content P {font-family:\'Arial\',\'Roboto\',\'sans-serif\'; font-size:89%;}");
+GM_addStyle("DIV.liveblog .event .content P {font-family:\'Arial\',\'Roboto\',\'sans-serif\'; font-size:89%; line-height:1.5em;}");
 /* 77%-89% works with Arial. 95% works with Roboto, but I'm keeping it
    at 89% to allow people with only Roboto not to have too small text.
-   DIV.article-container.flex--equal-width top selector does not work. */
+   DIV.article-container.flex--equal-width top selector does not work.
+L., 21.03.2020.: +line-height, original:28px;*/
 
 GM_addStyle("DIV.liveblog .event .content DIV.ng-binding {padding-right:4px;}"); /* 08.11.2016 */
 
-GM_addStyle("DIV.liveblog .event .content H3 {color:white;}");
+/* LIVEBLOG ITEM TITLE*/
+GM_addStyle("DIV.liveblog .event .content H3 {color:white; margin-top:0px; line-height:23px;}");
+/* 21.03.2020.: +margin-top (original:10px); +line-height, original:27px;*/
 
 /* 11.2016 redesign font size (perhaps) */
 GM_addStyle("DIV.article-container.flex--equal-width DIV.liveblog .event .content H3 {font-size:95%;}"); /* 07.01.2017 */
@@ -1303,11 +1607,19 @@ GM_addStyle("IFRAME[src*=\"facebook.com\"] {background-color:Silver;}");
 /* assuming dark bgcolor */
 /* K., 28.08.2019: Replaced single quotes with double quotes. */
 
-/* ARTICLE EMBED IN LIVEBLOG | 28.12.2018 */
+/* ARTICLE EMBED IN LIVEBLOG | L., 21.03.2020. */
+GM_addStyle("DIV.liveblog .articleContainerEmbed .smallRow .article-container, DIV.liveblog .articleContainerEmbed .smallColumn .article-container {transition:none; background-color:black}");
+/* background-color:transparent yields to some parent element's white 
+bgcolor. */
+
+/* ARTICLE EMBED IN LIVEBLOG | Looks like image width | 28.12.2018 */
 GM_addStyle("DIV.liveblog .articleContainerEmbed .smallColumn .article-container .image-pad {width:100%;}");
 
 /* ARTICLE EMBED IMAGE IN LIVEBLOG | 28.12.2018 */
 GM_addStyle("DIV.liveblog .articleContainerEmbed .smallColumn .image {background-size:cover;}");
+
+/* ARTICLE EMBED LINK IN LIVEBLOG | L., 21.03.2020. */
+GM_addStyle("DIV.liveblog .articleContainerEmbed .article-story__headline {color:DarkSlateBlue;}");
 
 /* YOUTUBE PLAYER FIT TO WIDTH */
 
@@ -1348,9 +1660,48 @@ GM_addStyle("DIV.article-share-btns {margin-top:0px; padding-top:10px; border-to
 /* This moves space rom margin to padding an adds a border to visually
    separate article content. */
 
-/* 2019 R (on 2018 design) | AFTER ALL ARTICLE TEXT - "Liitu uudiskirjaga" | N., 14.11.2019. */
+/* 2020 R (on 2018 design) | FRONTPAGE & AFTER ALL ARTICLE TEXT - "Liitu uudiskirjaga" | P., 05.04.2020. */
+GM_addStyle("DIV.iframe-container.iframe-container--postimees {height:142px; padding-top:1px; padding-right:1px; padding-bottom:1px; padding-left:1px;}");
+/* height was: 155px; */
+
+/* 2019 R (on 2018 design) | FRONTPAGE & AFTER ALL ARTICLE TEXT - "Liitu uudiskirjaga" | N., 14.11.2019. */
 GM_addStyle("DIV.content.postimees-subscribe-iframe {background-color:MidnightBlue; color:#ccc;}");
 /* bgcolor was: #4DADE9; now: MidnightBlue. color was white. */
+
+/* 2020 R (on 2018 design) | FRONTPAGE & AFTER ALL ARTICLE TEXT - "Liitu uudiskirjaga" | P., 05.04.2020. | CONTENTS: announcement */
+GM_addStyle("DIV.column-left[data-v-9f839cc6], DIV.content.postimees-subscribe-iframe > DIV.column-left {color:Silver;}");
+
+/* 2020 R (on 2018 design) | FRONTPAGE & AFTER ALL ARTICLE TEXT - "Liitu uudiskirjaga" | P., 05.04.2020. | CONTENTS: terms checkbox text */
+GM_addStyle("[data-v-9f839cc6] FORM.form DIV.terms__links,  FORM.form DIV.terms__links {color:Silver}");
+
+/* 2020 R | FRONTPAGE | "FA20 EESTI MEISTRIVÕISTLUSED" carousel navigation buttons previous | P., 05.04.2020. */
+GM_addStyle("SECTION.flash-block .carousel-nav .carousel-nav__button.carousel-nav__button-prev {left:0px;}");
+
+/* 2020 R | FRONTPAGE | "FA20 EESTI MEISTRIVÕISTLUSED" carousel navigation buttons next | P., 05.04.2020. */
+GM_addStyle("SECTION.flash-block .carousel-nav .carousel-nav__button.carousel-nav__button-next {right:0px; transform:none;}");
+
+/* 2020 R | FRONTPAGE | "FA20 EESTI MEISTRIVÕISTLUSED" carousel items | 
+P., 05.04.2020.*/
+GM_addStyle("DIV.flash-block__slide {margin-right:1px;}");
+
+/* 2020 R | FRONTPAGE | "kuula" carousel navigation buttons next | P., 05.04.2020. */
+GM_addStyle("SECTION.carousel:not(.carousel--in-new-theme):not(.device-phone) .carousel-nav__button-prev[data-v-1f59d013], SECTION.carousel:not(.carousel--in-new-theme):not(.device-phone) .carousel-nav__button-prev {margin-left:0px;}");
+
+/* 2020 R | FRONTPAGE | "kuula" carousel navigation buttons next | P., 05.04.2020. */
+GM_addStyle("SECTION.carousel:not(.carousel--in-new-theme):not(.device-phone) .carousel-nav__button-next[data-v-1f59d013], SECTION.carousel:not(.carousel--in-new-theme):not(.device-phone) .carousel-nav__button-next {margin-right:0px;}");
+
+/* 2020 R | FRONTPAGE | "kuula" carousel container | P., 05.04.2020. */
+GM_addStyle("SECTION.carousel[data-v-1f59d013], SECTION.carousel {background-color:inherit; border:solid 1px white; padding-left:1px; padding-bottom:5px;}");
+
+/* 2020 R | FRONTPAGE | "kuula" carousel subcontainer | P., 05.04.2020. */
+GM_addStyle("DIV.VueCarousel.structured-content__block {margin-bottom:0px;}");
+
+/* 2020 R | FRONTPAGE | "kuula" carousel items container | P., 05.04.2020. */
+/* GM_addStyle("DIV.VueCarousel-inner {transform:none !important; transition:none !important;}"); */
+/* Doesn't seem to work very well. */
+
+/* 2020 R | FRONTPAGE | "kuula" carousel items | P., 05.04.2020. */
+GM_addStyle("DIV.carousel__slide[data-v-1f59d013], DIV.carousel__slide {margin-right:1px;}");
 
 /* ARTICLE LINKS BELOW */
 GM_addStyle("@media only screen and (max-width:1023px) { .frontBlock.frontBlock.frontType13 .frontLead, .frontBlock.frontBlock.frontType13 .frontRelated, .frontBlock.frontBlock.frontType13 .frontText, .frontBlock.frontType11 .frontArticle .frontAdditional, .frontBlock.frontType11 .frontArticle .frontRelated, .frontBlock.frontType11 .frontText, .frontBlock.frontType12 .frontArticle .frontAdditional, .frontBlock.frontType12 .frontArticle .frontLead, .frontBlock.frontType12 .frontArticle .frontRelated, .frontBlock.frontType12 .frontArticle .frontText, .frontBlock.frontType16 .frontAdditional, .frontBlock.frontType2 .articleRight .frontText, .frontBlock.frontType2 .frontAdditional, .frontBlock.frontType3 .frontAdditional, .frontBlock.frontType3 .frontLead, .frontBlock.frontType3 .frontRelated, .frontBlock.frontType3 .frontText, .frontBlock.frontType4 .articleRight .frontQuote .frontLead, .frontBlock.frontType4 .articleRight .frontQuote .frontRelated, .frontBlock.frontType4.frontType10 .articleLeft .frontQuote .frontLead, .frontBlock.frontType4.frontType10 .articleLeft .frontQuote .frontRelated, .frontBlock.frontType4.frontType10 .articleLeft .frontQuote .frontText, .frontBlock.frontType6 .frontArticle .frontAdditional, .frontBlock.frontType6 .frontLead, .frontBlock.frontType6 .frontRelated, .frontBlock.frontType6 .frontText, .frontBlock.frontType7 .frontArticle .frontAdditional, .frontBlock.frontType7 .frontLead, .frontBlock.frontType7 .frontRelated, .frontBlock.frontType7 .frontText, .frontBlock.frontType8 .frontAdditional, .frontBlock.gameFriik, .frontQuote .articleText .frontText {display:block;} }");
@@ -1372,7 +1723,6 @@ GM_addStyle("DIV.flex--equal-width > DIV#comments {margin-top:-25px;}");
 /* Removes large negative margin that would place top comments out of view. */
 
 GM_addStyle("@media only screen and (max-width:1024px) { DIV#comments .commentSortOptionsContainer {height:37px; margin-top:4px;} DIV#comments .commentSortOptionsContainer:hover {background:linear-gradient(to bottom, Silver, transparent 100%);} }");
-
 /* to right, yellow, transparent 50%, transparent 100% */
 
 /* COMMENT THUMBS
@@ -1380,6 +1730,12 @@ GM_addStyle("@media only screen and (max-width:1024px) { DIV#comments .commentSo
 GM_addStyle("SPAN.comment-thumb--up {background-color:green;}");
 GM_addStyle("SPAN.comment-thumb--down {background-color:maroon;}");
 /* border-bottom:medium solid maroon */
+
+/* 2019 R: LEHT | Comment report link | 02.01.2020. */
+GM_addStyle("ARTICLE.tanane-article.comments-view .article-comment__report {color:MidnightBlue; font-size:16px;}");
+
+/* 2019 R: LEHT | Comment date | 02.01.2020. */
+GM_addStyle("ARTICLE.tanane-article.comments-view .article-comment-author__date {color:black;}");
 
 /* COMMENT TEXT
    11.2016 redesign, 2017 spring design update | Line added 27.05.2017. */
@@ -1394,6 +1750,9 @@ GM_addStyle("ARTICLE.tanane-article.comments-view .article-comment-content {font
 /* 2019 R [leht]: COMMENT RATINGS */
 GM_addStyle("SPAN.reacting__reaction-count[data-v-3da6488c], SPAN.reacting__reaction-count[data-v-3bbacb58], SPAN.reacting__reaction-count {color:black; font-size:16px;}");
 /* L., 26.10.2019. */
+
+/* 2019 R [leht]: COMMENT RATINGS | 02.01.2020. */
+GM_addStyle("SPAN.reacting__reactions:hover .reacting__reaction .reacting__reaction-count[data-v-3bbacb58] {display:inline-block; transition:none; transform:none; animation:none;}");
 
 /* 11.2016 redesign | IMPORTANT STORIES | Line added on K., 10.05.2017. */
 GM_addStyle("SECTION.article-editors {background-color:inherit;}");
@@ -1411,8 +1770,17 @@ GM_addStyle("DIV.allepal-container {width:100%; min-width:320px; max-width:1000p
 /* FOOTER */
 GM_addStyle("DIV.usefulLinks {margin-left:0px; margin-right:0px; padding-left:0px; width:auto;}");
 
+/* 2020R: FOOTER container */
+GM_addStyle("FOOTER.site-footer.layout {padding-top:0px; padding-left:1px; padding-right:0px;}");
+
+/* 2020R: FOOTER: (Päevatoimetaja & kontaktid) | N., 09.04.2020. */
+GM_addStyle("DIV.site-footer__top {padding-top:10px; padding-bottom:15px;}");
+
 /* 01.2018 redesign | FOOTER BOTTOM LINKS */
 GM_addStyle("DIV.site-footer__bottom A {padding-top:0.5em; padding-bottom:0.5em; padding-left:5px; padding-right:5px;}");
+
+/* 2020R: FOOTER FOTTOM LINKS | to be applied on mobile; */
+GM_addStyle("DIV.site-footer__top-group > P > A.section-font-color, A.section-font-color.site-footer__top-link {color:#191970; word-wrap:break-word;}");
 
 /* ENTIRE SCREEN / GALLERY */
 GM_addStyle("DIV.gImageView:hover DIV.gImageInfo {bottom:-88px;}");
@@ -1483,7 +1851,7 @@ GM_addStyle("DIV.structured-content__group.structured-content__group--regular.fl
 /* R2019 in-article aside ad */
 GM_addStyle("ASIDE.layout--right.flex.flex--direction-column {margin-left:1px; display:inline-table; max-width:300px;}");
 
-GM_addStyle("DIV.flex--equal-width ~ DIV.article > DIV.flex > ASIDE.layout--right.flex.flex--direction-column {float:right; flex:unset; border:solid 1px black; display:inline-block; width:auto; min-width:240px; max-width:344px; height:auto;}");
+GM_addStyle("DIV.flex--equal-width ~ DIV.article > DIV.flex > ASIDE.layout--right.flex.flex--direction-column {flex:unset; display:inline-block; float:right; width:auto; min-width:240px; max-width:344px; height:auto; border:solid 1px black;}");
 /* Must be part of the 2018 design, OR part of the in-article aside ad stuff. Problem is, that this selector does not apply to actual articles. */
 
 /* 2019 R | SISUTURUNDUS ARTIKLI SEES | ARTICLE INSET MARKETING |
@@ -1506,14 +1874,26 @@ K., 06.11.2019.: Right -220px set to 0px (temporarily for testing because of a l
 Turns out, that there's two of these right columns
 */
 GM_addStyle("DIV.dfp-ad ~ DIV.article ~ DIV.dfp-ad ~ DIV.article > DIV.flex > DIV.flex--equal-width ~ ASIDE.layout--right.flex.flex--direction-column {display:block; z-index:5; position:absolute; top:0px; right:0px; max-width:219px; max-height:209px; margin-top:0px; border:solid 5px navy; border-radius:5px; overflow-x:hidden; overflow-y:auto;}");
-/*11.11.2019.: Same as above, but better.*/
+/* 11.11.2019.: Same as above, but better.*/
+
+/* 2020 R | SISUTURUNDUS JÄRGMISE ARTIKLI SEES | TEISE ARTIKLI SEES | N., 19.03.2020. */
+GM_addStyle("ARTICLE ~ ARTICLE > DIV.dfp-ad ~ DIV.article > DIV.flex > DIV.flex--equal-width ~ ASIDE.layout--right.flex.flex--direction-column {right:0px; border-color:firebrick;}");
+/* This fixes an issue in scrolling following articles, where the layout no longer balances the negative right position with new content. */
+
+/* 2020 R | SISUTURUNDUS INSET | RIGHT | PAREM | container above title | K., 15.04.2020. */
+GM_addStyle("ASIDE.layout--right > *:not(:empty) {margin-top:0px;}");
+
+/* 2020 R | SISUTURUNDUS INSET | RIGHT | PAREM | container above title | N., 21.05.2020. */
+GM_addStyle("DIV.dfp-ad--center .dfp-ad__ad {display:inline;}");
 
 /* 2019 R | SISUTURUNDUS INSET | "SISUTURUNDUS" title | R., 30.09.2019. */
-GM_addStyle("DIV.dfp-ad ~ DIV.article > DIV.flex > DIV.flex--equal-width ~ ASIDE.layout--right.flex.flex--direction-column .block-title {margin-top:2px; margin-bottom:1px;}");
+GM_addStyle("DIV.dfp-ad ~ DIV.article > DIV.flex > DIV.flex--equal-width ~ ASIDE.layout--right.flex.flex--direction-column .block-title {margin-top:2px; margin-bottom:1px; font-weight:600; line-height:24px;}");
+/* N., 21.05.2020., 15:33.: +font-weight:was:700; +line-height 24px (orig:31px) */
 
 /* 2019 R | SISUTURUNDUS INSET | R., 30.09.2019. | link text container |
 coma = comarketing? */
-GM_addStyle("DIV.coma-aside .list-article__text {padding:0px;}");
+GM_addStyle("DIV.coma-aside .list-article__text {padding:0px; line-height:1em;}");
+/* N., 21.06.2020.: +line-height. */
 
 /* 2019 R | SISUTURUNDUS INSET | R., 30.09.2019. | link text container |
 coma = content marketing */
@@ -1521,6 +1901,7 @@ GM_addStyle("DIV.coma-aside .list-article__headline {line-height:1.4em;}");
 
 /* 2019 R | SISUTURUNDUS INSET | R., 30.09.2019. | link SPAN inside A */
 GM_addStyle("DIV.structured-content__block--list .list-article__headline {font-size:14px;}");
+GM_addStyle("HTML:not(.tvnet) DIV.aside--coma .list-article__headline {font-size:14px; line-height:1.2em;}"); /* N., 21.05.2020. */
 
 /* "SOOVITAME LUGEDA" (päris artiklid) */
 GM_addStyle("SECTION.articles-recommendations {float:right; margin:2px 1px 10px 17px; min-height:210px;}"); /* 01.09.2019. */
@@ -1570,6 +1951,9 @@ GM_addStyle("ASIDE.layout--right > DIV[class*=\"aside--hint\"] ~ DIV[class*=\"as
 GM_addStyle("ASIDE.layout--right > DIV[class*=\"aside--hint\"] ~ DIV[class*=\"aside--\"] > SECTION > DIV.flex.flex--align-items-center.flex--justify-content-center > * {display:block;}"); /* SECTION.tab-menu ~ */
 /* 02.06.2018 */
 
+/* RIGHT: "VIIMASED UUDISED" / "LOETUMAD" | K., 08.04.2020. */
+GM_addStyle("ARTICLE.list-article--news-list {padding-bottom:0px;}");
+
 /* RIGHT: UUSIM/LOETUM SPINNER | 2018 redesign */
 GM_addStyle("ASIDE.layout--right > DIV[class*=\"aside--latest\"] > SECTION >  DIV.flex.flex--align-items-center.flex--justify-content-center:before, ASIDE.layout--right > DIV[class*=\"aside--hint\"] ~ DIV[class*=\"aside--\"] > SECTION >  DIV.flex.flex--align-items-center.flex--justify-content-center:before {content:\'SPINNER\'; display:block; position:absolute; top:61px; left:auto; right:auto; height:50px; width:85px; color:red; font-weight:bold; border:solid 4px red;}");
 /* SECTION.tab-menu ~ */ /* 02.06.2018 */
@@ -1601,8 +1985,9 @@ GM_addStyle("A:visited: + A:before {content:\'vis\' !important; font-weight:bold
 GM_addStyle("div#player > object {height:361px;}");
 GM_addStyle("div#player:after {content:\'Stretching is fill.\'; display:block; border:solid 1px navy; font-family:\'Verdana\'; font-size:small; color:Silver; text-align:right;}"); */
 
-/* The standard 16:9 height for 640px width is 360px. Because the BBC logo's
-   squares were not exactly square, then I added one pixel for the height */
+/* The standard 16:9 height for 640px width is 360px. Because the BBC 
+logo's squares were not exactly square, then I added one pixel for the 
+height */
 
 /*
 document.styleSheets[0].insertRule('
