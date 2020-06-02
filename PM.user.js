@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.7.2.1
+// @version 0.8.7.2.2
 // @include       *.postimees.ee/*
 // @include       https://rus.postimees.ee/*
 // @include       https://www.60pluss.ee/*
@@ -421,7 +421,7 @@ GM_addStyle("@media only screen and (max-width:800px) HEADER.site-header .midblo
 GM_addStyle("@media only screen and (max-width:560px) HEADER.site-header .quote-container {margin-left:5px;}");
 
 /* TOP: BLUE BAR LINKS' LINE HEIGHT */
-GM_addStyle(".pmMainNav A {line-height:unset; margin-bottom:8px;}");
+GM_addStyle(".pmMainNav A {margin-bottom:8px; line-height:unset;}");
 
 GM_addStyle("A.mainSectionLogo, A.mainSectionLogo:visited {background-color:inherit !important; color:white !important;}");
 
@@ -442,25 +442,25 @@ GM_addStyle("DIV.header__visible-in-article > A > IMG {height:19px; width:20px;}
 GM_addStyle("SECTION#fullScreenImage DIV.container {background:none;}");
 
 /* MAINSPACE | FRONTPAGE | Suur lärakas peale suure loo linke ("Vaata statistikat") | 04.04.2020. */
-GM_addStyle("DIV.feed-button {background-color:inherit; border:solid 1px #F8F8F8; margin-bottom:2px; padding:5px;}");
+GM_addStyle("DIV.feed-button {margin-bottom:2px; border:solid 1px #F8F8F8; background-color:inherit; padding:5px;}");
 /* K., 08.04.2020.: +margin-bottom, padding */
 
 /* MAINSPACE | FRONTPAGE | Suur lärakas peale suure loo linke ("ülevaade Eestis ja maailmas") | 08.04.2020. */
-GM_addStyle("DIV.feed-button__top-text {font-weight:500; font-size:19px; color:#343434;}");
+GM_addStyle("DIV.feed-button__top-text {font-size:19px; font-weight:500; color:#343434;}");
 
 /* MAINSPACE | FRONTPAGE | Suur kollane lärakas "TELLI DIGIPAKETT" | K., 15.04.2020. */
 GM_addStyle("DIV.section-branding-bg.section-branding--digipakett {padding:0px;}");
 
 /* MAINSPACE | FRONTPAGE | Suur kollane lärakas "TELLI DIGIPAKETT" | K., 15.04.2020. */
-GM_addStyle("DIV.root.root--section-brading-digipakett > DIV ~ DIV.section-branding-bg[style*=\"fixed\"] {padding-left:0px; padding-right:0px; background-color:transparent;}");
+GM_addStyle("DIV.root.root--section-brading-digipakett > DIV ~ DIV.section-branding-bg[style*=\"fixed\"] {background-color:transparent; padding-left:0px; padding-right:0px;}");
 /* E., 25.05.2020.: +transparent */
 /* bwahaha, the developer made a CSS typo in the selector, writing 'brading' instead of branding >:) */
 
 /* MAINSPACE | FRONTPAGE | Suur kollane lärakas "TELLI DIGIPAKETT" suur konteiner | K., 15.04.2020. */
-GM_addStyle("A.section-branding__digipakett.section-branding__digipakett-sticky {background-color:transparent; display:inline-flex; padding:0px; margin:0px;}");
+GM_addStyle("A.section-branding__digipakett.section-branding__digipakett-sticky {display:inline-flex; margin:0px; background-color:transparent; padding:0px;}");
 
 /* MAINSPACE | FRONTPAGE | Suur kollane lärakas "TELLI DIGIPAKETT" sticky */
-GM_addStyle("DIV.root--section-brading-digipakett DIV.section-branding-bg[style*=\"fixed\"] {top:16px !important; width:auto; background-color:transparent; z-index:19;}");
+GM_addStyle("DIV.root--section-brading-digipakett DIV.section-branding-bg[style*=\"fixed\"] {top:16px !important; z-index:19; width:auto; background-color:transparent;}");
 /* data-exact-start="true"
 data-has-stop="false"
 data-sticky=""
@@ -485,22 +485,47 @@ GM_addStyle("HTML:not(.device-phone) > BODY.tanane-article-view.scrolling-down .
 GM_addStyle("A.section-branding__digipakett-sticky .section-branding__digipakett-contents {display:inline-flex; height:18px; padding-left:0px; padding-right:0px; justify-content:unset;}");
 
 /* SUURE KOLLASE LÄRAKA "TELLI DIGIPAKETT" SISU konteiner | K., 15.04.2020. */
-GM_addStyle("A.section-branding__digipakett-sticky DIV.flex.flex--align-items-center {align-items:unset; display:inline-flex;}");
+GM_addStyle("A.section-branding__digipakett-sticky DIV.flex.flex--align-items-center {display:inline-flex; align-items:unset;}");
 /* 21.05.2020: +display:inline-flex from inline-table. Seems to work. */
 
 /* SUURE KOLLASE LÄRAKA IKOON | K., 15.04.2020. */
-GM_addStyle("A.section-branding__digipakett.section-branding__digipakett-sticky IMG {background-color:rgb(235, 210, 14); width:20px !important; height:18px !important;}");
+GM_addStyle("A.section-branding__digipakett.section-branding__digipakett-sticky IMG {width:20px !important; height:18px !important; background-color:rgb(235, 210, 14);}");
 
 /* SUURE KOLLASE LÄRAKA TEKSTIKONTEINER | K., 15.04.2020. */
-GM_addStyle("A.section-branding__digipakett.section-branding__digipakett-sticky DIV.section-branding__digipakett-title {height:18px; margin-left:0px; margin-right:0px; background-color:rgb(235, 210, 14); padding:0px 11px; font-size:12px; line-height:20px; text-transform:uppercase; border-radius:0px;}");
+GM_addStyle("A.section-branding__digipakett.section-branding__digipakett-sticky DIV.section-branding__digipakett-title {height:18px; margin-left:0px; margin-right:0px; border-radius:0px; background-color:rgb(235, 210, 14); padding:0px 11px; font-size:12px; line-height:20px; text-transform:uppercase;}");
 /* K., 20.05.2020: Duplicate item border-radius:20px; removed.  */
 
-/* SUURE KOLLASE LÄRAKA SUUR MUST NUPP "TELLI DIGIPAKETT" */
-GM_addStyle("A.section-branding__digipakett.section-branding__digipakett-sticky DIV.section-branding__digipakett-btn {height:18px; margin-left:0px; padding:0px 11px; font-size:12px; line-height:18px; border-radius:0px 0px 5px;}");
+/* SUURE KOLLASE LÄRAKA SUUR MUST NUPP "TELLI DIGIPAKETT" (20.05?) */
+GM_addStyle("A.section-branding__digipakett.section-branding__digipakett-sticky DIV.section-branding__digipakett-btn {height:18px; margin-left:0px; border-radius:0px 0px 5px; padding:0px 11px; font-size:12px; line-height:18px;}");
 /* border-radius: 0px 0px 5px makes the lower-right corner round. */
 
-/* SUURE KOLLASE LÄRAKA "ESIMENE KUU" */
+/* SUURE KOLLASE LÄRAKA "ESIMENE KUU" (20.05?) */
 GM_addStyle("DIV.section-branding__digipakett-disclaimer {right:407px; bottom:62px; color:white;}");
+
+/* FRONTPAGE | Suur kollane lärakas "Proovi | reklammivaba digipaketti..." | 02.06.2020. */
+/* GM_addStyle("DIV.digipakett-branding--sticky[data-v-3ca0ef3e] {}"); */
+
+/* FRONTPAGE | Suur kollane lärakas "Proovi | reklammivaba digipaketti..." | 02.06.2020. | container */
+GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__container[data-v-3ca0ef3e] {width:auto; background-color:transparent; padding-left:0px; padding-right:0px;}");
+/* #EBD20E; */
+
+/* FRONTPAGE | Suur kollane lärakas "Proovi | reklaamivaba digipaketti..." | 02.06.2020. */
+GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky[data-v-3ca0ef3e] {top:17px !important; padding-left:0px; padding-right:0px; background-color:transparent;}");
+/* padding-left:0px; padding-right:0px; bgcolor was: #EBD20E;*/
+
+/* leht: | 02.06.2020. */
+GM_addStyle("html.theme-tanane-leht:not(.device-phone) body.scrolling-down DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky[data-v-3ca0ef3e] {top:21 !important;}");
+GM_addStyle("html.theme-tanane-leht:not(.device-phone) DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky[data-v-3ca0ef3e] {top:37px !important;}");
+
+/* FRONTPAGE | Suur kollane lärakas "Proovi | reklaamivaba digipaketti..." | 02.06.2020. */
+GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__background[data-v-3ca0ef3e] {height:16px; border-radius:0px 0px 5px; padding-left:30px;}");
+
+/* FRONTPAGE | Suur kollane lärakas "Proovi | reklaamivaba digipaketti..." | 02.06.2020. | "osta"" tekst "Proovi | REKLAAMIVABA digipaketti.." */
+GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__desc[data-v-3ca0ef3e] {font-size:12px;}");
+
+/* FRONTPAGE | Suur kollane lärakas "Proovi | reklaamivaba digipaketti..." | 02.06.2020. | "osta"" nupp */
+GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__btn[data-v-3ca0ef3e] {margin-left:30px; height:16px; border-radius:0px 0px 5px; padding:0px 25px;}");
+
 
 /* SPINNER | ANIMATION | DIAMOND | K., 15.04.2020. */
 GM_addStyle("SPAN.diamond::before {transform:none;}");
