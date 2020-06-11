@@ -127,7 +127,7 @@ GM_addStyle("ARTICLE.frontSuperArt > A:visited:hover, ARTICLE.frontSuperArt > A:
 GM_addStyle("A:visited:hover > H1#sectionHeader {background:none; background-color:Cornsilk !important;}");
 
 /* PM PLUSS LINKS */
-GM_addStyle("A[href*=\"https:\\\\pluss\.\"], A[href*=\"https:\\\\leht\.\"] {font-weight:300 !important; color:#e94022 !important; background:none; background-color:LavenderBlush !important; border:solid 1px #e94022 !important;}");
+GM_addStyle("A[href*=\"https:\/\/pluss\.\"], A[href*=\"https:\/\/leht\.\"] {font-weight:300 !important; color:#e94022 !important; background:none; background-color:LavenderBlush !important; border:solid 1px #e94022 !important;}");
 /* A[href*=pluss] strong, A[href*=pluss] span, A[href*=pluss] * {} */
 
 /* PM 60PLUSS LINKS */
