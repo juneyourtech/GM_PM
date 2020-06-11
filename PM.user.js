@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.7.2.2
+// @version 0.8.7.2.3
 // @include       *.postimees.ee/*
 // @include       https://rus.postimees.ee/*
 // @include       https://www.60pluss.ee/*
@@ -506,25 +506,44 @@ GM_addStyle("DIV.section-branding__digipakett-disclaimer {right:407px; bottom:62
 /* GM_addStyle("DIV.digipakett-branding--sticky[data-v-3ca0ef3e] {}"); */
 
 /* FRONTPAGE | Suur kollane lärakas "Proovi | reklammivaba digipaketti..." | 02.06.2020. | container */
-GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__container[data-v-3ca0ef3e] {width:auto; background-color:transparent; padding-left:0px; padding-right:0px;}");
+GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__container[data-v-3ca0ef3e], DIV.digipakett-branding--sticky .digipakett-branding__container[data-v-70bdf18b], DIV.digipakett-branding--sticky .digipakett-branding__container {width:auto; background-color:transparent; padding-left:0px; padding-right:0px;}");
 /* #EBD20E; */
+/* 11.06.2020.: +additional backgorunt selector(s) to handle the new data-v- sticky stuff. */
 
 /* FRONTPAGE | Suur kollane lärakas "Proovi | reklaamivaba digipaketti..." | 02.06.2020. */
-GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky[data-v-3ca0ef3e] {top:17px !important; padding-left:0px; padding-right:0px; background-color:transparent;}");
+GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky[data-v-3ca0ef3e], DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky[data-v-70bdf18b], DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky {top:17px !important; padding-left:0px; padding-right:0px; background-color:transparent;}");
 /* padding-left:0px; padding-right:0px; bgcolor was: #EBD20E;*/
+/* 11.06.2020.: +additional data-v- sticky. */
 
-/* leht: | 02.06.2020. */
-GM_addStyle("html.theme-tanane-leht:not(.device-phone) body.scrolling-down DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky[data-v-3ca0ef3e] {top:21 !important;}");
-GM_addStyle("html.theme-tanane-leht:not(.device-phone) DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky[data-v-3ca0ef3e] {top:37px !important;}");
+/* leht: | Suure kollase lärakas sticky | 02.06.2020. */
+GM_addStyle("HTML.theme-tanane-leht:not(.device-phone) body.scrolling-down DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky[data-v-3ca0ef3e], HTML.theme-tanane-leht:not(.device-phone) body.scrolling-down DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky[data-v-70bdf18b], HTML.theme-tanane-leht:not(.device-phone) body.scrolling-down DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky {top:21 !important;}");
+/* 11.06.2020.: +additional selectors to handle the new data-v- sticky stuff. */
+/* The above doesn't seem to have worked properly. */
+GM_addStyle("HTML.theme-tanane-leht:not(.device-phone) body.scrolling-down DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky[data-v-70bdf18b], HTML.theme-tanane-leht:not(.device-phone) body.scrolling-down DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky {top:17px !important;}");
+GM_addStyle("HTML.theme-tanane-leht:not(.device-phone) body.tanane-article-view.scrolling-down DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky[data-v-70bdf18b], HTML.theme-tanane-leht:not(.device-phone) body.tanane-article-view.scrolling-down DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky {top:21px !important;}");
+
+/* leht: | Suure kollase lärakas sticky | 02.06.2020. */
+GM_addStyle("HTML.theme-tanane-leht:not(.device-phone) DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky[data-v-3ca0ef3e], HTML.theme-tanane-leht:not(.device-phone) DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky[data-v-70bdf18b], HTML.theme-tanane-leht:not(.device-phone) DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky {top:33px !important; transition:none;}");
+/* 11.06.2020.: +additional selectors to handle the new data-v- sticky stuff. */
+GM_addStyle("HTML.theme-tanane-leht:not(.device-phone) > body.tanane-article-view DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky[data-v-3ca0ef3e], HTML.theme-tanane-leht:not(.device-phone) > body.tanane-article-view DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky[data-v-70bdf18b], HTML.theme-tanane-leht:not(.device-phone) > body.tanane-article-view DIV.digipakett-branding--sticky .digipakett-branding__container.is-sticky {top:37px !important;}");
+/* 11.06.2020. */
+
 
 /* FRONTPAGE | Suur kollane lärakas "Proovi | reklaamivaba digipaketti..." | 02.06.2020. */
-GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__background[data-v-3ca0ef3e] {height:16px; border-radius:0px 0px 5px; padding-left:30px;}");
+GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__background[data-v-3ca0ef3e], DIV.digipakett-branding--sticky .digipakett-branding__background[data-v-70bdf18b], DIV.digipakett-branding--sticky .digipakett-branding__background {height:16px; border-radius:0px 0px 5px; padding-left:30px;}");
+/* 11.06.2020.: +additional selectors to handle the new data-v- sticky stuff. */
 
 /* FRONTPAGE | Suur kollane lärakas "Proovi | reklaamivaba digipaketti..." | 02.06.2020. | "osta"" tekst "Proovi | REKLAAMIVABA digipaketti.." */
-GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__desc[data-v-3ca0ef3e] {font-size:12px;}");
+GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__desc[data-v-3ca0ef3e], DIV.digipakett-branding--sticky .digipakett-branding__desc[data-v-70bdf18b], DIV.digipakett-branding--sticky .digipakett-branding__desc {font-size:12px;}");
+/* 11.06.2020.: +additional backgorunt selector(s) to handle the new data-v- sticky stuff. */
 
 /* FRONTPAGE | Suur kollane lärakas "Proovi | reklaamivaba digipaketti..." | 02.06.2020. | "osta"" nupp */
-GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__btn[data-v-3ca0ef3e] {margin-left:30px; height:16px; border-radius:0px 0px 5px; padding:0px 25px;}");
+GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__btn[data-v-3ca0ef3e], DIV.digipakett-branding--sticky .digipakett-branding__btn[data-v-70bdf18b], DIV.digipakett-branding--sticky .digipakett-branding__btn {margin-left:30px; height:16px; border-radius:0px 0px 5px; padding:0px 25px;}");
+/* 11.06.2020.: +additional backgorunt selector(s) to handle the new data-v- sticky stuff. */
+
+/* FRONTPAGE / ARTICLE | Suur kollane lärakas "Kas oled reklaamist tüdinud?" | 11.06.2020. */
+GM_addStyle("DIV.digipakett-branding--static[data-v-70bdf18b], DIV.digipakett-branding--static {padding:1px 1px 1px;}");
+/* padding. top left+right bottom */
 
 
 /* SPINNER | ANIMATION | DIAMOND | K., 15.04.2020. */
@@ -2030,3 +2049,4 @@ GM_addStyle("DIV#embed-loader:before {content:\'oota sa\.\.\.\'; color:black; di
 /* VIMEO SPINNER */
 GM_addStyle("div.vp-spin SVG {display:none !important;}");
 GM_addStyle("div.vp-spin:before {content:\'Vimeo spinner\.\.\.\'; display:block; margin:auto; font-size:10pt; font-family:\'Arial\';}");
+/* end of file. */
