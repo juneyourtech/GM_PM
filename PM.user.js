@@ -25,7 +25,7 @@
 
 /* _80______________________________________________________________________ */
 
-GM_addStyle("HTML > BODY * {animation:none !important; animate-delay:unset !important; animate-delay:none !important;}")
+GM_addStyle("HTML > BODY * {animation:none !important; animation-delay:unset !important; animation-delay:0s !important;}")
 
 GM_addStyle("DIV[id*=\"hype-obj\"][class=\"HYPE_element\"][role=\"img\"] {transform:none !important; transform-origin:unset !important; pointer-events:none !important;}");
 /* display:none !important; */
