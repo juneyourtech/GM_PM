@@ -3,7 +3,7 @@
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.7.2.3
+// @version 0.8.7.2.4   
 // @include       *.postimees.ee/*
 // @include       https://rus.postimees.ee/*
 // @include       https://www.60pluss.ee/*
@@ -417,8 +417,8 @@ GM_addStyle("HEADER.site-header .menu-items > DIV {float:left;}");
 GM_addStyle("A.pmLogo, A.pmLogo:visited, A.mainSectionLogo, A.mainSectionLogo:visited {background-color:inherit !important;}");
 
 /* 2019/2020 R | QUOTE AFTER BIG LOGO | P., 24.05.2020. */
-GM_addStyle("@media only screen and (max-width:800px) HEADER.site-header .midblock-container {display:block;}");
-GM_addStyle("@media only screen and (max-width:560px) HEADER.site-header .quote-container {margin-left:5px;}");
+GM_addStyle("@media only screen and (max-width:800px) { HEADER.site-header .midblock-container {display:block;} }");
+GM_addStyle("@media only screen and (max-width:560px) { HEADER.site-header .quote-container {margin-left:5px;} }");
 
 /* TOP: BLUE BAR LINKS' LINE HEIGHT */
 GM_addStyle(".pmMainNav A {margin-bottom:8px; line-height:unset;}");
