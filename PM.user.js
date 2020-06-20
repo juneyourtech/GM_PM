@@ -1,9 +1,9 @@
-// ==UserScript==
+﻿// ==UserScript==
 // @name          	PM.leht
 // @namespace     PMO_GM
 // @description	See kasutajaskript muudab PMO välimuse kasutajasõbralikumaks. Kaubamärgid kuuluvad nende vastavatele omanikele.
 // @updateURL https://github.com/juneyourtech/GM_PM/raw/master/PM.user.js
-// @version 0.8.7.2.5
+// @version 0.8.7.2.6
 // @include       *.postimees.ee/*
 // @include       https://rus.postimees.ee/*
 // @include       https://www.60pluss.ee/*
@@ -27,7 +27,7 @@
 
 /* _80______________________________________________________________________ */
 
-GM_addStyle("HTML > BODY * {animation:none !important; animation-delay:unset !important; animation-delay:0s !important;}")
+GM_addStyle("HTML > BODY * {animation:none !important; animation-delay:unset !important; animation-delay:0s !important;}");
 
 GM_addStyle("DIV[id*=\"hype-obj\"][class=\"HYPE_element\"][role=\"img\"] {transform:none !important; transform-origin:unset !important; pointer-events:none !important;}");
 /* display:none !important; */
@@ -508,23 +508,32 @@ GM_addStyle("DIV.section-branding__digipakett-disclaimer {right:407px; bottom:62
 /* GM_addStyle("DIV.digipakett-branding--sticky[data-v-3ca0ef3e] {}"); */
 
 /* FRONTPAGE | Suure kollase läraka sticky sulgemisnupp | [X] close button  | L., 13.06.2020. */
-GM_addStyle("DIV.digipakett-branding-container--tall .digipakett-branding--sticky .digipakett-branding__close-btn[data-v-b2db71be], DIV.digipakett-branding-container--tall .digipakett-branding--sticky .digipakett-branding__close-btn {top:5px; left:-9px; height:16px; border-radius:0px 0px 5px;}");
+GM_addStyle("DIV.digipakett-branding-container--tall .digipakett-branding--sticky .digipakett-branding__close-btn[data-v-b2db71be], DIV.digipakett-branding-container--tall .digipakett-branding--sticky .digipakett-branding__close-btn[data-v-32acc2dc], DIV.digipakett-branding-container--tall .digipakett-branding--sticky .digipakett-branding__close-btn {top:5px; left:-9px; height:16px; border-radius:0px 0px 5px;}");
 /*  right:0px;  */
+/* 19.06.2020: + DIV.digipakett-branding--sticky, plus selector for [data-v-32acc2dc] */
+
+/* FRONTPAGE | Suure kollase läraka sulgemisnupp vol2  | 19.06.2020. */
+GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__close-btn[data-v-32acc2dc], DIV.digipakett-branding--sticky .digipakett-branding__close-btn {top:0px; left:-9px; height:16px; border-radius:0px 0px 5px;}");
+/* 19.06.2020: .digipakett-branding__close-btn 
++ selector for [data-v-32acc2dc] */
 
 /* FRONTPAGE | Suur kollane lärakas "Nüüd Postimehe reklaamivaba..." sticky | 13.06.2020. */
-GM_addStyle("DIV.digipakett-branding .is-sticky[data-v-b2db71be], DIV.digipakett-branding .is-sticky {width:auto;}")
+GM_addStyle("DIV.digipakett-branding .is-sticky[data-v-b2db71be], DIV.digipakett-branding .is-sticky[data-v-32acc2dc], DIV.digipakett-branding .is-sticky {width:auto; top:16px !important;}");
+/* 19.06.2020: +selector for [data-v-32acc2dc] */
 
 /* FRONTPAGE | Suur kollane lärakas "Nüüd Postimehe reklaamivaba..." | 13.06.2020.*/
-GM_addStyle("HTML.theme-tanane-leht:not(.device-phone) DIV.digipakett-branding--sticky .is-sticky[data-v-b2db71be], HTML.theme-tanane-leht:not(.device-phone) DIV.digipakett-branding--sticky {transition:none; top:37px !important; max-width:unset;}");
+GM_addStyle("HTML.theme-tanane-leht:not(.device-phone) DIV.digipakett-branding--sticky .is-sticky[data-v-b2db71be], HTML.theme-tanane-leht:not(.device-phone) .digipakett-branding--sticky .is-sticky[data-v-32acc2dc], HTML.theme-tanane-leht:not(.device-phone) DIV.digipakett-branding--sticky {transition:none; top:37px !important; max-width:unset;}");
 
 /* FRONTPAGE | Suur kollane lärakas "Nüüd Postimehe reklaamivaba..." | 13.06.2020.*/
-GM_addStyle("HTML.theme-tanane-leht:not(.device-phone) body.scrolling-down DIV.digipakett-branding--sticky .is-sticky[data-v-b2db71be], HTML.theme-tanane-leht:not(.device-phone) body.scrolling-down DIV.digipakett-branding--sticky .is-sticky {top:21px !important;}");
+GM_addStyle("HTML.theme-tanane-leht:not(.device-phone) body.scrolling-down DIV.digipakett-branding--sticky .is-sticky[data-v-b2db71be], HTML.theme-tanane-leht:not(.device-phone) body.scrolling-down DIV.digipakett-branding--sticky .is-sticky[data-v-32acc2dc], HTML.theme-tanane-leht:not(.device-phone) body.scrolling-down DIV.digipakett-branding--sticky .is-sticky {top:21px !important;}");
+/* 19.06.2020. Selector for [data-v-32acc2dc] */
 
 /* FRONTPAGE | Suur kollane lärakas "Proovi | reklaamivaba digipaketti..." | 02.06.2020. | container */
-GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__container[data-v-3ca0ef3e], DIV.digipakett-branding--sticky .digipakett-branding__container[data-v-70bdf18b], DIV.digipakett-branding--sticky .digipakett-branding__container[data-v-b2db71be], DIV.digipakett-branding--sticky .digipakett-branding__container {width:auto; background-color:transparent; padding-left:0px; padding-right:0px;}");
+GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__container[data-v-3ca0ef3e], DIV.digipakett-branding--sticky .digipakett-branding__container[data-v-70bdf18b], DIV.digipakett-branding--sticky .digipakett-branding__container[data-v-b2db71be], DIV.digipakett-branding--sticky .digipakett-branding__container[data-v-32acc2dc], DIV.digipakett-branding--sticky .digipakett-branding__container {width:auto; background-color:transparent; padding-left:0px; padding-right:0px;}");
 /* #EBD20E; */
 /* 11.06.2020.: +additional backgorunt selector(s) to handle the new data-v- sticky stuff.
 13.06.2020.: +selector for [data-v-b2db71be]
+19.06.2020.: +selector for [data-v-32acc2dc]
 */
 
 /* FRONTPAGE | Suur kollane lärakas "Proovi | reklaamivaba digipaketti..." | 02.06.2020. */
@@ -547,20 +556,24 @@ GM_addStyle("HTML.theme-tanane-leht:not(.device-phone) > body.tanane-article-vie
 
 
 /* FRONTPAGE | Suur kollane lärakas "Proovi | reklaamivaba digipaketti..." | 02.06.2020. */
-GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__background[data-v-3ca0ef3e], DIV.digipakett-branding--sticky .digipakett-branding__background[data-v-70bdf18b], DIV.digipakett-branding--sticky .digipakett-branding__background[data-v-b2db71be], DIV.digipakett-branding--sticky .digipakett-branding__background {height:16px; border-radius:0px 0px 5px; padding-left:30px;}");
+GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__background[data-v-3ca0ef3e], DIV.digipakett-branding--sticky .digipakett-branding__background[data-v-70bdf18b], DIV.digipakett-branding--sticky .digipakett-branding__background[data-v-b2db71be], DIV.digipakett-branding--sticky .digipakett-branding__background[data-v-32acc2dc], DIV.digipakett-branding--sticky .digipakett-branding__background {height:16px; border-radius:0px 0px 5px; padding-left:30px;}");
 /* 11.06.2020.: +additional selectors to handle the new data-v- sticky stuff. 
 13.06.2020.: +selector for [data-v-b2db71be]
 */
 
 /* FRONTPAGE | Suur kollane lärakas "Proovi | reklaamivaba digipaketti..." | 02.06.2020. | "osta"" tekst "Proovi | REKLAAMIVABA digipaketti.." | "Nüüd postimehe reklaamivaba" */
-GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__desc[data-v-3ca0ef3e], DIV.digipakett-branding--sticky .digipakett-branding__desc[data-v-70bdf18b], DIV.digipakett-branding--sticky .digipakett-branding__desc[data-v-b2db71be], DIV.digipakett-branding--sticky .digipakett-branding__desc {font-size:12px;}");
+GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__desc[data-v-3ca0ef3e], DIV.digipakett-branding--sticky .digipakett-branding__desc[data-v-70bdf18b], DIV.digipakett-branding--sticky .digipakett-branding__desc[data-v-b2db71be], DIV.digipakett-branding--sticky .digipakett-branding__desc[data-v-32acc2dc], DIV.digipakett-branding--sticky .digipakett-branding__desc {font-size:12px;}");
 /* 11.06.2020.: +additional backgorunt selector(s) to handle the new data-v- sticky stuff. */
-/* 13.06.2020.: Tekst: "Nüüd Postimehe reklaamivaba...", +new selector for [data-v-b2db71be] */
+/* 13.06.2020.: Tekst: "Nüüd Postimehe reklaamivaba...", +new selector for [data-v-b2db71be]
+19.06.2020.: [data-v-32acc2dc] selector
+*/
 
 /* FRONTPAGE | Suur kollane lärakas "Proovi | reklaamivaba digipaketti..." | 02.06.2020. | "osta"-nupp */
-GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__btn[data-v-3ca0ef3e], DIV.digipakett-branding--sticky .digipakett-branding__btn[data-v-70bdf18b], DIV.digipakett-branding--sticky .digipakett-branding__btn[data-v-b2db71be], DIV.digipakett-branding--sticky .digipakett-branding__btn {height:16px; margin-left:30px; margin-right:0px; border-radius:0px 0px 5px; padding:0px 25px;}");
+GM_addStyle("DIV.digipakett-branding--sticky .digipakett-branding__btn[data-v-3ca0ef3e], DIV.digipakett-branding--sticky .digipakett-branding__btn[data-v-70bdf18b], DIV.digipakett-branding--sticky .digipakett-branding__btn[data-v-b2db71be], DIV.digipakett-branding--sticky .digipakett-branding__btn[data-v-32acc2dc], DIV.digipakett-branding--sticky .digipakett-branding__btn {height:16px; margin-left:30px; margin-right:0px; border-radius:0px 0px 5px; padding:0px 25px;}");
 /* 11.06.2020.: +additional backgorunt selector(s) to handle the new data-v- sticky stuff. 
-13.06.2020.: +additional selector for [data-v-b2db71be]. +margin-right. */
+13.06.2020.: +additional selector for [data-v-b2db71be]. +margin-right. 
+19.06.2020.: +selector for [data-v-32acc2dc]
+*/
 
 /* FRONTPAGE / ARTICLE | Suur kollane lärakas "Kas oled reklaamist tüdinud?" | 11.06.2020. */
 GM_addStyle("DIV.digipakett-branding--static[data-v-70bdf18b], DIV.digipakett-branding--static {padding:1px 1px 1px;}");
@@ -1115,7 +1128,7 @@ GM_addStyle("DIV.commercial-articles .list-article__url {height:auto; clear:both
 /* Remove clear:both after it's not needed. */
 
 /* Might also apply to the right side | parem pool. */
-GM_addStyle("DIV.article ~ DIV.structured-content__group > DIV.commercial-articles .list-article__headline {font-size:14px;}")
+GM_addStyle("DIV.article ~ DIV.structured-content__group > DIV.commercial-articles .list-article__headline {font-size:14px;}");
 /* R., 30.08.2019. | font-size was: 1em;*/
 /* > ARTICLE.list-article > .list-article__text > .list-article__url */
 
@@ -1989,7 +2002,7 @@ GM_addStyle("SECTION.articles-recommendations .structured-content__block--list .
 GM_addStyle("SECTION.articles-recommendations .structured-content__block .list-article__media {margin-top:19px; margin-right:4px;}");
 
 /* SOOVITAME lugeda (päris artiklid) | rubriik/facebooki jagamised ühel real | T., 03.09.2019. */
-GM_addStyle("SECTION.articles-recommendations DIV.list-article__text .flex--align-items-baseline {display:flex; line-height:1.0em;}")
+GM_addStyle("SECTION.articles-recommendations DIV.list-article__text .flex--align-items-baseline {display:flex; line-height:1.0em;}");
 
 /* SOOVITAME lugeda (päris artiklid) | rubriigi nimi | T., 03.09.2019. */
 GM_addStyle("SECTION.articles-recommendations .structured-content__block .list-article__section-label.slab {margin-bottom:0px; line-height:1em; margin-top:4px;}");
