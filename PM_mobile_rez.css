@@ -1,0 +1,490 @@
+@-moz-document domain('postimees.ee'), regexp('(?!http://m\\.postimees\\.ee)') {
+
+@media only screen and (max-width:320px) { HTML, BODY {width:320px;} }
+
+HTML > BODY * {animation:none !important; animation-delay:unset; animation-delay:0s;}
+/* 20.06.2020. */
+
+HTML > BODY {background-color:Silver; color:black;}
+
+HTML > BODY .article .articleContent A, BODY.section-81 .article .articleContent A {color:blue;}
+
+*:visited, A:visited, A:visited strong, A:visited SPAN, A:visited * {font-style:oblique !important; font-style:italic !important; font-weight:400 !important; color:DarkGoldenrod !important; background:none; background-color:SandyBrown !important; text-decoration:underline !important; border:solid 5px DarkGoldenRod !important;}
+
+A:visited > H1#sectionHeader {background-color:white !important;}
+
+ARTICLE.frontSuperArt > A:visited, ARTICLE.frontSuperArt > A:visited STRONG, ARTICLE.frontSuperArt > A:visited SPAN, ARTICLE.frontSuperArt > A:visited * {background-color:inherit !important; color:white !important; text-decoration:underline !important; font-weight:normal !important;}
+
+A[href*="https://pluss."], A[href*="http://pluss."], A[href*="https://leht."] {font-weight:300 !important; color:red !important; border:solid 1px red !important;}
+
+/* ^ 11.10.2018: (finally) limited this to only pluss.postimees.ee. */
+
+A[href*="https://pluss."], A[href*="http://pluss."], A[href*="https://leht."]:not(.list-article__media) {background:none; background-color:LavenderBlush !important;}
+
+/* ^ L., 20.06.2020.: Finally separated backgrounds. */
+
+ARTICLE.list-article--content-on-image.list-article--content-on-image-big A[href*="https://leht."] {background-color:transparent !important;}
+
+/* ^ L., 20.06.2020.: Do not set backgrounds for on-image links. */
+
+ARTICLE.list-article--content-on-image.list-article--content-on-image-big A[href*="https://leht."] > SPAN.list-article__headline {background-color:rgba(0,0,0,0.25) !important;}
+
+/* ^ L., 20.06.2020.: on-image links' translucent backgrounds . */
+BODY A[href*="www.60pluss"], BODY A[href*="www.60pluss"] STRONG, BODY A[href*="www.60pluss"] SPAN, BODY A[href*="www.60pluss"] *, A[href*="60pluss.postimees"], BODY A[href*="60pluss.postimees"] STRONG, BODY A[href*="60pluss.postimees"] SPAN, BODY A[href*="60pluss.postimees"] * {color:brown !important; background-color:inherit !important; border:none !important;}
+
+SECTION.frontType7 A[href*="reporter-ee"] .frontHeading, SECTION.frontBlock.frontType12 A[href*="reporter-ee"] .frontHeading, SECTION.frontType7 A[href*="reporter.postimees"] .frontHeading, SECTION.frontBlock.frontType12 A[href*="reporter.postimees"] .frontHeading, SECTION.frontBlock.frontType11 A[href*="reporter.postimees"] .frontHeading {margin-top:0px; margin-left:0px; padding-left:1px; padding-right:1px; font-size:1.1em !important; background:linear-gradient(to bottom, rgb(255, 253, 236), transparent 2.2em, transparent 100%) !important;}
+
+@media only screen and (max-width:1023px) {SECTION.frontBlock.frontType7 A[href*="reporter-ee"] .frontHeading:not(.frontComments), SECTION.frontBlock.frontType7 A[href*="reporter-ee"] .frontHeading:not(.frontComments) SPAN:not(.frontComments) {font-size:1.1em !important;}  SECTION.frontBlock.frontType12 A[href*="reporter-ee"] .frontHeading:not(.frontComments), SECTION.frontBlock.frontType12 A[href*="reporter-ee"] .frontHeading:not(.frontComments) SPAN:not(.frontComments) {font-size:1em !important;}}
+
+DIV.root {min-width:320px;}
+
+/* ^ N., 09.04.2020. */
+
+NAV.layout--1030 {min-width:320px;}
+
+/* ^ 2020 R | FRONTPAGE | Lots of bars at the top */
+/* N., 09.04.2020. */
+
+HEADER.site-header .midblock-container {display:block;}
+
+/* ^ PM logo and quote HEADER | N., 09.04.2020. */
+
+A.header-logo {display:inline; float:left;}
+
+/* ^ PM logo | N., 09.04.2020. */
+
+HEADER.site-header .quote-container {display:inline-flex; clear:left; margin-left:0px;}
+
+/* ^ PM quote | N., 09.04.2020. */
+/* T., 14.04.2020. | +margin-left  */
+
+  
+HEADER.site-header .site-header__top {height:auto; min-height:45px; flex-flow:wrap;}
+
+/* ^ 2018/2019 R | TOP HEADER (contains DATE, weather widget, TOP LINKS ) | N., 09.04.2020. | L., 11.04.2020.: +flex-flow; */
+
+HEADER.site-header .menu-items.menu-items--top {display:inline-flex; flex-flow:wrap;}
+
+/* ^ 01.2018 redesign | TOP LINKS CONTAINER (SMALL TYPE, WITH SEARCH) | N., 09.04.2020. */
+
+NAV.menu-items {display:block; overflow:hidden; height:45px;}
+
+/* ^ 2018 redesign: HEADER/NAV | N., 09.04.2020. */
+
+NAV.menu-items.menu-items--main {min-width:unset;}
+
+/* ^ 2019 (R) | HEADER/NAV (BLUE BAR: "PM TÄNANE LEHT ARVAMUS") | N., 09.04.2020. */
+
+DIV.site-header__top > DIV.flex {flex-direction:row;}
+
+/* ^ 2018/2019 R | TOP LINKS CONTAINER / ÜLEMISED LINGID - "KLIENDITUGI | VIHJA | TELLI LEHT etc." | N., 09.04.2020. */
+/* children: HEADER.site-header .menu-items.menu-items--top */
+
+DIV.layout.layout--1030 {min-width:unset;}
+
+/* ^ FRONTPAGE (and articles) | 2019 (R) | BLUE BAR / BLUE HEADER ("PM TÄNANE LEHT ARVAMUS") & SUBMENU ("Kõik uudised | Podcast | juhtimine") */
+/* N., 09.04.2020. */
+
+DIV.header-logo__bottom-gradient.gradient-separator--after {width:auto; max-width:1000px;}
+
+/* ^ 01.2018 redesign | FRONTPAGE et al.: Header gradient separator */
+/* N., 09.04.2020. */
+
+NAV.menu-items.menu-items--main {min-width:unset;}
+
+/* ^ 2019 (R) | FRONTPAGE et al.: HEADER/NAV (BLUE BAR: "PM TÄNANE LEHT ARVAMUS") */
+/* N., 09.04.2020. */
+
+SECTION#rightAdBar {display:none; padding-top:unset; position:absolute;}
+
+NAV#topNav {height:25px; line-height:20px;}
+
+DIV#wrap {width:auto; min-width:240px; max-width:unset;}
+
+/* This is a comment test */
+
+DIV#container {border:solid 1px Purple;}
+
+DIV.container, DIV.sitehatContainer {width:100%; background-color:inherit; padding-left:0px; padding-right:0px; overflow-x:hidden;}
+
+DIV.container {max-width:unset;}
+
+HEADER#contentHeader {width:auto; min-width:240px; max-width:unset; margin-bottom:-9px; padding-top:0px;}
+
+SPAN.pmHeaderNavi {height:25px; margin-top:1px; margin-bottom:0px; background-color:#dadada; max-height:unset; line-height:unset; padding-bottom:0px;}
+SPAN.pmHeaderNavi A {display:inline-block; height:25px; line-height:2.3em;}
+
+A.pmLogo {width:100px; height:20px; float:left;}
+
+DIV#moveMenuCont A.pmLogo {float:unset; margin-top:8px; margin-left:5px;}
+
+DIV#headerWeather {display:inline-block; float:left; margin-left:1px;}
+
+DIV.pmHeaderRight {display:inline-block; clear:both; height:95px;}
+
+DIV.pmHeaderRight A {clear:both;}
+
+DIV#headQuote {padding-top:0px; padding-bottom:1px;}
+
+DIV.quoteText {float:unset; display:inline; width:auto;}
+
+DIV.quoteTextBlock {position:unset; display:inline; width:auto; margin-top:0px !important;}
+
+DIV.quoteTextBlock .text {display:block; text-align:right;}
+DIV.quoteTextBlock .name {display:block; position:relative; float:unset; margin-top:2px; line-height:1.2em;}
+
+NAV.pmMainNav {clear:both;}
+
+SECTION#rightContent {display:none;}
+
+/* FRONTPAGE | Below: Right side: Replace spinner w. inanimate :before pseudoelement. 2018 redesign. */
+/* ASIDE.layout--right > DIV[class*="aside--"] > *[eager] {position:relative;} */
+/* 02.06.2018. */
+/* 11.10.2018: Commented out in favor of removing sk-circle. */
+
+/* ASIDE.layout--right > DIV[class*="aside--"] > *[eager] DIV.flex.flex--align-items-center > * {display:none;} */
+/* 02.06.2018. */
+/* 11.10.2018: Commented out in favor of removing sk-circle. */
+
+/* ASIDE.layout--right > DIV[class*="aside--"] > *[eager] DIV.flex.flex--align-items-center:before {content:'LAEP...'; display:block; position:absolute; top:34px; left:auto; right:auto; height:50px; width:80px; border:solid 1px navy; color:blue; font-weight:bold;} */
+/* 02.06.2018. */
+/* 11.10.2018: Commented out in favor of removing sk-circle. */
+
+* > .sk-circle > * {display:none !important;}
+
+/* ^ FRONTPAGE: Replace spinners */
+/* 11.10.2018 */
+
+*:not(.weather-bar) .sk-circle:before {content:'Laeb...'; display:block; font-weight:bold; font-size:100%; color:navy; background-color:Silver; border:solid 1px gray; text-align:center;}
+
+/* ^ 11.10.2018. Spinner "Loading" text. */
+
+SPAN.info-dot {animation:none;}
+
+/* ^ FRONTPAGE, ELSEWHERE | LIVE RED DOT 2018 */
+/* 02.06.2018. */
+
+SPAN.schedule-event__live.slab {animation:none;}
+
+/* ^ FRONTPAGE: "CHOOSE CHANNEL" | tv channels | pleier | 2018 */
+/* 02.06.2018. */
+/* Position: .schedule-event__live .pleier-color .slab */
+
+DIV.schedule.tv-schedule[data-v-20c8ce14] .VueCarousel-inner, DIV.schedule.tv-schedule .VueCarousel-inner {transition:none !important;}
+
+/* ^ FRONTPAGE | channels | Spinners (container): Kanal 2 • K12 • K11 • Kanal 12 • Kanal 11 | from K., 15.04.2020. */
+
+DIV.radial-progress-container > .radial-progress-bar *, DIV.radial-progress-container > .radial-progress-bar > circle {transition:none !important; transform:none !important; animation:none !important;}
+
+/* ^ FRONTPAGE | channels | Spinners (container): Kanal 2 • K12 • K11 • Kanal 12 • Kanal 11 | from K., 15.04.2020. */
+
+DIV.radial-progress-container > .radial-progress-bar {display:none !important; transition:none !important; transform:none !important; animation:none !important;}
+
+/* ^ FRONTPAGE | channels | Spinners (container): Kanal 2 • K12 • K11 • Kanal 12 • Kanal 11 | from K., 15.04.2020. */
+
+DIV.radial-progress-container radialgradient {transition:none !important; transform:none !important; animation:none !important;}
+
+
+
+/* ^ This spinner moves all the time | 20.06.2020.  */
+
+SPAN.diamond::before {transform:none;}
+SPAN.diamond::after {transform:none; animation:none;}
+SPAN.button--for-subscription__diamond::after {transform:none; display:none; animation:none;}
+
+/* ^ SPINNER | ANIMATION | DIAMONOND | 20.06.2020. */
+
+SECTION.flash-block .carousel-nav .carousel-nav__button.carousel-nav__button-prev {left:0px;}
+
+/* ^ 2020 R | FRONTPAGE | "FA20 EESTI MEISTRIVÕISTLUSED" carousel navigation buttons previous | user.js: P., 05.04.2020. | N., 09.04.2020. */
+
+SECTION.flash-block .carousel-nav .carousel-nav__button.carousel-nav__button-next {right:0px; transform:none;}
+
+/* ^ 2020 R | FRONTPAGE | "FA20 EESTI MEISTRIVÕISTLUSED" carousel navigation buttons next | user.js: P., 05.04.2020. | N., 09.04.2020. */
+
+DIV.flash-block__slide {margin-right:1px;}
+
+/* ^ 2020 R | FRONTPAGE | "FA20 EESTI MEISTRIVÕISTLUSED" carousel items | user.js: P., 05.04.2020. | N., 09.04.2020. */
+
+SECTION.carousel:not(.carousel--in-new-theme):not(.device-phone) .carousel-nav__button-prev[data-v-1f59d013], SECTION.carousel:not(.carousel--in-new-theme):not(.device-phone) .carousel-nav__button-prev {margin-left:0px;}
+
+/* ^ 2020 R | FRONTPAGE | "kuula" carousel navigation buttons next | user.js: P., 05.04.2020. | N., 09.04.2020. */
+
+SECTION.carousel:not(.carousel--in-new-theme):not(.device-phone) .carousel-nav__button-next[data-v-1f59d013], SECTION.carousel:not(.carousel--in-new-theme):not(.device-phone) .carousel-nav__button-next {margin-right:0px;}
+
+/* ^ 2020 R | FRONTPAGE | "kuula" carousel navigation buttons next | user.js: P., 05.04.2020. | N., 09.04.2020. */
+
+SECTION.carousel[data-v-1f59d013], SECTION.carousel {background-color:inherit; border:solid 1px white; padding-left:1px; padding-bottom:5px;}
+
+/* ^ 2020 R | FRONTPAGE | "kuula" carousel container | user.js: P., 05.04.2020. | N., 09.04.2020. */
+
+DIV.VueCarousel.structured-content__block {margin-bottom:0px;}
+
+/* ^ 2020 R | FRONTPAGE | "kuula" carousel subcontainer | user.js: P., 05.04.2020. | N., 09.04.2020. */
+
+DIV.carousel__slide[data-v-1f59d013], DIV.carousel__slide {margin-right:1px;}
+
+/* ^ 2020 R | FRONTPAGE | "kuula" carousel items | user.js: P., 05.04.2020. | N., 09.04.2020. */
+
+ARTICLE.article, DIV.article {background-color:inherit; padding-left:0px; padding-right:0px;}
+DIV.article .article-content, ARTICLE.article .article-content {margin-left:0px; padding-left:0px;}
+/* ^ 01.2018. / 03.2018 R | MOST ARTICLE CONTENT MARGINS | (also) used after article text. */
+
+ARTICLE.frontArticle {margin-bottom:0px;}
+
+ARTICLE.frontArticle IMG {height:unset; width:100%; max-height:unset; max-width:100%;}
+
+SPAN.frontIcons {margin-bottom:1px;}
+H1.frontHeading {padding-top:0px; margin-left:2px; margin-right:1px;}
+
+@media only screen and (max-width:1023px) {SECTION.frontBlock.frontType6 .frontHeading :not(.frontComments) > SPAN {font-size:1.0em !important;}}
+
+/* ^ Note, that applying styles in this case seems somewhat iffy, given, that the :not pseudoclass works as its own selector, which is why it must be separated with a space from .frontHeading, as it affects _all_ descendant (child, grandchild, etc.) elements of .frontHeading and _not_ including .frontComments. The iffy part is, that I had to include SPAN as a direct child selector to apply the 1.0em font size to the "Blogi:" text in one of the titles. This transpired when comparing font sizes with border-left. */
+
+/* SECTION.frontBlock.frontType6 .frontHeading :not(.frontComments) > SPAN {border-bottom:solid 1px #0077ee;} */
+/* ^ border-bottom was required to find out if the style applied. */
+
+/* SECTION.frontBlock.frontType6 .frontHeading :not(.frontComments), SECTION.frontBlock.frontType6 .frontHeading :not(.frontComments) > SPAN {border-left:solid 1px blue; padding-right:1px;} */
+/* ^ This was required to compare font sizes. */
+
+/* , H1.frontHeading > SPAN > SPAN */
+
+/* , SECTION.frontBlock.frontType6 .frontHeading :not(.frontComments) > SPAN */
+
+SECTION#articleBullets {width:100%;}
+UL#bullets {width:auto;}
+
+ARTICLE IMG:not([SRC*="facebook-gray"]) {height:100%; width:100%;}
+
+/* ^ 04.10.2018: not the fb-icon in article links. */
+
+SECTION#articleAuthors .authorImage {height:initial; width:initial;}
+
+ARTICLE.article .article-body--teaser {max-height:unset; border-bottom:solid 1px black;}
+
+/* ^ 2018 redesign (?): see article teaser text better. */
+/* 11.10.2018. */
+/* It's quite possible, that this is code for an old-type teaser. */
+
+ARTICLE.article.article .article-body--teaser:after, DIV.article .article-body--teaser:after {display:none;}
+
+/* ^ 2018 redesign (?): article teaser */
+/* 11.10.2018. */
+/* It's quite possible, that this is code for an old-type teaser. The second selector was originally added on 16.03.2018. */
+
+DIV.paywall {clear:both; display:block;}
+
+/* ^ 2018 redesign: new-type teaser and PAYWALL. */
+
+SECTION.articleTeaser[data-fade-text]::before {background:linear-gradient(to bottom, rgba(255,255,255,0) 0px, rgba(255,255,255,0) 95%, #FFF 100%) repeat scroll 0% 0%;}
+
+/* ^ 2018 (?): PAYWALL, from "PAYWALLED ARTICLE TEASER FADE" */
+/* This code was introduced on 07.11.2016. */
+
+DIV#commentsBlock, DIV#comments {width:100%;}
+
+HTML > BODY > DIV.content {padding-left:0px;}
+
+DIV.fullWidthArticle {max-width:unset;}
+
+DIV.fullWidthArticle .articleData {padding:28px 5px 30px 0px; overflow-y:hidden;}
+
+DIV.underFrontArticleContainer {padding-top:81px;} 
+
+DIV.fullDoubleArticleContainer .dataContainer + .dataContainer, DIV.fullRowArticleContainer .dataContainer + .dataContainer, DIV.fullRowArticleContainer .dataContainer + .am_ads + .dataContainer, DIV.fullRowArticleContainer .dataContainer + .dfp_ad + .dataContainer {margin-left:0px; margin-right:1px;}
+
+DIV.fullRowArticleContainer {white-space:normal;}
+
+DIV.fullRowArticleContainer .dataContainer {margin-right:1px;}
+
+DIV.fullDoubleArticleContainer .dataContainer + .dataContainer {margin-top:1px; margin-right:1px;}
+
+DIV.fullDoubleArticleContainer {display:inline-block;}
+
+DIV.fullDoubleArticleContainer .dataContainer {display:inline-block; float:left;}
+
+DIV.fullDoubleArticleContainer .articleData IMG {height:100% !important; width:100% !important;}
+
+
+DIV.usefulLinks {margin:0px;}
+
+SECTION.footerBlock {float:left; overflow-x:scroll;}
+
+SECTION.footerEditor {width:100%;}
+
+DIV.footerContent {padding-left:0px;}
+
+NAV.footerShortcuts {line-height:unset !important;}
+
+NAV.footerShortcuts .insideContainer .links {display:inline; line-height:1em !important;}
+
+NAV.footerShortcuts .links A {display:inline-block; line-height:1em !important; vertical-align:middle;}
+
+DIV.footerBottom {clear:both;}
+
+IFRAME[id*="liveblog"] HTML > BODY > .content {border-left:solid 2px Blue;}
+
+DIV.liveblog {background-color:black; color:Silver;}
+
+DIV.liveblog .panel {background-color:black; color:Silver;}
+
+DIV.liveblog .introduction .status {margin-right:7px;}
+
+LIVEBLOG.liveblogEmbedContainer.mobile .liveblog .introduction {padding-top:5px; padding-right:1px; padding-bottom:5px; padding-left:1px;}
+
+DIV.liveblog .introduction .articleDate {color:Silver;}
+
+DIV.liveblog H2.event-header {color:Silver;}
+
+DIV.liveblog .dropdown {color:Silver;}
+
+LIVEBLOG.liveblogEmbedContainer.mobile .feed-header, LIVEBLOG.liveblogEmbedContainer.narrower .feed-header {color:Silver;}
+
+LIVEBLOG.liveblogEmbedContainer.mobile .liveblog .event-list {padding-right:6px;}
+
+DIV.liveblog .event .time {background-color:inherit; color:#e0e0e0;}
+
+LIVEBLOG.liveblogEmbedContainer.mobile .liveblog .event .time:not(.sectionFontColor) {color:#ccffff;}
+
+DIV.liveblog .event {margin-left:6px; border-left-width:2px; padding-bottom:0px;}
+
+LIVEBLOG.liveblogEmbedContainer.mobile .liveblog .event {color:#888888;}
+
+DIV.liveblog .event:not(.key) {border-left-color:#707070;}
+
+LIVEBLOG.liveblogEmbedContainer.mobile .liveblog .event .bullet {background-color:inherit;}
+
+DIV.liveblog .event .content {color:Silver; margin-right:1px; border-bottom-color:#525252;}
+
+DIV.liveblog .event .content H3 {color:white;}
+
+DIV.liveblog .event .content P > STRONG {color:white;}
+
+/* ^ Liveblog ends here. */
+
+DIV.layout--group {overflow-x:hidden;}
+
+/* ^ [FRONTPAGE] | OPTIBET | WIDTH */
+
+/* 2018 Design | FRONTPAGE | WEATHER LINKS (below survey) | N., 09.04 2020. */
+/* SECTION[data-v-304de258] .weather-header DIV.weather-header__right-side > DIV.weather-header__data-group.flex--align-items-center.flex--justify-content-space-between {float:left;} */
+/* Doesn't seem to work very well. */
+
+DIV.group-topic-with-custom-header--full-bg-image .layout .url-above-image {width:auto; max-width:1000px;}
+
+/* ^ FRONTPAGE | SISUTURUNDUS (2018/2019 R) | T., 14.04.2020. */
+
+DIV.commercial-articles {background-color:transparent; padding:0px;}
+
+/* ^ T., 14.04.2020. | SISUTURUNDUS */
+
+DIV.commercial-articles.flex {padding:0px;}
+
+/* ^ L., 11.04.2020. | SISUTURUNDUS */
+
+DIV.article ~ DIV.structured-content__group > DIV.commercial-articles.flex {display:inline-block; padding:0px;}
+
+/* ^ 2019 R | "SOOVITAME LUGEDA" | "commercial articles" | SISUTURUNDUS | Superseding selector for right side | parem | commercial content | T., 14.04.2020. */
+
+DIV.commercial-articles--aside {padding:0px 1px 1px 1px; padding-left:1px;}
+
+/* ^ 2019 R | "SOOVITAME LUGEDA" | "commercial articles" (inner) | SISUTURUNDUS | APPLIES TO TOP RIGHT section next to article content (picture and all) | parem | commercial content | T., 14.04.2020. */
+
+DIV.commercial-articles.commercial-articles--aside {background-color:transparent;}
+
+/* ^ 2019 R | "SOOVITAME LUGEDA" | SISUTURUNDUS | "commercial articles" (inner) | T., 14.04.2020. | from 14.11.2019. */
+
+DIV.article .structured-content__group.structured-content__group--aside {background-color:inherit; border:solid 1px #707070; margin-top:0px;}
+
+/* ^ 2019 to 2018 R | "SOOVITAME LUGEDA" top RIGHT side | parem pool | from N., 14.11.2019. | T., 14.04.2020. */
+
+DIV.article ~ DIV.structured-content__group > DIV.commercial-articles.flex {display:inline-block; padding:0px;}
+
+/* ^ 2019 R | "SOOVITAME LUGEDA" | "commercial articles" | SISUTURUNDUS | superseding selector for right side | parem | commercial content | from K., 28.08.2019.(?) | T., 14.04.2020. */
+
+DIV.structured-content__group--aside > DIV.commercial-articles.commercial-articles--aside > DIV:not(.block-title) {display:inline-block;}
+
+/* ^ 2019 R to 2018 design | "SOOVITAME LUGEDA" items (insets) | containers for each item | SISUTURUNDUS | T., 14.04.2020. | from 14.11.2019. */
+
+DIV.commercial-articles--aside > DIV > ARTICLE.list-article > A.list-article__media > DIV.list-article__image[data-v-0db7a51c] {clear:both; float:left; width:107px; height:60px; padding:0px; margin-right:10px;}
+
+/* ^ 2019 R | "SOOVITAME LUGEDA" PILDID väikeseks (normaalsuurusesse) | SISUTURUNDUS | T., 14.04.2020. | from 12.06.2019. */
+
+DIV.commercial-articles .list-article__week-top {top:2px; left:2px; background-color:navy; padding-top:1px; padding-bottom:0px; padding-left:6px; padding-right:6px; font-weight:600;}
+
+/* 2019 R (on 2018 design) | "SOOVITAME LUGEDA" > "ENIM LOETUD" notice inset. | T., 14.11.2020. */
+
+DIV.commercial-articles .list-article {margin-right:1px; margin-bottom:1px !important; border:solid 1px gray; background-color:inherit;}
+
+/* ^ 2020 R | Sisuturundus */
+
+SECTION.birthday .birthday-list__item {display:block;}
+
+/* ^ FRONTPAGE | 2018 redesign | sünnipäevad | N., 09.04.2020. */
+
+SECTION.birthday .VueCarousel {width:auto; max-width:685px;}
+
+/* ^ FRONTPAGE | 2018 redesign | carousel | SÜNNIPÄEVAD | N., 09.04.2020. */
+
+DIV.weather-header[data-v-8d53441e] {transition:none; min-width:320px; width:auto; max-width:1000px; overflow-y:auto; overflow-x:auto;}
+
+/* ^ N., 09.04.2020. */
+/* ^ WEATHER */
+
+DIV.structured-content__group {background-color:inherit; padding-left:0px; padding-right:0px; padding-bottom:1px;}
+
+/* 09./10.04.2020.; Lots of elements. */
+
+DIV.layout.layout--group ~ DIV.structured-content__group.structured-content__group--regular.flex:last-child {display:inline-block; width:100%;}
+
+/* ^ WEATHER MAP container | L., 11.04.2020. */
+
+DIV.layout.layout--group ~ DIV.structured-content__group.structured-content__group--regular.flex:last-child > DIV.structured-content__group--left.flex--equal-width > DIV.structured-content__injectable:first-child {overflow:auto;}
+
+/* ^ WEATHER MAP | R., 10.04.2020. */
+
+DIV.structured-content__injectable > DIV.weather-places {display:block; width:auto;}
+
+/* ^ WEATHER PLACES container | R., 10.04.2020. */
+
+DIV.structured-content__injectable > DIV.weather-places > DIV.flex.flex--justify-content-space-between {display:inline-block; width:auto;}
+
+/* ^ WEATHER PLACES container | R., 10.04.2020. */
+
+A.weather-places__place {float:left;}
+
+/* ^ T., 14.04.2020. | WEATHER PLACES (individual items) */
+
+DIV.usefulLinks {margin-left:0px; margin-right:0px; padding-left:0px; width:auto;}
+
+/* ^ FOOTER | N., 09.04.2020. */
+
+FOOTER.site-footer.layout {padding-left:1px; padding-right:1px;}
+
+DIV.site-footer__bottom A {padding-top:0.5em; padding-bottom:0.5em; padding-left:5px; padding-right:5px;}
+
+/* ^ 01.2018 redesign | FOOTER BOTTOM LINKS | N., 09.04.2020. */
+
+DIV.site-footer__top-group > P > A.section-font-color, A.section-font-color.site-footer__top-link, DIV.section-font-color.site-footer__top-title.slab, DIV.site-footer__top-column > DIV.site-footer__top-title.slab {word-wrap:break-word;}
+
+/* ^ L., 11.04.2020. | FOOTER contact links' heading titles. The last selector is the one that actually got things done in terms of reducing horizontal width. Yay. */
+
+DIV.site-footer__top-group > P > A.section-font-color, A.section-font-color.site-footer__top-link {color:#191970;}
+
+/* ^ 2020 R | FOOTER contact links | 09./10.04.2020. */
+
+/* ^ 2020 R | FOOTER BOTTOM links | 10.04.2020. */
+DIV.site-footer__bottom {display:inline;}
+
+DIV.layout.allepal-barter > IFRAME {width:100% !important; max-width:1000px; min-width:320px;}
+
+/* ^ FOOTER Ads | N., 09.04.2020. */
+
+DIV.allepal-container {width:100%; min-width:320px; max-width:1000px;}
+
+}
+
+@-moz-document domain('arvamus.postimees.ee') {
+SECTION.articleContent, SECTION.articleLead {background-color:rgba(0,0,0,0.75); color:white;}
+}
+
