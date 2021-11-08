@@ -2,13 +2,15 @@
 
 @media only screen and (max-width:320px) { HTML, BODY {width:320px;} }
 
-HTML > BODY * {animation:none !important; animation-delay:unset; animation-delay:0s;}
-/* 20.06.2020. */
+HTML > BODY *, HTML > BODY *:before, HTML > BODY *:after {animation:none !important; animation-delay:unset; animation-delay:0s;}
+/* 20.06.2020.
+E., 08.11.2021.: + before & after */
 
 HTML > BODY {background-color:Silver; color:black;}
 
 HTML > BODY .article .articleContent A, BODY.section-81 .article .articleContent A {color:blue;}
 
+/* LINKS START */
 *:visited, A:visited, A:visited strong, A:visited SPAN, A:visited * {font-style:oblique !important; font-style:italic !important; font-weight:400 !important; color:DarkGoldenrod !important; background:none; background-color:SandyBrown !important; text-decoration:underline !important; border:solid 5px DarkGoldenRod !important;}
 
 A:visited > H1#sectionHeader {background-color:white !important;}
@@ -35,10 +37,22 @@ BODY A[href*="www.60pluss"], BODY A[href*="www.60pluss"] STRONG, BODY A[href*="w
 SECTION.frontType7 A[href*="reporter-ee"] .frontHeading, SECTION.frontBlock.frontType12 A[href*="reporter-ee"] .frontHeading, SECTION.frontType7 A[href*="reporter.postimees"] .frontHeading, SECTION.frontBlock.frontType12 A[href*="reporter.postimees"] .frontHeading, SECTION.frontBlock.frontType11 A[href*="reporter.postimees"] .frontHeading {margin-top:0px; margin-left:0px; padding-left:1px; padding-right:1px; font-size:1.1em !important; background:linear-gradient(to bottom, rgb(255, 253, 236), transparent 2.2em, transparent 100%) !important;}
 
 @media only screen and (max-width:1023px) {SECTION.frontBlock.frontType7 A[href*="reporter-ee"] .frontHeading:not(.frontComments), SECTION.frontBlock.frontType7 A[href*="reporter-ee"] .frontHeading:not(.frontComments) SPAN:not(.frontComments) {font-size:1.1em !important;}  SECTION.frontBlock.frontType12 A[href*="reporter-ee"] .frontHeading:not(.frontComments), SECTION.frontBlock.frontType12 A[href*="reporter-ee"] .frontHeading:not(.frontComments) SPAN:not(.frontComments) {font-size:1em !important;}}
+/* LINKS END */
 
 DIV.root {min-width:320px;}
 
 /* ^ N., 09.04.2020. */
+
+HTML.device-phone .root {padding-top:30px;}
+
+/* DIGIPAKETT */
+HTML.device-phone .digipakett-branding--static {position:relative; z-index:0; margin-top:60px;}
+
+/* DIGIPAKETT SULGEMISNUPP ↘ */
+
+DIV.digipakett-branding__close-btn {border:solid 2px red;}
+
+/* ^ E., 08.11.2021. */
 
 NAV.layout--1030 {min-width:320px;}
 
@@ -58,7 +72,7 @@ HEADER.site-header .quote-container {display:inline-flex; clear:left; margin-lef
 /* ^ PM quote | N., 09.04.2020. */
 /* T., 14.04.2020. | +margin-left  */
 
-  
+
 HEADER.site-header .site-header__top {height:auto; min-height:45px; flex-flow:wrap;}
 
 /* ^ 2018/2019 R | TOP HEADER (contains DATE, weather widget, TOP LINKS ) | N., 09.04.2020. | L., 11.04.2020.: +flex-flow; */
