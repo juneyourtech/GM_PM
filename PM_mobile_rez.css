@@ -8,6 +8,7 @@ E., 08.11.2021.: + before & after */
 
 HTML > BODY {background-color:Silver; color:black;}
 
+
 HTML > BODY .article .articleContent A, BODY.section-81 .article .articleContent A {color:blue;}
 
 /* LINKS START */
@@ -39,7 +40,8 @@ SECTION.frontType7 A[href*="reporter-ee"] .frontHeading, SECTION.frontBlock.fron
 @media only screen and (max-width:1023px) {SECTION.frontBlock.frontType7 A[href*="reporter-ee"] .frontHeading:not(.frontComments), SECTION.frontBlock.frontType7 A[href*="reporter-ee"] .frontHeading:not(.frontComments) SPAN:not(.frontComments) {font-size:1.1em !important;}  SECTION.frontBlock.frontType12 A[href*="reporter-ee"] .frontHeading:not(.frontComments), SECTION.frontBlock.frontType12 A[href*="reporter-ee"] .frontHeading:not(.frontComments) SPAN:not(.frontComments) {font-size:1em !important;}}
 /* LINKS END */
 
-DIV.root {min-width:320px;}
+@media only screen and (max-width:240px) { HTML.device-phone body {min-width:240px;}  DIV.root {min-width:240px;} }
+@media only screen and (max-width:320px) { DIV.root {min-width:240px;} }
 
 /* ^ N., 09.04.2020. */
 
