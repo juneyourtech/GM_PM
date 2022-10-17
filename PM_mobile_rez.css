@@ -44,13 +44,33 @@ DIV.root {min-width:320px;}
 /* ^ N., 09.04.2020. */
 
 HTML.device-phone .root {padding-top:30px;}
+@media only screen and (max-width:1023px) {HTML.device-phone .root {padding-left:0px; padding-right:0px;} }
 
-/* DIGIPAKETT */
-HTML.device-phone .digipakett-branding--static {position:relative; z-index:0; margin-top:60px;}
+/* DIGIPAKETT un-sticky */
+HTML.device-phone > BODY.digipakett-branding-fixed .digipakett-branding-root-container[eager] {position:relative;}
+
+/* DIGIPAKETT | 08.11.2021. [presumably] */
+HTML.device-phone .digipakett-branding--static {position:relative; z-index:0; margin-top:0px; width:75%;}
+/* E., 17.10.2022 comment: relative positioning borks it because of the stupid sticky thing. */
+
+HTML.device-phone DIV.digipakett-branding--fixed {padding-top:0px 23px 0px;}
+/* E., 17.10.2022. 240x320px; padding: top left-right bottom */
+
+HTML.device-phone DIV.digipakett-branding--fixed .digipakett-branding__desc {margin-bottom:0px;}
+/* E., 17.10.2022. 240x320px; padding: top left-right bottom */
 
 /* DIGIPAKETT SULGEMISNUPP ↘ */
+/* DIGIPAKETT: "ei, aitäh" 08.11.2021, presumably */
+DIV.digipakett-branding__close-btn {border:solid 2px red; background-color:rgba(255,202,100,0.75);}
+/* E., 17.10.2022.: bgcolor: #ffca0a */
 
-DIV.digipakett-branding__close-btn {border:solid 2px red;}
+/* DIGIPAKETT PILT | E., 17.10.2022 */
+DIV.digipakett-branding__img {margin-top:6px;}
+
+/* DIGIPAKETT | "TELLI" | E., 17.10.2022. */
+DIV.digipakett-branding__btn.button--l, DIV.digipakett-branding--fixed .digipakett-branding__btn:not(.button-disabled):hover {padding-top:6px; padding-bottom:6px;}
+/*space*/
+DIV.digipakett-branding--fixed > DIV.space--s {display:none;}
 
 /* ^ E., 08.11.2021. */
 
