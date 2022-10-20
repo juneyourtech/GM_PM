@@ -8,7 +8,6 @@ E., 08.11.2021.: + before & after */
 
 HTML > BODY {background-color:Silver; color:black;}
 
-
 HTML > BODY .article .articleContent A, BODY.section-81 .article .articleContent A {color:blue;}
 
 /* LINKS START */
@@ -52,7 +51,7 @@ HTML.device-phone .root {padding-top:30px;}
 HTML.device-phone > BODY.digipakett-branding-fixed .digipakett-branding-root-container[eager] {position:relative; top:0px; margin-top:0px; padding-top:0px;}
 
 /* DIGIPAKETT | 08.11.2021. [presumably] */
-HTML.device-phone .digipakett-branding--static {position:relative; z-index:0; margin-top:0px; width:75%;}
+HTML.device-phone .digipakett-branding--static {z-index:0; position:relative; width:100%; margin-top:0px; padding:0px;}
 /* E., 17.10.2022 comment: relative positioning borks it because of the stupid sticky thing. */
 
 HTML.device-phone DIV.digipakett-branding--fixed {padding-top:0px 23px 0px;}
@@ -261,6 +260,9 @@ DIV.VueCarousel.structured-content__block {margin-bottom:0px;}
 DIV.carousel__slide[data-v-1f59d013], DIV.carousel__slide {margin-right:1px;}
 
 /* ^ 2020 R | FRONTPAGE | "kuula" carousel items | user.js: P., 05.04.2020. | N., 09.04.2020. */
+
+/* N., 20.10.2022. fix sticky header. */
+HTML.device-phone > BODY.digipakett-branding-fixed > HEADER.header--sticky {top:0px}
 
 ARTICLE.article, DIV.article {background-color:inherit; padding-left:0px; padding-right:0px;}
 DIV.article .article-content, ARTICLE.article .article-content {margin-left:0px; padding-left:0px;}
