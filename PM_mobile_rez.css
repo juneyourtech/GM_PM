@@ -54,7 +54,7 @@ HTML.device-phone > BODY.digipakett-branding-fixed .digipakett-branding-root-con
 HTML.device-phone .digipakett-branding--static {z-index:0; position:relative; width:100%; margin-top:0px; padding:0px;}
 /* E., 17.10.2022 comment: relative positioning borks it because of the stupid sticky thing. */
 
-HTML.device-phone DIV.digipakett-branding--fixed {padding-top:0px 23px 0px;}
+HTML.device-phone DIV.digipakett-branding--fixed {padding:0px 23px 0px;}
 /* E., 17.10.2022. 240x320px; padding: top left-right bottom */
 
 HTML.device-phone DIV.digipakett-branding--fixed .digipakett-branding__desc {margin-bottom:0px;}
