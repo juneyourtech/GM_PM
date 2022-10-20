@@ -43,7 +43,7 @@ SECTION.frontType7 A[href*="reporter-ee"] .frontHeading, SECTION.frontBlock.fron
 @media only screen and (max-width:1023px) {SECTION.frontBlock.frontType7 A[href*="reporter-ee"] .frontHeading:not(.frontComments), SECTION.frontBlock.frontType7 A[href*="reporter-ee"] .frontHeading:not(.frontComments) SPAN:not(.frontComments) {font-size:1.1em !important;}  SECTION.frontBlock.frontType12 A[href*="reporter-ee"] .frontHeading:not(.frontComments), SECTION.frontBlock.frontType12 A[href*="reporter-ee"] .frontHeading:not(.frontComments) SPAN:not(.frontComments) {font-size:1em !important;}}
 /* LINKS END */
 
-HTML.device-phone .root {padding-top:30px; background-color:inherit;}
+HTML.device-phone .root {padding-top:0px; background-color:inherit;}
 @media only screen and (max-width:1023px) { HTML.device-phone .root {padding-left:0px; padding-right:0px;} }
 
 /* DIGIPAKETT un-sticky */
@@ -218,8 +218,6 @@ DIV.radial-progress-container > .radial-progress-bar {display:none !important; t
 
 DIV.radial-progress-container radialgradient {transition:none !important; transform:none !important; animation:none !important;}
 
-
-
 /* ^ This spinner moves all the time | 20.06.2020.  */
 
 SPAN.diamond::before {transform:none;}
@@ -263,6 +261,22 @@ DIV.carousel__slide[data-v-1f59d013], DIV.carousel__slide {margin-right:1px;}
 /* N., 20.10.2022. fix sticky header. */
 HTML.device-phone > BODY.digipakett-branding-fixed > HEADER.header--sticky {top:0px}
 
+/* FRONTPAGE | ARTICLE BIG LINK, TITLE | N., 20.10.2022. */
+HTML.device-phone .structured-content__group--masonry .structured-content__block--quadruple ARTICLE.list-article:first-child, HTML.device-phone .structured-content__group--masonry .structured-content__block--quintuple ARTICLE.list-article:first-child {margin-bottom:0px;}
+
+/* FRONTPAGE | ARTICLE | not big article link | N., 20.10.2022. */
+HTML.device-phone .structured-content__group--masonry .structured-content__block--quadruple ARTICLE.list-article:not(:first-child) + ARTICLE.list-article, HTML.device-phone .structured-content__group--masonry .structured-content__block--quintuple ARTICLE.list-article:not(:first-child) + ARTICLE.list-article {padding-top:0px;}
+
+/* FRONTPAGE | ARTICLE LINK: image | N., 20.10.2022. */
+HTML.device-phone .structured-content__group--masonry .structured-content__block--double .list-article:not(:first-child) DIV.list-article__media, HTML.device-phone .structured-content__group--masonry .structured-content__block--quadruple .list-article:not(:first-child) DIV.list-article__media, HTML.device-phone .structured-content__group--masonry .structured-content__block--quintuple .list-article:not(:first-child) DIV.list-article__media {margin-right:1px;}
+
+/* FRONTPAGE | ARTICLE LINK: link text | N., 20.10.2022.*/
+HTML.device-phone .structured-content__group--masonry .structured-content__block--double .list-article:not(:first-child) DIV.list-article__text, HTML.device-phone .structured-content__group--masonry .structured-content__block--quadruple .list-article:not(:first-child) DIV.list-article__text, HTML.device-phone .structured-content__group--masonry .structured-content__block--quintuple .list-article:not(:first-child) DIV.list-article__text {padding-bottom:2px;}
+
+/* FRONTPAGE | ARTICLE LINK: link topic "Sport" etc. | N., 20.10.2022 */
+HTML.device-phone .structured-content__group--masonry .structured-content__block--double DIV.list-article__meta, HTML.device-phone .structured-content__group--masonry .structured-content__block--quadruple .list-article:not(:first-child) DIV.list-article__meta, HTML.device-phone .structured-content__group--masonry .structured-content__block--quintuple .list-article:not(:first-child) DIV.list-article__meta, HTML.device-phone .structured-content__group--masonry .structured-content__block--triple .list-article:not(:first-child) DIV.list-article__meta {margin-top:0px;}
+  
+/* ARTICLE SPACE */
 ARTICLE.article, DIV.article {background-color:inherit; padding-left:0px; padding-right:0px;}
 DIV.article .article-content, ARTICLE.article .article-content {margin-left:0px; padding-left:0px;}
 /* ^ 01.2018. / 03.2018 R | MOST ARTICLE CONTENT MARGINS | (also) used after article text. */
