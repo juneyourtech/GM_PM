@@ -44,8 +44,8 @@ SECTION.frontType7 A[href*="reporter-ee"] .frontHeading, SECTION.frontBlock.fron
 
 /* ^ N., 09.04.2020. */
 
-HTML.device-phone .root {padding-top:30px;}
-@media only screen and (max-width:1023px) {HTML.device-phone .root {padding-left:0px; padding-right:0px;} }
+HTML.device-phone .root {padding-top:30px; background-color:inherit;}
+@media only screen and (max-width:1023px) { HTML.device-phone .root {padding-left:0px; padding-right:0px;} }
 
 /* DIGIPAKETT un-sticky */
 HTML.device-phone > BODY.digipakett-branding-fixed .digipakett-branding-root-container[eager] {position:relative; top:0px; margin-top:0px; padding-top:0px;}
